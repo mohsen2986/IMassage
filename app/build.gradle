@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -9,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.imassage"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -33,16 +35,91 @@ android {
 }
 
 dependencies {
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // KOTLIN
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    // ANDROID
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "com.google.android.material:material:$android_material_version"
+    // NETWORK
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines_adapter_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_gson_adapter_version"
+    // GSON
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "androidx.paging:paging-runtime:$pagination_version"
+    // OKHTTP
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+
+    // KODEIN
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    // MATERIAL DIALOG
+    implementation "com.afollestad.material-dialogs:core:$material_dialog_version"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+
+    implementation 'androidx.room:room-ktx:2.2.5'
+    kapt "androidx.room:room-compiler:2.2.5"
+
+    // navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
+
+    // lottie
+    implementation "com.airbnb.android:lottie:3.0.7"
+    // Image Slider
+    implementation 'com.github.smarteist:autoimageslider:1.3.2'
+
+    // zoom image
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    //material button
+    implementation 'com.github.rey5137:material:1.2.5'
+
+    // FIREBASE
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+
+    // CRASHLYTICS
+    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
+
+    // multiDEX
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // NetworkCallAdapter
+    implementation "com.github.haroldadmin:NetworkResponseAdapter:4.0.1"
+
+    //HASHTAG VIEW
+    implementation "com.github.greenfrvr:hashtag-view:1.3.1"
+
+    // SEARCH
+    implementation "com.github.arimorty:floatingsearchview:2.1.1"
+
+    // ZARRIN PAL -- Payment
+    implementation 'com.zarinpal:purchase:0.0.10'
+
+    //
+    implementation "androidx.browser:browser:1.0.0"
+
+    // MOTION LAYOUT
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-rc1"
 }
