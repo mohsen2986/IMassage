@@ -18,11 +18,6 @@ import com.imassage.databinding.SplashScreenFragmentBinding
 import kotlinx.coroutines.delay
 
 class SplashScreenFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SplashScreenFragment()
-    }
-
     private lateinit var viewModel: SplashScreenViewModel
     private lateinit var binding: SplashScreenFragmentBinding
     private lateinit var navController: NavController

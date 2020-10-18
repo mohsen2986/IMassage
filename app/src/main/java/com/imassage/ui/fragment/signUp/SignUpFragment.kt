@@ -15,11 +15,6 @@ import com.imassage.R
 import com.imassage.databinding.SignUpFragmentBinding
 
 class SignUpFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SignUpFragment()
-    }
-
     private lateinit var viewModel: SignUpViewModel
     private lateinit var binding:SignUpFragmentBinding
     private lateinit var navController: NavController

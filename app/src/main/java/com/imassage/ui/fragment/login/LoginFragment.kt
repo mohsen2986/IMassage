@@ -14,11 +14,6 @@ import com.imassage.R
 import com.imassage.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
-
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding : LoginFragmentBinding
     private lateinit var navController: NavController
