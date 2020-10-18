@@ -4,4 +4,21 @@
     <string name="mobile_number">شماره تلفن</string>
     <string name="password">رمز عبور</string>
     <string name="login">ورود</string>
+    <string name="reset_password">رمز عبورم رو فراموش کرده‌ام!</string>
+    <string name="signUp_before">قبلا ثبت‌نام کرده‌ام</string>
+    <string name="welcome_to_imassage">به IMassage خوش‌اومدی</string>
+    <string name="insert_number_password_to_login">برای ورود شماره تلفن و رمزعبورت رو وارد کن</string>
+    <string name="i_dont_have_account">اما من هنوز ثبت‌نام نکردم !</string>
+    <string name="name">نام</string>
+    <string name="family">نام خانوادگی</string>
+    <string name="man">آقا</string>
+    <string name="woman">خانم</string>
+    <string name="next">بعدی</string>
+    <string name="configrm_password">تکرار رمز عبور</string>
+    <string name="back">بازگشت</string>
+    <string name="enter_verification_code">کد پیامکی به شماره‌ات ارسال شد.<br /> لطفا کد رو در زیر وارد کن.</string>
+    <string name="verification_code">تایید کد پیامکی</string>
+    <string name="sign_up">ثبت نام</string>
+
+
 </resources>
