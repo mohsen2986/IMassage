@@ -12,18 +12,18 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.imassage.R
-import com.imassage.databinding.SignUpFragmentBinding
+import com.imassage.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
     private lateinit var viewModel: SignUpViewModel
-    private lateinit var binding:SignUpFragmentBinding
+    private lateinit var binding: FragmentSignUpBinding
     private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.sign_up_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_sign_up, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

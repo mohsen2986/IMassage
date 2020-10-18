@@ -13,20 +13,18 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialElevationScale
 import com.imassage.R
-import com.imassage.databinding.LoginFragmentBinding
-import com.imassage.databinding.SplashScreenFragmentBinding
-import kotlinx.coroutines.delay
+import com.imassage.databinding.FragmentSplashScreenBinding
 
 class SplashScreenFragment : Fragment() {
     private lateinit var viewModel: SplashScreenViewModel
-    private lateinit var binding: SplashScreenFragmentBinding
+    private lateinit var binding: FragmentSplashScreenBinding
     private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = SplashScreenFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
         return binding.root
     }
 

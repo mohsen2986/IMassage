@@ -8,7 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.imassage.R
 
-class PhoneVerificationFragment : Fragment() {
+class PhoneVerificationFragment(
+    ) : Fragment() {
     private lateinit var viewModel: PhoneVerificatoinViewModel
 
     override fun onCreateView(

@@ -11,11 +11,11 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.imassage.R
-import com.imassage.databinding.LoginFragmentBinding
+import com.imassage.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
-    private lateinit var binding : LoginFragmentBinding
+    private lateinit var binding : FragmentLoginBinding
     private lateinit var navController: NavController
 
 
@@ -23,7 +23,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = LoginFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
