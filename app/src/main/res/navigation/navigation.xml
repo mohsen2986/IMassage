@@ -22,4 +22,8 @@
         android:id="@+id/signUpFragment"
         android:name="com.imassage.ui.fragment.signUp.SignUpFragment"
         android:label="SignUpFragment" />
+    <fragment
+        android:id="@+id/phoneVerificationFragment"
+        android:name="com.imassage.PhoneVerificationFragment"
+        android:label="PhoneVerificationFragment" />
 </navigation>
