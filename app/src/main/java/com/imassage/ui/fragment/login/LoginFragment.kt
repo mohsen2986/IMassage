@@ -12,8 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.imassage.R
 import com.imassage.databinding.FragmentLoginBinding
+import com.imassage.ui.base.ScopedFragment
 
-class LoginFragment : Fragment() {
+class LoginFragment : ScopedFragment() {
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding : FragmentLoginBinding
     private lateinit var navController: NavController

@@ -13,8 +13,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.imassage.R
 import com.imassage.databinding.FragmentSignUpBinding
+import com.imassage.ui.base.ScopedFragment
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : ScopedFragment() {
     private lateinit var viewModel: SignUpViewModel
     private lateinit var binding: FragmentSignUpBinding
     private lateinit var navController: NavController

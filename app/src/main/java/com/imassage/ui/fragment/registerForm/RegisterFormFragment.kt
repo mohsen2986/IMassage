@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.imassage.R
+import com.imassage.ui.base.ScopedFragment
 
-class RegisterFormFragment : Fragment() {
+class RegisterFormFragment : ScopedFragment() {
     private lateinit var viewModel: RegisterFormViewModel
 
     override fun onCreateView(

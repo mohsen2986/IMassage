@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.imassage.R
+import com.imassage.ui.base.ScopedFragment
 
-class PhoneVerificationFragment(
-    ) : Fragment() {
+class PhoneVerificationFragment: ScopedFragment() {
     private lateinit var viewModel: PhoneVerificatoinViewModel
 
     override fun onCreateView(

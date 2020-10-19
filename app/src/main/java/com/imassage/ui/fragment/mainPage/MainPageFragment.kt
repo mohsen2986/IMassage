@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.imassage.R
+import com.imassage.ui.base.ScopedFragment
 
-class MainPageFragment : Fragment() {
+class MainPageFragment : ScopedFragment() {
     private lateinit var viewModel: MainPageViewModel
 
     override fun onCreateView(

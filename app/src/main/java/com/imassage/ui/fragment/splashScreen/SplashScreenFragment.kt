@@ -14,8 +14,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialElevationScale
 import com.imassage.R
 import com.imassage.databinding.FragmentSplashScreenBinding
+import com.imassage.ui.base.ScopedFragment
 
-class SplashScreenFragment : Fragment() {
+class SplashScreenFragment : ScopedFragment() {
     private lateinit var viewModel: SplashScreenViewModel
     private lateinit var binding: FragmentSplashScreenBinding
     private lateinit var navController: NavController
