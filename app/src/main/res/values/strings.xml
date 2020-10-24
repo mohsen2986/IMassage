@@ -47,4 +47,8 @@
     <string name="set_date">دریافت نوبت</string>
     <string name="set_date_time">لطفا زمان مورد نظرت رو انتخاب کن</string>
     <string name="date">تاریخ</string>
+    <string name="answer_questions">پاسخگویی به سوالات</string>
+    <string name="please_answer_questions">لطفا به سوالات زیر بادقت پاسخ دهید</string>
+    <string name="question">سوال</string>
+    <string name="answer">پاسخ</string>
 </resources>
