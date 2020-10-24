@@ -28,8 +28,6 @@
 
 
 
-
-
     <string name="kind_massage_1">ماساژ سر</string>
     <string name="kind_massage_2">ماساژ صورت</string>
     <string name="kind_massage_3">ماساژ گردن</string>
@@ -37,4 +35,20 @@
     <string name="kind_massage_5">ماساژ دست</string>
     <string name="lorem_50">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای</string>
     <string name="lorem_20"> روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هد</string>
+    <string name="account">حساب کاربری</string>
+    <string name="reserved_time">رزرو شده‌های من</string>
+    <string name="history">تاریخچه رزروها</string>
+    <string name="log_out_from_account">خروج از حساب کاربری</string>
+    <string name="massage_kinds">انواع ماساژ</string>
+    <string name="choose_massage_kind">لطفا <b>نوع ماساژ</b> مورد نظرت رو انتخاب کن</string>
+    <string name="massage_kind">انواع ماساژ</string>
+    <string name="massage_package">انواع پکیج</string>
+    <string name="choose_massage_package">لطفا <b>پکیج ماساژ</b> مورد نظرت رو انتخاب کن</string>
+    <string name="set_date">دریافت نوبت</string>
+    <string name="set_date_time">لطفا زمان مورد نظرت رو انتخاب کن</string>
+    <string name="date">تاریخ</string>
+    <string name="answer_questions">پاسخگویی به سوالات</string>
+    <string name="please_answer_questions">لطفا به سوالات زیر بادقت پاسخ دهید</string>
+    <string name="question">سوال</string>
+    <string name="answer">پاسخ</string>
 </resources>
