@@ -112,7 +112,16 @@ dependencies {
     // ZARRIN PAL -- Payment
     implementation "com.zarinpal:purchase:$zarrin_pal"
 
-
     // BRIWSER
     implementation "androidx.browser:browser:$browser"
+
+    // NETWORK MONITORING
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+    // MEMORY LEAK
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
+
+    // INPUT VALIDATION
+    implementation 'com.basgeekball:awesome-validation:4.2'
 }
