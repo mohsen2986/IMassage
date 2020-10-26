@@ -65,7 +65,7 @@
                     app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fra_signUp_second_mobile"
+                        android:id="@+id/fra_signUp_name"
                         style="@style/TextAppearance.AppCompat.TextView.bold_16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
