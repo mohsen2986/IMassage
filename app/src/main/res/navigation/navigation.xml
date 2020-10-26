@@ -1,59 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/splashScreenFragment"
+    >
 
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.imassage.ui.fragment.splashScreen.SplashScreenFragment"
-        android:label="SplashScreenFragment" >
+        android:label="SplashScreenFragment"
+        >
         <action
             android:id="@+id/action_splashScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true"
+            />
         <action
-            android:id="@+id/action_splashScreenFragment_to_mainPageFragment2"
-            app:destination="@id/mainPageFragment2" />
+            android:id="@+id/action_splashScreenFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.imassage.ui.fragment.login.LoginFragment"
         android:label="LoginFragment" >
         <action
-            android:id="@+id/action_loginFragment_to_mainPageFragment2"
-            app:destination="@id/mainPageFragment2" />
-        <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_phoneVerificationFragment"
+            app:destination="@id/phoneVerificationFragment" />
     </fragment>
     <fragment
-        android:id="@+id/registerFormFragment3"
+        android:id="@+id/registerFormFragment"
         android:name="com.imassage.ui.fragment.registerForm.RegisterFormFragment"
         android:label="fragment_register_form"
-        tools:layout="@layout/fragment_register_form" >
+        tools:layout="@layout/fragment_register_form"
+        >
+        <argument
+            android:name="name"
+            app:argType="string"
+            />
+        <argument
+            android:name="family"
+            app:argType="string"
+            />
+        <argument
+            android:name="gender"
+            app:argType="string"
+            />
         <action
-            android:id="@+id/action_registerFormFragment3_to_phoneVerificationFragment3"
-            app:destination="@id/phoneVerificationFragment3" />
+            android:id="@+id/action_registerFormFragment_to_phoneVerificationFragment"
+            app:destination="@id/phoneVerificationFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.imassage.ui.fragment.signUp.SignUpFragment"
         android:label="SignUpFragment" >
         <action
-            android:id="@+id/action_signUpFragment_to_registerFormFragment3"
-            app:destination="@id/registerFormFragment3" />
+            android:id="@+id/action_signUpFragment_to_registerFormFragment"
+            app:destination="@id/registerFormFragment" />
     </fragment>
     <fragment
-        android:id="@+id/phoneVerificationFragment3"
+        android:id="@+id/phoneVerificationFragment"
         android:name="com.imassage.ui.fragment.phoneVerification.PhoneVerificationFragment"
-        android:label="PhoneVerificationFragment" >
+        android:label="PhoneVerificationFragment"
+        >
+        <argument
+            android:name="verification_type"
+            app:argType="string"
+            />
         <action
-            android:id="@+id/action_phoneVerificationFragment3_to_mainPageFragment2"
-            app:destination="@id/mainPageFragment2" />
+            android:id="@+id/action_phoneVerificationFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mainPageFragment2"
+        android:id="@+id/mainPageFragment"
         android:name="com.imassage.ui.fragment.mainPage.MainPageFragment"
         android:label="MainPageFragment" />
 </navigation>
