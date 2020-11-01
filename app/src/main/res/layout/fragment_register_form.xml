@@ -51,7 +51,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:placeholderText="0915..."
+                    app:placeholderText="09*********"
                     app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16"
                     app:startIconDrawable="@drawable/ic_mobile">
 
