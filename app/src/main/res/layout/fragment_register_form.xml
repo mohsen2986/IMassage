@@ -61,7 +61,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:digits="0123456789"
-                        android:inputType="number"
+                        android:inputType="phone"
                         android:maxLength="11"
                         android:singleLine="true"
                         android:textAlignment="viewStart"
@@ -91,6 +91,7 @@
                         style="@style/TextAppearance.AppCompat.TextView.bold_16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         android:textAlignment="viewEnd" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,6 +117,7 @@
                         style="@style/TextAppearance.AppCompat.TextView.bold_16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         android:textAlignment="viewEnd"
                         />
                 </com.google.android.material.textfield.TextInputLayout>

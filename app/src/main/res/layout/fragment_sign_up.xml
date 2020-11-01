@@ -81,7 +81,7 @@
                         style="@style/TextAppearance.AppCompat.TextView.bold_16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:digits="ابپتثجچهخدذرزژسشصضطظعغفقکگلمنوهی ء"
+                        android:digits="ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ءئؤآة"
                         android:textAlignment="viewStart" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -107,7 +107,7 @@
                         style="@style/TextAppearance.AppCompat.TextView.bold_16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:digits="ابپتثجچهخدذرزژسشصضطظعغفقکگلمنوهی ء"
+                        android:digits="ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ءئؤآة"
                         android:textAlignment="viewStart" />
                 </com.google.android.material.textfield.TextInputLayout>
 
