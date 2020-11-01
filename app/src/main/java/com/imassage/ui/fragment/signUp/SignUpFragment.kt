@@ -68,6 +68,9 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
             )
             navController.navigate(R.id.action_signUpFragment_to_registerFormFragment , bundle)
         }
+        fra_signUp_go_to_login.setOnClickListener {
+            navController.navigate(R.id.action_signUpFragment_to_loginFragment)
+        }
     }
 
 
@@ -78,9 +81,9 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
             endView = binding.fraSignUpContainer
             duration = 500L
             scrimColor = Color.TRANSPARENT
-            containerColor = R.drawable.splash_background
-            startContainerColor = R.drawable.splash_background
-            endContainerColor = R.drawable.splash_background
+            containerColor = R.drawable.back_test
+            startContainerColor = R.drawable.back_test
+            endContainerColor = R.drawable.back_test
         }
     }
 

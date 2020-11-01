@@ -2,6 +2,8 @@ package com.imassage.ui.fragment.phoneVerification
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +52,7 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
         fra_phone_verification_next.setOnClickListener{
             sendCode()
         }
+        textListeners()
     }
     private fun sendCode() = launch {
         val code: String  = fra_phone_verification_digit_one.text.toString() + fra_phone_verification_digit_two.text.toString() +
@@ -64,6 +67,50 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
         verificationType = arguments!!.getString("verification_type").toString()
         Log.d("log__" , "the arg is $verificationType")
 
+    }
+
+    private fun textListeners() {
+        fra_phone_verification_digit_one.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(p0.toString().length == 1){
+                    fra_phone_verification_digit_two.requestFocus()
+                }
+            }
+        })
+
+        fra_phone_verification_digit_two.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(p0.toString().length == 1){
+                    fra_phone_verification_digit_three.requestFocus()
+                }
+            }
+        })
+
+        fra_phone_verification_digit_three.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(p0.toString().length == 1){
+                    fra_phone_verification_digit_four.requestFocus()
+                }
+            }
+        })
     }
 
 }

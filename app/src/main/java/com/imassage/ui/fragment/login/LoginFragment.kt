@@ -57,8 +57,8 @@ class LoginFragment : ScopedFragment() , KodeinAware {
 
     }
     private fun onClickListeners(){
-        fra_login_go_to_signUp.setOnClickListener{
-            navController.navigate(R.id.action_loginFragment_to_signUpFragment)
+        fra_login_back.setOnClickListener{
+            activity!!.onBackPressed()
         }
         fra_login_LoginButton.setOnClickListener{
             loginIntoServer()

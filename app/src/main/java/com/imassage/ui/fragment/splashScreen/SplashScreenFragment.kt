@@ -78,7 +78,7 @@ class SplashScreenFragment : ScopedFragment() , KodeinAware {
             if(viewModel.isLogin)
                 navController.navigate(R.id.action_splashScreenFragment_to_mainPageFragment)
             else
-                navController.navigate(R.id.action_splashScreenFragment_to_loginFragment)
+                navController.navigate(R.id.action_splashScreenFragment_to_signUpFragment)
         }
     }
 }

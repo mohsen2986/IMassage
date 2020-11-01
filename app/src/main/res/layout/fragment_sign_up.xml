@@ -14,6 +14,17 @@
         android:background="@drawable/back_test"
         tools:context=".ui.fragment.signUp.SignUpFragment">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_to_imassage"
+            android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_20"
+            android:textColor="@color/blue_50"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+            app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
@@ -34,8 +45,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/fra_signUp_choose_image"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:background="@drawable/sign_up_image_back"
@@ -61,7 +73,7 @@
                     app:errorIconDrawable="@drawable/ic_error_outline"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imageView"
+                    app:layout_constraintTop_toBottomOf="@id/fra_signUp_choose_image"
                     app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -103,13 +115,13 @@
                     android:id="@+id/fra_signUp_man_woman_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true"
+                    android:layout_marginTop="8dp"
                     app:checkedButton="@+id/fra_signUp_man"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/fra_signUp_woman"
@@ -138,7 +150,7 @@
                     android:id="@+id/fra_signUp_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginBottom="32dp"
                     android:text="@string/next"
                     android:paddingBottom="4dp"
@@ -151,20 +163,21 @@
                     app:layout_constraintTop_toBottomOf="@+id/fra_signUp_man_woman_group" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/fra_phone_verification_back"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Customize"
+                    android:id="@+id/fra_signUp_go_to_login"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Customize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
+                    android:paddingStart="@dimen/fra_sign_up_account_start_padding"
                     android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
                     android:paddingEnd="32dp"
-                    android:paddingStart="32dp"
-                    android:text="@string/back"
+                    android:paddingBottom="4dp"
+                    android:text="@string/i_have_account"
                     app:layout_constraintBottom_toBottomOf="@+id/fra_signUp_next"
                     app:layout_constraintEnd_toStartOf="@+id/fra_signUp_next"
-                    app:layout_constraintTop_toTopOf="@+id/fra_signUp_next" />
-
+                    app:layout_constraintTop_toTopOf="@+id/fra_signUp_next"
+                    app:strokeColor="@color/purple_400"
+                    app:strokeWidth="1dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>

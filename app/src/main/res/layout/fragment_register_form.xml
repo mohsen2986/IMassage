@@ -136,6 +136,16 @@
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/fra_login_show_status"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/fra_phone_verification_next"
+                    app:layout_constraintEnd_toEndOf="@+id/fra_phone_verification_next"
+                    app:layout_constraintStart_toStartOf="@+id/fra_phone_verification_next"
+                    app:layout_constraintTop_toTopOf="@+id/fra_phone_verification_next" />
+
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/fra_phone_verification_back"
                     android:layout_width="wrap_content"
