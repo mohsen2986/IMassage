@@ -26,7 +26,7 @@
             app:layout_constraintVertical_bias="0.25" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/fra_splashScreen_appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"

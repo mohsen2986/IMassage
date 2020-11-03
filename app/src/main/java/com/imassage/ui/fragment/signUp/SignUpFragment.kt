@@ -1,20 +1,19 @@
 package com.imassage.ui.fragment.signUp
 
-import android.graphics.Color
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewGroupCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.imassage.R
-import com.imassage.databinding.FragmentSignUpBinding
 import com.imassage.ui.base.ScopedFragment
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.launch
@@ -23,12 +22,12 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.instance
 
+
 class SignUpFragment : ScopedFragment() , KodeinAware {
     override val kodein: Kodein by closestKodein()
     private val viewModelFactory: SignUpViewModelFactory by instance()
 
     private lateinit var viewModel: SignUpViewModel
-    private lateinit var binding: FragmentSignUpBinding
     private lateinit var navController: NavController
 
     override fun onCreateView(
@@ -42,7 +41,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-//        transitionAnimationEnter()
+        transitionEnterSharedAxisZ()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -57,6 +56,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
     private fun uiActions(){
         fra_signUp_man_woman_group.checkedButtonId
         fra_signUp_next.setOnClickListener{
+            hideKeyboard(it)
             val gender = when(fra_signUp_man_woman_group.checkedButtonId){
                 R.id.fra_signUp_man -> "true"
                 else -> "false"  // for the other gender Females
@@ -69,14 +69,20 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
             navController.navigate(R.id.action_signUpFragment_to_registerFormFragment , bundle)
         }
         fra_signUp_go_to_login.setOnClickListener {
+            hideKeyboard(it)
             navController.navigate(R.id.action_signUpFragment_to_loginFragment)
         }
     }
 
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 
 
-    private fun transitionAnimationEnter(){
-        enterTransition = MaterialContainerTransform().apply {
+    private fun transitionEnterSharedAxisZ(){
+        /*enterTransition = MaterialContainerTransform().apply {
             startView = requireActivity().findViewById(R.id.fra_splashScreen_image)
             endView = binding.fraSignUpContainer
             duration = 500L
@@ -84,7 +90,12 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
             containerColor = R.drawable.back_test
             startContainerColor = R.drawable.back_test
             endContainerColor = R.drawable.back_test
-        }
-    }
+        }*/
 
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
+            duration = 500L
+        }
+        ViewGroupCompat.setTransitionGroup(fra_signUp_container as ViewGroup,true)
+
+    }
 }

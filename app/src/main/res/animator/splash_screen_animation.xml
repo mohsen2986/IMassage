@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="1000"
     android:propertyName="alpha"
     android:valueFrom="0"
@@ -7,10 +6,22 @@
     android:valueType="floatType"
     />-->
 
-
-<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android" android:interpolator="@android:interpolator/overshoot" android:duration="300">
-    <propertyValuesHolder android:propertyName="alpha" android:valueType="floatType" android:valueFrom="0.2" android:valueTo="1" />
-    <propertyValuesHolder android:propertyName="scaleX" android:valueFrom="0.5" android:valueTo="1.0" android:valueType="floatType"/>
-    <propertyValuesHolder android:propertyName="scaleY" android:valueFrom="0.5" android:valueTo="1.0"  android:valueType="floatType"/>
-    <propertyValuesHolder android:propertyName="y" android:valueFrom="0" android:valueTo="10" android:valueType="intType" />
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:interpolator="@android:interpolator/overshoot">
+    <propertyValuesHolder
+        android:propertyName="alpha"
+        android:valueFrom="0.1"
+        android:valueTo="1"
+        android:valueType="floatType" />
+    <propertyValuesHolder
+        android:propertyName="scaleX"
+        android:valueFrom="0.2"
+        android:valueTo="1.0"
+        android:valueType="floatType" />
+    <propertyValuesHolder
+        android:propertyName="scaleY"
+        android:valueFrom="0.2"
+        android:valueTo="1.0"
+        android:valueType="floatType" />
 </objectAnimator>

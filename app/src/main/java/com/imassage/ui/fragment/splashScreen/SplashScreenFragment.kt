@@ -13,6 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialElevationScale
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.imassage.R
 import com.imassage.databinding.FragmentSplashScreenBinding
 import com.imassage.ui.base.ScopedFragment
@@ -63,12 +64,16 @@ class SplashScreenFragment : ScopedFragment() , KodeinAware {
 
     // animations
     private fun transitionAnimation() {
-        exitTransition = MaterialElevationScale(false).apply {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true).apply {
             duration = 500L
         }
 
         AnimatorInflater.loadAnimator(context, R.animator.splash_screen_animation).apply {
             setTarget(binding.fraSplashScreenImage)
+            start()
+        }
+        AnimatorInflater.loadAnimator(context, R.animator.splash_screen_animation).apply {
+            setTarget(binding.fraSplashScreenAppName)
             start()
         }
     }
