@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
-import androidx.core.view.ViewGroupCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -35,13 +34,13 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setEnterTransitions()
         return inflater.inflate(R.layout.fragment_sign_up, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-        transitionEnterSharedAxisZ()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -57,6 +56,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
         fra_signUp_man_woman_group.checkedButtonId
         fra_signUp_next.setOnClickListener{
             hideKeyboard(it)
+            setExitTransitions()
             val gender = when(fra_signUp_man_woman_group.checkedButtonId){
                 R.id.fra_signUp_man -> "true"
                 else -> "false"  // for the other gender Females
@@ -70,6 +70,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
         }
         fra_signUp_go_to_login.setOnClickListener {
             hideKeyboard(it)
+            setExitTransitions()
             navController.navigate(R.id.action_signUpFragment_to_loginFragment)
         }
     }
@@ -80,6 +81,25 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
+
+    private fun setEnterTransitions() {
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
+    }
+
+    private fun setExitTransitions() {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
+    }
 
     private fun transitionEnterSharedAxisZ(){
         /*enterTransition = MaterialContainerTransform().apply {
@@ -92,10 +112,6 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
             endContainerColor = R.drawable.back_test
         }*/
 
-        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
-            duration = 500L
-        }
-        ViewGroupCompat.setTransitionGroup(fra_signUp_container as ViewGroup,true)
 
     }
 }

@@ -2,15 +2,13 @@ package com.imassage.ui.fragment.registerForm
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.FragmentRegisterFormBinding
@@ -40,6 +38,7 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRegisterFormBinding.inflate(inflater , container , false)
+        setEnterTransitions()
         return binding.root
     }
 
@@ -57,6 +56,7 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
     private  fun bindUI() = launch{
         fra_phone_verification_next.setOnClickListener{
             registerIntoServer()
+            setExitTransitions()
         }
     }
     private fun registerIntoServer() = launch{
@@ -79,6 +79,25 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
         name = arguments!!.getString("name").toString()
         family = arguments!!.getString("family").toString()
         gender =arguments!!.getString("gender").toString()
+    }
+
+    private fun setEnterTransitions() {
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
+    }
+
+    private fun setExitTransitions() {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
     }
 
 }

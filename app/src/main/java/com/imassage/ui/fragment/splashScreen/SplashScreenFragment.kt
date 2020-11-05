@@ -64,7 +64,7 @@ class SplashScreenFragment : ScopedFragment() , KodeinAware {
 
     // animations
     private fun transitionAnimation() {
-        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true).apply {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X,true).apply {
             duration = 500L
         }
 

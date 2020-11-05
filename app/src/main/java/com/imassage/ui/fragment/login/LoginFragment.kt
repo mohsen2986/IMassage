@@ -8,14 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewGroupCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialElevationScale
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.FragmentLoginBinding
 import com.imassage.ui.base.ScopedFragment
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -37,13 +41,13 @@ class LoginFragment : ScopedFragment() , KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+        setEnterTransitions()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-        transitionAnimationEnter()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -58,9 +62,22 @@ class LoginFragment : ScopedFragment() , KodeinAware {
     }
     private fun onClickListeners(){
         fra_login_back.setOnClickListener{
+            exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+                duration = 500L
+            }
+            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+                duration = 500L
+            }
+
             activity!!.onBackPressed()
         }
         fra_login_LoginButton.setOnClickListener{
+            exitTransition =  MaterialElevationScale(false).apply {
+                duration = 500L
+            }
+            reenterTransition = MaterialElevationScale(true).apply {
+                duration = 500L
+            }
             loginIntoServer()
         }
     }
@@ -77,12 +94,21 @@ class LoginFragment : ScopedFragment() , KodeinAware {
     }
 
 
-    private fun transitionAnimationEnter(){
+    /*private fun transitionAnimationEnter(){
         enterTransition = MaterialContainerTransform().apply {
             startView = requireActivity().findViewById(R.id.fra_splashScreen_image)
             endView = binding.fraLoginContainer
             duration = 500L
             scrimColor = Color.TRANSPARENT
+        }
+    }*/
+
+    private fun setEnterTransitions() {
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
         }
     }
 }

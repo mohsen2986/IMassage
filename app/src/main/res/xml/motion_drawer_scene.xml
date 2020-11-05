@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:rotationY="10"
+            android:rotationY="5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/drawer_motionLayout"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"

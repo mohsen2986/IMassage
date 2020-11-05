@@ -11,20 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/back_test"
+        android:transitionGroup="true"
         tools:context=".ui.fragment.login.LoginFragment">
 
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/insert_number_password_to_login"
-            android:textAppearance="@style/TextAppearance.AppCompat.TextView.normal_16"
-            android:textColor="@color/blue_100"
-            app:layout_constraintBottom_toTopOf="@+id/materialCardView"
-            app:layout_constraintEnd_toEndOf="@+id/materialCardView" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
