@@ -16,6 +16,7 @@ import com.imassage.data.remote.api.AuthApiInterface
 import com.imassage.databinding.FragmentMainPageBinding
 import com.imassage.ui.adapter.imageSlider.ImageSliderAdapter
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.StaticVariables
 import kotlinx.android.synthetic.main.fragment_main_page.*
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
@@ -79,6 +80,17 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     private fun bindAdapter(){
         fra_main_page_slider.apply {
             sliderAdapter = imageSliderAdapter
+        }
+    }
+    // get source Fragment
+    private fun sourceFragment(){
+        when(arguments?.getString(StaticVariables.SOURCE_FRAGMENT)){
+            StaticVariables.SPLASH_FRAGMENT -> {
+
+            }
+            StaticVariables.VERIFICATION_CODE_FRAGMENT -> {
+
+            }
         }
     }
 

@@ -83,5 +83,10 @@
     <fragment
         android:id="@+id/mainPageFragment"
         android:name="com.imassage.ui.fragment.mainPage.MainPageFragment"
-        android:label="MainPageFragment" />
+        android:label="MainPageFragment" >
+        <argument
+            android:name="sourceFragment"
+            app:argType="string"
+            />
+    </fragment>
 </navigation>

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -16,6 +17,7 @@ import com.google.android.material.transition.platform.MaterialElevationScale
 import com.imassage.R
 import com.imassage.databinding.FragmentSplashScreenBinding
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.StaticVariables
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -74,9 +76,9 @@ class SplashScreenFragment : ScopedFragment() , KodeinAware {
     }
     private fun checkLogin(){
         GlobalScope.launch(Main) {
-            delay(1_500)
+            delay(3_500)
             if(viewModel.isLogin)
-                navController.navigate(R.id.action_splashScreenFragment_to_mainPageFragment)
+                navController.navigate(R.id.action_splashScreenFragment_to_mainPageFragment , bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.SPLASH_FRAGMENT))
             else
                 navController.navigate(R.id.action_splashScreenFragment_to_loginFragment)
         }
