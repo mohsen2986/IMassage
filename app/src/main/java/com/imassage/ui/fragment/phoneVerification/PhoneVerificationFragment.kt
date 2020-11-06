@@ -8,11 +8,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.StaticVariables
 import kotlinx.android.synthetic.main.fragment_phone_verificatoin.*
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
@@ -59,7 +61,8 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
                 fra_phone_verification_digit_three.text.toString() + fra_phone_verification_digit_four.text.toString()
         when (viewModel.sendVerificationCode(code , verificationType)){
             is NetworkResponse.Success ->{
-                navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment)
+                navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment ,
+                        bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.VERIFICATION_CODE_FRAGMENT))
             }
         }
     }
