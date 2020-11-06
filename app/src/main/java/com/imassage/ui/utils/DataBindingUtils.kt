@@ -5,7 +5,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
-class DataBindingUtils () {
+class DataBindingUtils() {
 companion object {
     @JvmStatic
     @BindingAdapter("android:loadImage")
@@ -13,7 +13,7 @@ companion object {
         if(url != null)
             Glide
                 .with(imageView.context)
-                .load("http://www.paarandco.ir/mehr-kala/storage/images/$url")
+                .load("http://www.paarandco.ir/IMassage/img/$url")
                 .into(imageView)
     }
 }
