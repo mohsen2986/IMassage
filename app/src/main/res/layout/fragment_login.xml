@@ -35,7 +35,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
+                    android:id="@+id/fra_login_layout_mobile"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout2"
+                    android:id="@+id/fra_login_layout_password"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     android:layoutDirection="rtl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_login_layout_mobile"
                     app:passwordToggleEnabled="true"
                     app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16">
 
@@ -100,7 +100,7 @@
                     android:paddingBottom="4dp"
                     android:text="@string/login"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+                    app:layout_constraintEnd_toEndOf="@+id/fra_login_layout_password"
                     app:layout_constraintTop_toBottomOf="@+id/fra_login_reset_password" />
 
                 <com.airbnb.lottie.LottieAnimationView
@@ -120,8 +120,8 @@
                     android:text="@string/reset_password"
                     android:textColor="@color/black_low"
                     app:cornerRadius="4dp"
-                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+                    app:layout_constraintEnd_toEndOf="@+id/fra_login_layout_password"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_login_layout_password" />
 
 
                 <com.google.android.material.button.MaterialButton

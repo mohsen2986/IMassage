@@ -1,5 +1,6 @@
 package com.imassage.ui.fragment.phoneVerification
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.Editable
@@ -8,9 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.transition.platform.MaterialElevationScale
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.ui.base.ScopedFragment
@@ -41,6 +45,7 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setEnterTransitions()
         navController = findNavController()
     }
 
@@ -51,8 +56,14 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
         bindUI()
     }
     private fun bindUI() = launch {
+        setExitTransitions()
         fra_phone_verification_next.setOnClickListener{
+            hideKeyboard(it)
             sendCode()
+        }
+        fra_phone_verification_back.setOnClickListener {
+            hideKeyboard(it)
+            activity!!.onBackPressed()
         }
         textListeners()
     }
@@ -114,6 +125,31 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
                 }
             }
         })
+    }
+
+
+    private fun setEnterTransitions() {
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
+    }
+
+    private fun setExitTransitions() {
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = 500L
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = 500L
+        }
+    }
+
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager =
+                context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 }

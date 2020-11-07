@@ -38,7 +38,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
+                    android:id="@+id/fra_register_form_layout_mobile"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout2"
+                    android:id="@+id/fra_register_form_layout_password"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     android:layoutDirection="rtl"
                     app:errorEnabled="true"
                     app:errorIconDrawable="@drawable/ic_error_outline"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_register_form_layout_mobile"
                     app:passwordToggleEnabled="true"
                     app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16">
 
@@ -96,7 +96,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout3"
+                    android:id="@+id/fra_register_form_layout_confirm_password"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                     android:layoutDirection="rtl"
                     app:errorEnabled="true"
                     app:errorIconDrawable="@drawable/ic_error_outline"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_register_form_layout_password"
                     app:passwordToggleEnabled="true"
                     app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16">
 
@@ -123,7 +123,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/fra_phone_verification_next"
+                    android:id="@+id/fra_register_form_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -135,29 +135,29 @@
                     style="@style/Widget.MaterialComponents.Button.Customize"
                     android:text="@string/next"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+                    app:layout_constraintEnd_toEndOf="@+id/fra_register_form_layout_confirm_password"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_register_form_layout_confirm_password" />
 
                 <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/fra_login_show_status"
+                    android:id="@+id/fra_register_form_show_status"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/fra_phone_verification_next"
-                    app:layout_constraintEnd_toEndOf="@+id/fra_phone_verification_next"
-                    app:layout_constraintStart_toStartOf="@+id/fra_phone_verification_next"
-                    app:layout_constraintTop_toTopOf="@+id/fra_phone_verification_next" />
+                    app:layout_constraintBottom_toBottomOf="@+id/fra_register_form_next"
+                    app:layout_constraintEnd_toEndOf="@+id/fra_register_form_next"
+                    app:layout_constraintStart_toStartOf="@+id/fra_register_form_next"
+                    app:layout_constraintTop_toTopOf="@+id/fra_register_form_next" />
 
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/fra_phone_verification_back"
+                    android:id="@+id/fra_register_form_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:text="@string/back"
                     style="@style/Widget.MaterialComponents.Button.TextButton.Customize"
-                    app:layout_constraintBottom_toBottomOf="@+id/fra_phone_verification_next"
-                    app:layout_constraintEnd_toStartOf="@+id/fra_phone_verification_next"
-                    app:layout_constraintTop_toTopOf="@+id/fra_phone_verification_next" />
+                    app:layout_constraintBottom_toBottomOf="@+id/fra_register_form_next"
+                    app:layout_constraintEnd_toStartOf="@+id/fra_register_form_next"
+                    app:layout_constraintTop_toTopOf="@+id/fra_register_form_next" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>

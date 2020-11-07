@@ -13,6 +13,7 @@
 
 
         <com.imassage.ui.utils.DrawerContent
+            android:id="@+id/fra_main_page_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/back_test"
@@ -230,6 +231,7 @@
                                         android:layoutDirection="rtl"
                                         android:text="@string/man"
                                         app:icon="@drawable/ic_man"
+                                        android:translationX="-1dp"
                                         app:iconSize="24dp" />
                                 </com.google.android.material.button.MaterialButtonToggleGroup>
 

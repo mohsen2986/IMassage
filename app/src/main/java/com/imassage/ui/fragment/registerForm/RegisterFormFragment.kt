@@ -1,10 +1,12 @@
 package com.imassage.ui.fragment.registerForm
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -38,12 +40,12 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRegisterFormBinding.inflate(inflater , container , false)
-        setEnterTransitions()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setEnterTransitions()
         navController = findNavController()
     }
 
@@ -54,9 +56,14 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
         bindUI()
     }
     private  fun bindUI() = launch{
-        fra_phone_verification_next.setOnClickListener{
+        setExitTransitions()
+        fra_register_form_next.setOnClickListener{
             registerIntoServer()
-            setExitTransitions()
+            hideKeyboard(it)
+        }
+        fra_register_form_back.setOnClickListener {
+            hideKeyboard(it)
+            activity!!.onBackPressed()
         }
     }
     private fun registerIntoServer() = launch{
@@ -98,6 +105,12 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
         reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
             duration = 500L
         }
+    }
+
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager =
+                context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 }

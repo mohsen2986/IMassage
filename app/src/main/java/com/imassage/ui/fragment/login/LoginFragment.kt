@@ -1,5 +1,6 @@
 package com.imassage.ui.fragment.login
 
+import android.content.Context
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewGroupCompat
 import androidx.navigation.NavController
@@ -68,14 +70,15 @@ class LoginFragment : ScopedFragment() , KodeinAware {
             reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
                 duration = 500L
             }
-
+            hideKeyboard(it)
             activity!!.onBackPressed()
         }
         fra_login_LoginButton.setOnClickListener{
-            exitTransition =  MaterialElevationScale(false).apply {
+            hideKeyboard(it)
+            exitTransition =  MaterialSharedAxis(MaterialSharedAxis.X,true).apply {
                 duration = 500L
             }
-            reenterTransition = MaterialElevationScale(true).apply {
+            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X,false).apply {
                 duration = 500L
             }
             loginIntoServer()
@@ -94,14 +97,11 @@ class LoginFragment : ScopedFragment() , KodeinAware {
     }
 
 
-    /*private fun transitionAnimationEnter(){
-        enterTransition = MaterialContainerTransform().apply {
-            startView = requireActivity().findViewById(R.id.fra_splashScreen_image)
-            endView = binding.fraLoginContainer
-            duration = 500L
-            scrimColor = Color.TRANSPARENT
-        }
-    }*/
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager =
+                context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 
     private fun setEnterTransitions() {
         enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {

@@ -34,12 +34,12 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setEnterTransitions()
         return inflater.inflate(R.layout.fragment_sign_up, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setEnterTransitions()
         navController = findNavController()
     }
 
@@ -83,10 +83,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
 
 
     private fun setEnterTransitions() {
-        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
-            duration = 500L
-        }
-        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
             duration = 500L
         }
     }
@@ -99,19 +96,5 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
         reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
             duration = 500L
         }
-    }
-
-    private fun transitionEnterSharedAxisZ(){
-        /*enterTransition = MaterialContainerTransform().apply {
-            startView = requireActivity().findViewById(R.id.fra_splashScreen_image)
-            endView = binding.fraSignUpContainer
-            duration = 500L
-            scrimColor = Color.TRANSPARENT
-            containerColor = R.drawable.back_test
-            startContainerColor = R.drawable.back_test
-            endContainerColor = R.drawable.back_test
-        }*/
-
-
     }
 }

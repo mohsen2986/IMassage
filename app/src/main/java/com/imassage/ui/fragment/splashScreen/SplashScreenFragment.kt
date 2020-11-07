@@ -66,10 +66,6 @@ class SplashScreenFragment : ScopedFragment() , KodeinAware {
 
     // animations
     private fun transitionAnimation() {
-        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X,true).apply {
-            duration = 500L
-        }
-
         AnimatorInflater.loadAnimator(context, R.animator.splash_screen_animation).apply {
             setTarget(binding.fraSplashScreenImage)
             start()
@@ -82,10 +78,18 @@ class SplashScreenFragment : ScopedFragment() , KodeinAware {
     private fun checkLogin(){
         GlobalScope.launch(Main) {
             delay(3_500)
-            if(viewModel.isLogin)
-                navController.navigate(R.id.action_splashScreenFragment_to_mainPageFragment , bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.SPLASH_FRAGMENT))
-            else
+            if(viewModel.isLogin) {
+                exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true).apply {
+                    duration = 500L
+                }
+                navController.navigate(R.id.action_splashScreenFragment_to_mainPageFragment, bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.SPLASH_FRAGMENT))
+            }
+            else {
+                exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true).apply {
+                    duration = 500L
+                }
                 navController.navigate(R.id.action_splashScreenFragment_to_signUpFragment)
+            }
         }
     }
 }
