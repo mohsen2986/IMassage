@@ -45,10 +45,10 @@
     <string name="massage_package">انواع پکیج</string>
     <string name="choose_massage_package">لطفا <b>پکیج ماساژ</b> مورد نظرت رو انتخاب کن</string>
     <string name="set_date">دریافت نوبت</string>
-    <string name="set_date_time">لطفا زمان مورد نظرت رو انتخاب کن</string>
+    <string name="set_date_time">لطفا<b> زمان</b> مورد نظرت رو انتخاب کن</string>
     <string name="date">تاریخ</string>
     <string name="answer_questions">پاسخگویی به سوالات</string>
-    <string name="please_answer_questions">لطفا به سوالات زیر بادقت پاسخ دهید</string>
+    <string name="please_answer_questions">لطفا به <b>سوالات</b> زیر بادقت پاسخ دهید</string>
     <string name="question">سوال</string>
     <string name="answer">پاسخ</string>
     <string name="go_for_register">اینجا راحت میتونی حساب‌کاربری بسازی</string>

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewGroupCompat
 import androidx.navigation.NavController
@@ -20,6 +21,7 @@ import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.FragmentLoginBinding
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.ShowStatus
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.launch
@@ -35,7 +37,7 @@ class LoginFragment : ScopedFragment() , KodeinAware {
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding : FragmentLoginBinding
     private lateinit var navController: NavController
-
+    private val status = ShowStatus()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,6 +76,7 @@ class LoginFragment : ScopedFragment() , KodeinAware {
             activity!!.onBackPressed()
         }
         fra_login_LoginButton.setOnClickListener{
+            status.showProgress(binding.fraLoginShowStatus,it as Button)
             hideKeyboard(it)
             exitTransition =  MaterialSharedAxis(MaterialSharedAxis.X,true).apply {
                 duration = 500L
@@ -89,6 +92,7 @@ class LoginFragment : ScopedFragment() , KodeinAware {
         val password = fra_login_password.text.toString()
         when(val calback = viewModel.login(phone , password)){
             is NetworkResponse.Success -> {
+                status.showSuccess(binding.fraLoginShowStatus)
                 navController.navigate(R.id.action_loginFragment_to_phoneVerificationFragment ,
                         bundleOf("verification_type" to "login")
                 )

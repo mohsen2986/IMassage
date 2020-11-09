@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/margin_4_6_8"
+        android:layout_marginEnd="@dimen/margin_4_6_8"
+        android:layout_marginStart="@dimen/margin_4_6_8"
+        android:layout_marginBottom="@dimen/margin_4_6_8"
         app:strokeColor="@color/blue_asli"
         app:strokeWidth="1dp">
 
@@ -29,7 +29,7 @@
             <ImageView
                 android:id="@+id/row_massage_kinds_image"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="@dimen/image_96_108_120"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

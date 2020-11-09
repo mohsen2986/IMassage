@@ -1,0 +1,25 @@
+<resources>
+	<dimen name="spacing_medium">12dp</dimen>
+	<dimen name="fra_sign_up_bt_login_start_padding">12dp</dimen>
+	<dimen name="fra_sign_up_welcome_dimen">16sp</dimen>
+	<dimen name="fra_sign_up_image">72dp</dimen>
+	<dimen name="margin_top_8_16_24">8dp</dimen>
+	<dimen name="margin_8_12_16">8dp</dimen>
+	<dimen name="margin_4_6_8">4dp</dimen>
+	<dimen name="splash_image">120dp</dimen>
+	<dimen name="splash_text">24sp</dimen>
+	<dimen name="margin_16_16_16">16dp</dimen>
+    <dimen name="card_margin_start_end">24dp</dimen>
+	<dimen name="margin_16_24_32">16dp</dimen>
+	<dimen name="text_16_18_18">16sp</dimen>
+	<dimen name="padding_8_4_0">8dp</dimen>
+	<dimen name="text_14_16_16">14sp</dimen>
+	<dimen name="image_96_108_120">96dp</dimen>
+	<dimen name="appbar_height_64_68_72">64dp</dimen>
+	<dimen name="margin_0_4_8">0dp</dimen>
+	<dimen name="road_72_80_96">72dp</dimen>
+	<dimen name="text_16_20_22">16sp</dimen>
+	<dimen name="margin_16_8_8">16dp</dimen>
+	<dimen name="width_32_36_40">32dp</dimen>
+	<dimen name="margin_12_10_8">12dp</dimen>
+</resources>

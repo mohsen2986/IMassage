@@ -14,9 +14,11 @@
 
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="8dp"
+            android:layout_marginStart="@dimen/card_margin_start_end"
+            android:layout_marginEnd="@dimen/card_margin_start_end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,14 +39,14 @@
                     android:orientation="vertical">
 <!---->
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
+                        android:layout_width="@dimen/splash_image"
+                        android:layout_height="@dimen/splash_image"
                         android:src="@drawable/img_phone_verification" />
 <!---->
                     <TextView
-                        android:layout_width="312dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="@dimen/margin_8_12_16"
                         android:gravity="center"
                         android:text="@string/enter_verification_code"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
@@ -53,7 +55,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="@dimen/margin_top_8_16_24"
                         android:orientation="horizontal">
 
 
