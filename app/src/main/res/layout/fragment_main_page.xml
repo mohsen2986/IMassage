@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable name="aboutUs" type="com.imassage.data.model.AboutUs"/>
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -135,6 +135,7 @@
                                         android:id="@+id/fra_main_page_clinic_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
+                                        android:loadImage="@{aboutUs.image}"
                                         tools:srcCompat="@tools:sample/avatars"
                                          />
                                 </com.google.android.material.card.MaterialCardView>
@@ -159,7 +160,7 @@
                                     android:layout_marginTop="16dp"
                                     android:layout_marginEnd="8dp"
                                     android:layout_marginBottom="16dp"
-                                    android:text="@string/lorem_50"
+                                    android:text="@{aboutUs.description , default =`description`}"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toStartOf="@+id/materialCardView7"
                                     app:layout_constraintStart_toStartOf="parent"

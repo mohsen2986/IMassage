@@ -17,9 +17,11 @@ import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.data.model.Boarder
+import com.imassage.data.model.Massage
 import com.imassage.data.remote.api.AuthApiInterface
 import com.imassage.databinding.FragmentMainPageBinding
 import com.imassage.ui.adapter.imageSlider.ImageSliderAdapter
+import com.imassage.ui.adapter.recyclerView.RecyclerAdapter
 import com.imassage.ui.base.ScopedFragment
 import com.imassage.ui.utils.StaticVariables
 import kotlinx.android.synthetic.main.fragment_main_page.*
@@ -38,6 +40,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     private lateinit var navController: NavController
     // -- FOR DATA
     private lateinit var imageSliderAdapter: ImageSliderAdapter<Boarder>
+    private lateinit var massageAdapter: RecyclerAdapter<Massage>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,8 +68,10 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         when(val data = viewModel.mainPage()){
             is NetworkResponse.Success ->{
                 imageSliderAdapter.datas = data.body.datas.boarders
-                Log.d("Log__" , "the data is ${data.body.datas.boarders}")
-                Log.e("Log__" , "the data is ${data.body.datas.boarders}")
+                massageAdapter.datas = data.body.datas.massages
+                binding.aboutUs = data.body.datas.aboutUs[0]
+
+                Log.e("Log__" , "the data is ${data.body.datas.massages}")
             }
             is NetworkResponse.NetworkError -> {
                 Log.e("Log__" , "the data network error!")
@@ -82,10 +87,14 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     }
     private fun initAdapter(){
         imageSliderAdapter = ImageSliderAdapter()
+        massageAdapter = RecyclerAdapter()
     }
     private fun bindAdapter(){
         fra_main_page_slider.apply {
             sliderAdapter = imageSliderAdapter
+        }
+        fra_main_page_recycler_massage_titles.apply{
+            adapter = massageAdapter
         }
     }
     // get source Fragment
