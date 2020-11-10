@@ -2,7 +2,7 @@ package com.imassage.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Massage(
+data class  Massage(
         @SerializedName("name")
         val name: String ,
         @SerializedName("cost")
