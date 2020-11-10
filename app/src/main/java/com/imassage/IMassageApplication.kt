@@ -13,6 +13,10 @@ import com.imassage.ui.fragment.login.LoginViewModelFactory
 import com.imassage.ui.fragment.mainPage.MainPageViewModelFactory
 import com.imassage.ui.fragment.phoneVerification.PhoneVerificationViewModelFactory
 import com.imassage.ui.fragment.registerForm.RegisterFormViewModelFactory
+import com.imassage.ui.fragment.reserve.massage.MassageViewModelFactory
+import com.imassage.ui.fragment.reserve.packages.PackagesViewModelFactory
+import com.imassage.ui.fragment.reserve.question.QuestionViewModelFactory
+import com.imassage.ui.fragment.reserve.reserveTime.ReservedTimeViewModelFactory
 import com.imassage.ui.fragment.signUp.SignUpViewModelFactory
 import com.imassage.ui.fragment.splashScreen.SplashScreenViewModelFactory
 import okhttp3.OkHttpClient
@@ -47,7 +51,11 @@ class IMassageApplication(
         bind() from provider { RegisterFormViewModelFactory(instance()) }
         bind() from provider { LoginViewModelFactory(instance()) }
         bind() from provider { PhoneVerificationViewModelFactory(instance())}
-        bind() from provider { MainPageViewModelFactory(instance()) }
+        bind() from provider { MainPageViewModelFactory(instance() , instance()) }
+        bind() from provider { MassageViewModelFactory() }
+        bind() from provider { PackagesViewModelFactory() }
+        bind() from provider { QuestionViewModelFactory() }
+        bind() from provider { ReservedTimeViewModelFactory() }
 
         // repositories
         bind() from singleton { UserInformationRepository(instance() , instance())}
