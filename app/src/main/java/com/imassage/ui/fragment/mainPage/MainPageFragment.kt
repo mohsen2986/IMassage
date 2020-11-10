@@ -1,5 +1,6 @@
 package com.imassage.ui.fragment.mainPage
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -24,6 +25,7 @@ import com.imassage.ui.adapter.imageSlider.ImageSliderAdapter
 import com.imassage.ui.adapter.recyclerView.RecyclerAdapter
 import com.imassage.ui.base.ScopedFragment
 import com.imassage.ui.utils.StaticVariables
+import com.imassage.ui.utils.resetApplication
 import kotlinx.android.synthetic.main.fragment_main_page.*
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
@@ -63,6 +65,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         initAdapter()
         bindAdapter()
         bindUI()
+        initDrawer()
     }
     private fun bindUI() = launch {
         when(val data = viewModel.mainPage()){
@@ -96,6 +99,15 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         fra_main_page_recycler_massage_titles.apply{
             adapter = massageAdapter
         }
+    }
+    private fun initDrawer(){
+        drawer_logOut.setOnClickListener{
+            logOut()
+        }
+    }
+    private fun logOut() = launch{
+        viewModel.logOut()
+        resetApplication(activity)
     }
     // get source Fragment
     private fun sourceFragment(){

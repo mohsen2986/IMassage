@@ -51,7 +51,7 @@ class IMassageApplication(
         bind() from provider { RegisterFormViewModelFactory(instance()) }
         bind() from provider { LoginViewModelFactory(instance()) }
         bind() from provider { PhoneVerificationViewModelFactory(instance())}
-        bind() from provider { MainPageViewModelFactory(instance()) }
+        bind() from provider { MainPageViewModelFactory(instance() , instance()) }
         bind() from provider { MassageViewModelFactory() }
         bind() from provider { PackagesViewModelFactory() }
         bind() from provider { QuestionViewModelFactory() }
