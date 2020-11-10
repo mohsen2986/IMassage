@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/appbar_height_64_68_72"
+            android:layout_height="@dimen/appbar_height_64_68_72_96"
             android:background="@color/pink_asli"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/fra_reserve_fourth_back"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/width_48_48_48_64"
+                android:layout_height="@dimen/width_48_48_48_64"
                 android:padding="@dimen/padding_8_4_0"
                 android:layout_marginStart="16dp"
                 android:tint="@color/blue_50"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/answer_questions"
                 android:textColor="@color/blue_50"
-                android:textSize="@dimen/text_16_18_18"
+                android:textSize="@dimen/text_16_18_18_28"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +50,8 @@
 
             <ImageView
                 android:id="@+id/fra_reserve_fourth_submit"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/width_48_48_48_64"
+                android:layout_height="@dimen/width_48_48_48_64"
                 android:layout_marginEnd="16dp"
                 android:tint="@color/blue_50"
                 android:padding="@dimen/margin_12_10_8"
@@ -67,7 +67,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/road_72_80_96"
+            android:layout_height="@dimen/road_72_80_96_120"
             android:background="@drawable/back_test_reverse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,11 +105,12 @@
 
             <TextView
                 android:id="@+id/imageView1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:layout_marginTop="@dimen/margin_0_4_8"
                 android:background="@drawable/reserve_circle_state_red"
                 android:text="4"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -119,11 +120,12 @@
 
             <TextView
                 android:id="@+id/imageView2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/reserve_circle_state_green"
                 android:text="3"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView1"
@@ -135,11 +137,12 @@
 
             <TextView
                 android:id="@+id/imageView3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/reserve_circle_state_green"
                 android:text="2"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -151,10 +154,11 @@
 
             <TextView
                 android:id="@+id/imageView4"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:background="@drawable/reserve_circle_state_green"
                 android:text="1"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
@@ -170,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/please_answer_questions"
                 android:textColor="@color/blue_50"
-                android:textSize="@dimen/text_14_16_16"
+                android:textSize="@dimen/text_14_16_16_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -24,7 +24,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout2"
                     android:layout_width="match_parent"
-                    android:layout_height="72dp"
+                    android:layout_height="@dimen/appbar_height_64_68_72_96"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -32,8 +32,8 @@
 
                     <ImageView
                         android:id="@+id/fra_main_page_menu"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="@dimen/width_48_48_48_64"
+                        android:layout_height="@dimen/width_48_48_48_64"
                         android:layout_marginEnd="16dp"
                         android:contentDescription="@string/menu"
                         android:padding="10dp"
@@ -53,7 +53,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="@string/hello" />
+                        tools:text="@string/hello"
+                        android:textSize="@dimen/text_14_16_16_24"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -71,6 +72,7 @@
                         android:background="@drawable/bg_white_top_corner">
 
                         <com.google.android.material.card.MaterialCardView
+                            android:visibility="gone"
                             android:id="@+id/materialCardView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -85,7 +87,7 @@
                             <com.smarteist.autoimageslider.SliderView
                                 android:id="@+id/fra_main_page_slider"
                                 android:layout_width="match_parent"
-                                android:layout_height="240dp"
+                                android:layout_height="@dimen/slider_height_160_184_200_256"
                                 app:sliderAnimationDuration="600"
                                 app:sliderAutoCycleDirection="back_and_forth"
                                 app:sliderAutoCycleEnabled="true"
@@ -102,9 +104,10 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
+                            android:visibility="gone"
                             android:id="@+id/materialCardView3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/slider_height_160_184_200_256"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             android:layout_marginEnd="16dp"
@@ -121,23 +124,23 @@
 
                                 <com.google.android.material.card.MaterialCardView
                                     android:id="@+id/materialCardView7"
-                                    android:layout_width="120dp"
-                                    android:layout_height="120dp"
-                                    app:strokeColor="@color/overlay_dark_30"
-                                    app:strokeWidth="1dp"
-                                    app:cardCornerRadius="16dp"
+                                    android:layout_width="@dimen/width_88_96_104"
+                                    android:layout_height="@dimen/width_88_96_104"
                                     android:layout_marginTop="16dp"
                                     android:layout_marginEnd="8dp"
+                                    app:cardCornerRadius="12dp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/textView3"
-                                    >
-                                        <ImageView
+                                    app:strokeColor="@color/overlay_dark_30"
+                                    app:strokeWidth="1dp">
+
+                                    <ImageView
                                         android:id="@+id/fra_main_page_clinic_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:loadImage="@{aboutUs.image}"
-                                        tools:srcCompat="@tools:sample/avatars"
-                                         />
+                                        android:scaleType="centerCrop"
+                                        tools:srcCompat="@tools:sample/avatars" />
                                 </com.google.android.material.card.MaterialCardView>
 
                                 <TextView
@@ -147,26 +150,35 @@
                                     android:layout_marginTop="8dp"
                                     android:layout_marginEnd="8dp"
                                     android:text="@string/about_clinic"
+                                    android:textSize="@dimen/text_14_16_16_24"
                                     android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_16"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
-                                <TextView
-                                    android:id="@+id/fra_main_page_clinic_text"
+                                <androidx.core.widget.NestedScrollView
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_marginTop="16dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="16dp"
-                                    android:text="@{aboutUs.description , default =`description`}"
+                                    android:layout_height="0dp"
+                                    android:layout_marginStart="@dimen/margin_8_8_8_16"
+                                    android:layout_marginEnd="@dimen/margin_8_8_8_16"
+                                    android:layout_marginBottom="@dimen/margin_8_8_8_16"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toStartOf="@+id/materialCardView7"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                                    app:layout_constraintTop_toBottomOf="@+id/textView3">
 
+                                    <TextView
+                                        android:id="@+id/fra_main_page_clinic_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layoutDirection="rtl"
+                                        android:paddingBottom="8dp"
+                                        android:text="@{aboutUs.description , default =`description`}"
+                                        android:textDirection="rtl"
+                                        tools:text="@string/lorem_50"
+                                        android:textSize="@dimen/text_13_16_16_20"/>
 
+                                </androidx.core.widget.NestedScrollView>
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -197,6 +209,7 @@
                                     android:layout_marginTop="8dp"
                                     android:layout_marginEnd="8dp"
                                     android:text="@string/booking"
+                                    android:textSize="@dimen/text_14_16_16_24"
                                     android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_16"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +219,7 @@
                                     android:id="@+id/fra_main_page_man_woman_group"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginTop="@dimen/margin_8_16_16_32"
                                     app:checkedButton="@+id/fra_main_page_man"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -221,6 +234,11 @@
                                         android:layout_height="wrap_content"
                                         android:layoutDirection="rtl"
                                         android:text="@string/woman"
+                                        android:textSize="@dimen/text_14_16_16_20"
+                                        android:paddingBottom="@dimen/margin_4_6_8_12"
+                                        android:paddingTop="@dimen/margin_4_6_8_12"
+                                        android:paddingStart="@dimen/margin_8_16_16_32"
+                                        android:paddingEnd="@dimen/margin_8_16_16_32"
                                         app:icon="@drawable/ic_woman"
                                         app:iconSize="24dp" />
 
@@ -231,18 +249,31 @@
                                         android:layout_height="wrap_content"
                                         android:layoutDirection="rtl"
                                         android:text="@string/man"
+                                        android:paddingBottom="@dimen/margin_4_6_8_12"
+                                        android:paddingTop="@dimen/margin_4_6_8_12"
+                                        android:paddingStart="@dimen/margin_8_16_16_32"
+                                        android:paddingEnd="@dimen/margin_8_16_16_32"
+                                        android:textSize="@dimen/text_14_16_16_20"
                                         app:icon="@drawable/ic_man"
                                         android:translationX="-1dp"
                                         app:iconSize="24dp" />
                                 </com.google.android.material.button.MaterialButtonToggleGroup>
 
                                 <com.google.android.material.button.MaterialButton
+                                    style="@style/Widget.MaterialComponents.Button.Customize"
                                     android:id="@+id/fra_main_page_reserve"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="16dp"
-                                    android:layout_marginBottom="16dp"
+                                    android:layout_marginTop="@dimen/margin_8_16_16_32"
+                                    android:layout_marginBottom="@dimen/margin_8_16_16_32"
                                     android:text="@string/reserve"
+                                    android:textSize="@dimen/text_14_16_18_24"
+                                    android:textStyle="bold"
+                                    android:elevation="4dp"
+                                    android:paddingStart="@dimen/margin_32_40_44_48"
+                                    android:paddingTop="@dimen/margin_4_6_8_12"
+                                    android:paddingEnd="@dimen/margin_32_40_44_48"
+                                    android:paddingBottom="@dimen/margin_4_6_8_12"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -259,7 +290,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             android:layout_marginEnd="16dp"
-                            android:layout_marginBottom="32dp"
+                            android:layout_marginBottom="@dimen/margin_16_24_32_64"
                             app:cardCornerRadius="16dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -286,8 +317,8 @@
 
                                 <com.google.android.material.card.MaterialCardView
                                     android:id="@+id/materialCardView6"
-                                    android:layout_width="120dp"
-                                    android:layout_height="120dp"
+                                    android:layout_width="@dimen/width_88_96_104"
+                                    android:layout_height="@dimen/width_88_96_104"
                                     android:layout_marginTop="8dp"
                                     android:layout_marginEnd="8dp"
                                     android:layout_marginBottom="8dp"
@@ -302,7 +333,6 @@
                                         android:id="@+id/fra_main_page_massage_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:scaleType="centerCrop"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/fra_main_page_tabLayout"
@@ -313,10 +343,13 @@
                                     android:id="@+id/fra_main_page_massage_text"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="16dp"
+                                    android:layout_marginStart="@dimen/margin_8_8_8_16"
                                     android:layout_marginEnd="8dp"
                                     android:text="@string/lorem_20"
+                                    android:paddingBottom="8dp"
                                     android:textColor="@color/black_medium"
+                                    android:textSize="@dimen/text_14_16_16_24"
+                                    app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toStartOf="@+id/materialCardView6"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="@+id/materialCardView6" />
@@ -327,11 +360,6 @@
                 </androidx.core.widget.NestedScrollView>
         </com.imassage.ui.utils.DrawerContent>
 
-        <!--TODO: Adding
-           android:layout_gravity="start"
-           android:layout_gravity="end"
-           app:layoutDescription="@xml/motion_drawer_items_scene"
-         -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/drawer_motionLayout"

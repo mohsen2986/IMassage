@@ -1,54 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="massage"
             type="com.imassage.data.model.Massage"
             />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{massage.name , default = `massage One` }"
-            android:textSize="33dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
-<!--<com.google.android.material.card.MaterialCardView-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:clickable="true"-->
-<!--    android:focusable="true"-->
-<!--    >-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    >-->
-<!--&lt;!&ndash;    android:text="@{massage.name , default = `massage One` }"&ndash;&gt;-->
+            android:layout_height="match_parent"
+            >
+            <!--    android:text="@{massage.name , default = `massage One` }"
+                            android:background="@drawable/bottom_color"
+            -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_16"
+                android:textStyle="bold"
+                android:text="@{massage.name , default = `massage One` }"
+                tools:text="ماساژ سر"
+                android:textSize="@dimen/text_14_16_16_24"
+                android:paddingBottom="8dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_16"-->
-<!--        android:textStyle="bold"-->
-<!--        android:background="@drawable/bottom_color"-->
-<!--        android:text="@{massage.name , default = `massage One` }"-->
-<!--        android:paddingBottom="8dp"-->
-<!--        android:paddingTop="6dp"-->
-<!--        android:paddingEnd="8dp"-->
-<!--        android:paddingStart="8dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--</com.google.android.material.card.MaterialCardView>-->
+</layout>

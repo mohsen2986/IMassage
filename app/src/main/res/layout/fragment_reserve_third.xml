@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/appbar_height_64_68_72"
+            android:layout_height="@dimen/appbar_height_64_68_72_96"
             android:background="@color/pink_asli"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/fra_reserve_third_back"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/width_48_48_48_64"
+                android:layout_height="@dimen/width_48_48_48_64"
                 android:padding="@dimen/padding_8_4_0"
                 android:layout_marginStart="16dp"
                 android:tint="@color/blue_50"
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/set_date"
-                android:textSize="@dimen/text_16_18_18"
+                android:textSize="@dimen/text_16_18_18_28"
                 android:textStyle="bold"
                 android:textColor="@color/blue_50"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/road_72_80_96"
+            android:layout_height="@dimen/road_72_80_96_120"
             android:background="@drawable/back_test_reverse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,11 +87,12 @@
 
             <TextView
                 android:id="@+id/imageView1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:layout_marginTop="@dimen/margin_0_4_8"
                 android:background="@drawable/reserve_circle_state_stroke"
                 android:text="4"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -101,11 +102,12 @@
 
             <TextView
                 android:id="@+id/imageView2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/reserve_circle_state_red"
                 android:text="3"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView1"
@@ -117,11 +119,12 @@
 
             <TextView
                 android:id="@+id/imageView3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/reserve_circle_state_green"
                 android:text="2"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -133,10 +136,11 @@
 
             <TextView
                 android:id="@+id/imageView4"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/width_24_24_28_40"
+                android:layout_height="@dimen/width_24_24_28_40"
                 android:background="@drawable/reserve_circle_state_green"
                 android:text="1"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:textAlignment="center"
                 android:textColor="@color/blue_50"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
@@ -152,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/set_date_time"
                 android:textColor="@color/blue_50"
-                android:textSize="@dimen/text_14_16_16"
+                android:textSize="@dimen/text_14_16_16_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -166,16 +170,17 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="@dimen/margin_16_24_32"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/margin_16_24_32_40"
+            android:layout_marginTop="@dimen/margin_8_12_16_32"
+            android:layout_marginEnd="@dimen/margin_16_24_32_40"
             android:layout_marginBottom="4dp"
             android:hint="@string/date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
             app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16"
-            app:startIconDrawable="@drawable/ic_calendar">
+            app:startIconDrawable="@drawable/ic_calendar"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fra_reserve_third_date"
@@ -185,6 +190,7 @@
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:inputType="none"
+                android:textSize="@dimen/text_14_16_18_24"
                 android:editable="false"
                 />
 
@@ -194,7 +200,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin_8_12_16"
+            android:layout_marginTop="@dimen/margin_8_12_16_32"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 

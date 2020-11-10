@@ -33,7 +33,7 @@
                 android:text="@string/question"
                 android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_16"
                 android:textStyle="bold"
-                android:textSize="@dimen/text_14_16_16"
+                android:textSize="@dimen/text_14_16_16_24"
                 android:textColor="@color/black_low"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@string/lorem_20"
                 android:textColor="@color/black_low"
-                android:textSize="@dimen/text_14_16_16"
+                android:textSize="@dimen/text_14_16_16_24"
                 app:layout_constraintEnd_toEndOf="@+id/textView7"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -70,25 +70,29 @@
                     android:id="@+id/radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="خیلی زیاد" />
+                    tools:text="خیلی زیاد"
+                    android:textSize="@dimen/text_14_16_16_24"/>
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="زیاد" />
+                    tools:text="زیاد"
+                    android:textSize="@dimen/text_14_16_16_24"/>
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="متوسط" />
+                    tools:text="متوسط"
+                    android:textSize="@dimen/text_14_16_16_24"/>
 
                 <RadioButton
                     android:id="@+id/radioButton4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="کم" />
+                    tools:text="کم"
+                    android:textSize="@dimen/text_14_16_16_24"/>
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -114,7 +118,8 @@
                     style="@style/TextAppearance.AppCompat.TextView.bold_16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="viewStart" />
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/text_14_16_16_24"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
