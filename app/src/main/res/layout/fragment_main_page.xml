@@ -72,7 +72,6 @@
                         android:background="@drawable/bg_white_top_corner">
 
                         <com.google.android.material.card.MaterialCardView
-                            android:visibility="gone"
                             android:id="@+id/materialCardView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -104,7 +103,6 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
-                            android:visibility="gone"
                             android:id="@+id/materialCardView3"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/slider_height_160_184_200_256"
