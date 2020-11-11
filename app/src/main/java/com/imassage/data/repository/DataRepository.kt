@@ -10,4 +10,9 @@ class DataRepository(
     suspend fun mainPage() =
             apiInterface.mainPage()
 
+    suspend fun massages() =
+            apiInterface.massages()
+
+    suspend fun packages() =
+            apiInterface.packages()
 }

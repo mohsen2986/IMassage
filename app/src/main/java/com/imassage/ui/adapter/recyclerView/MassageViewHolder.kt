@@ -10,5 +10,8 @@ class MassageViewHolder(
 ): RecyclerView.ViewHolder(itemBinding.root){
     fun <T> bind(item: Massage, onClickHandler: OnCLickHandler<T>?){
         itemBinding.massage = item
+        onClickHandler?.let {
+            itemBinding.onClick = it
+        }
     }
 }

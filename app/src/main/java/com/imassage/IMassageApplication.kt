@@ -9,6 +9,7 @@ import com.imassage.data.remote.api.AuthApiInterface
 import com.imassage.data.repository.DataRepository
 import com.imassage.data.repository.TokenRepository
 import com.imassage.data.repository.UserInformationRepository
+import com.imassage.ui.fragment.account.AccountViewModelFactory
 import com.imassage.ui.fragment.login.LoginViewModelFactory
 import com.imassage.ui.fragment.mainPage.MainPageViewModelFactory
 import com.imassage.ui.fragment.phoneVerification.PhoneVerificationViewModelFactory
@@ -52,10 +53,11 @@ class IMassageApplication(
         bind() from provider { LoginViewModelFactory(instance()) }
         bind() from provider { PhoneVerificationViewModelFactory(instance())}
         bind() from provider { MainPageViewModelFactory(instance() , instance()) }
-        bind() from provider { MassageViewModelFactory() }
-        bind() from provider { PackagesViewModelFactory() }
+        bind() from provider { MassageViewModelFactory(instance()) }
+        bind() from provider { PackagesViewModelFactory(instance()) }
         bind() from provider { QuestionViewModelFactory() }
         bind() from provider { ReservedTimeViewModelFactory() }
+        bind() from provider { AccountViewModelFactory() }
 
         // repositories
         bind() from singleton { UserInformationRepository(instance() , instance())}

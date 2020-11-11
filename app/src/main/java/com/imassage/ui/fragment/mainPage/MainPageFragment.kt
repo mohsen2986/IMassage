@@ -24,9 +24,12 @@ import com.imassage.databinding.FragmentMainPageBinding
 import com.imassage.ui.adapter.imageSlider.ImageSliderAdapter
 import com.imassage.ui.adapter.recyclerView.RecyclerAdapter
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.OnCLickHandler
 import com.imassage.ui.utils.StaticVariables
 import com.imassage.ui.utils.resetApplication
 import kotlinx.android.synthetic.main.fragment_main_page.*
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -65,6 +68,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         initAdapter()
         bindAdapter()
         bindUI()
+        initOnClickListeners()
         initDrawer()
     }
     private fun bindUI() = launch {
@@ -72,7 +76,9 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
             is NetworkResponse.Success ->{
                 imageSliderAdapter.datas = data.body.datas.boarders
                 massageAdapter.datas = data.body.datas.massages
-                binding.aboutUs = data.body.datas.aboutUs[0]
+                if(data.body.datas.aboutUs.isNotEmpty()){
+                    binding.aboutUs = data.body.datas.aboutUs[0]
+                }
 
                 Log.e("Log__" , "the data is ${data.body.datas.massages}")
             }
@@ -88,9 +94,27 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
             }
         }
     }
+    private fun initOnClickListeners(){
+        fra_main_page_reserve.setOnClickListener{
+            navController.navigate(R.id.action_mainPageFragment_to_massageFragment)
+        }
+    }
     private fun initAdapter(){
         imageSliderAdapter = ImageSliderAdapter()
         massageAdapter = RecyclerAdapter()
+        massageAdapter.onClickHandler = object: OnCLickHandler<Massage>{
+            override fun onClick(view: View) {}
+
+            override fun onClickView(view: View, element: Massage) {
+                Log.e("Log__" , "the clicked Massage is $element")
+            }
+
+            override fun onClickItem(element: Massage) {
+                binding.massage = element
+                Log.e("Log__" , "the clicked Massage is $element")
+            }
+
+        }
     }
     private fun bindAdapter(){
         fra_main_page_slider.apply {
@@ -108,6 +132,11 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     private fun logOut() = launch{
         viewModel.logOut()
         resetApplication(activity)
+    }
+    private fun setMassageDescription(massage: Massage){
+        GlobalScope.launch(Main){
+
+        }
     }
     // get source Fragment
     private fun sourceFragment(){
@@ -134,5 +163,6 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
             }
         }
     }
+
 
 }

@@ -88,5 +88,41 @@
             android:name="sourceFragment"
             app:argType="string"
             />
+        <action
+            android:id="@+id/action_mainPageFragment_to_massageFragment"
+            app:destination="@id/massageFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_reserve_view"
+            app:destination="@id/reserve_view" />
+    </fragment>
+    <fragment
+        android:id="@+id/massageFragment"
+        android:name="com.imassage.ui.fragment.reserve.massage.MassageFragment"
+        android:label="MassageFragment"
+        >
+        <action
+            android:id="@+id/action_massageFragment_to_packageFragment"
+            app:destination="@id/packageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/packageFragment"
+        android:name="com.imassage.ui.fragment.reserve.packages.PackagesFragment"
+        android:label="PackageFragment"
+        >
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.imassage.ui.fragment.account.AccountFragment"
+        android:label="AccountFragment"
+        >
+    </fragment>
+    <fragment
+        android:id="@+id/reserve_view"
+        android:name="com.imassage.ui.fragment.reserveView.ReserveViewFragment"
+        android:label="ReserveView"
+        >
     </fragment>
 </navigation>

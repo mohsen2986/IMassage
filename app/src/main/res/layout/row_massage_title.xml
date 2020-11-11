@@ -5,12 +5,17 @@
             name="massage"
             type="com.imassage.data.model.Massage"
             />
+        <variable
+            name="onClick"
+            type="com.imassage.ui.utils.OnCLickHandler"/>
+        <import type="android.view.View"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="@{(v) -> onClick.onClickItem(massage)}"
         >
         <TextView
             android:layout_width="match_parent"

@@ -5,15 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.imassage.R
-import com.imassage.data.model.Boarder
 import com.imassage.data.model.Massage
+import com.imassage.data.model.Package
+import com.imassage.databinding.RowMassageTestBinding
 import com.imassage.databinding.RowMassageTitleBinding
+import com.imassage.databinding.RowPackageTestBinding
 import com.imassage.ui.utils.OnCLickHandler
-import javax.annotation.meta.When
 
 class RecyclerAdapter<T>(
 ):RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
+    var isGrid = false
     var onClickHandler: OnCLickHandler<T> ?= null
     var datas: List<T> = listOf()
     set(value){
@@ -29,6 +31,14 @@ class RecyclerAdapter<T>(
                 MassageViewHolder(
                         RowMassageTitleBinding.inflate(layoutInflater , parent , false)
                 )
+            R.layout.row_massage_test ->
+                MassagesViewHolder(
+                        RowMassageTestBinding.inflate(layoutInflater, parent, false)
+                )
+            R.layout.row_package_test ->
+                PackagesViewHolder(
+                        RowPackageTestBinding.inflate(layoutInflater , parent , false)
+                )
             else -> throw IllegalStateException("the type is invalid!!")
         }
     }
@@ -39,12 +49,17 @@ class RecyclerAdapter<T>(
         when(holder){
             is MassageViewHolder ->
                 holder.bind(datas[position] as Massage , onClickHandler = onClickHandler)
+            is MassagesViewHolder ->
+                holder.bind(datas[position] as Massage , onClickHandler = onClickHandler)
+            is PackagesViewHolder ->
+                holder.bind(datas[position] as Package , onClickHandler = onClickHandler)
         }
     }
 
     override fun getItemViewType(position: Int): Int =
             when(datas[0]){
-                is Massage -> R.layout.row_massage_title
+                is Massage -> if (isGrid) R.layout.row_massage_test else R.layout.row_massage_title
+                is Package -> R.layout.row_package_test
                 else -> throw IllegalStateException("the type is invalid!")
             }
 }
