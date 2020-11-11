@@ -4,7 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="aboutUs" type="com.imassage.data.model.AboutUs"/>
+        <variable
+            name="aboutUs"
+            type="com.imassage.data.model.AboutUs"
+            />
+        <variable
+            name="massage"
+            type="com.imassage.data.model.Massage"
+            />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -331,6 +338,7 @@
                                         android:id="@+id/fra_main_page_massage_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
+                                        android:loadImage="@{massage.image}"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/fra_main_page_tabLayout"
@@ -343,7 +351,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/margin_8_8_8_16"
                                     android:layout_marginEnd="8dp"
-                                    android:text="@string/lorem_20"
+                                    android:text="@{massage.description , default =`توضیحات`}"
                                     android:paddingBottom="8dp"
                                     android:textColor="@color/black_medium"
                                     android:textSize="@dimen/text_14_16_16_24"

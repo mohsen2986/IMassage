@@ -68,9 +68,9 @@ class MassageFragment : ScopedFragment() , KodeinAware {
         massagesAdapter = RecyclerAdapter()
     }
     private fun bindAdapter(){
-        fra_massage_rv.apply {
-            adapter = massagesAdapter
-        }
+//        fra_massage_rv.apply {
+//            adapter = massagesAdapter
+//        }
     }
 
 }

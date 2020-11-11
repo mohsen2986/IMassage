@@ -64,8 +64,8 @@ class PackagesFragment : ScopedFragment() , KodeinAware {
         packageAdapter = RecyclerAdapter()
     }
     private fun bindAdapter(){
-        fra_package_rv.apply{
-            adapter = packageAdapter
-        }
+//        fra_package_rv.apply{
+//            adapter = packageAdapter
+//        }
     }
 }
