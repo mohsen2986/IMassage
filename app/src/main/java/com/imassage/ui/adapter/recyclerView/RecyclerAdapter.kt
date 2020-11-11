@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.imassage.R
 import com.imassage.data.model.Massage
 import com.imassage.data.model.Package
-import com.imassage.databinding.RowMassageTestBinding
+import com.imassage.databinding.RowMassageKindsBinding
+import com.imassage.databinding.RowMassagePackageBinding
 import com.imassage.databinding.RowMassageTitleBinding
 import com.imassage.databinding.RowPackageTestBinding
 import com.imassage.ui.utils.OnCLickHandler
@@ -31,13 +32,13 @@ class RecyclerAdapter<T>(
                 MassageViewHolder(
                         RowMassageTitleBinding.inflate(layoutInflater , parent , false)
                 )
-            R.layout.row_massage_test ->
+            R.layout.row_massage_kinds ->
                 MassagesViewHolder(
-                        RowMassageTestBinding.inflate(layoutInflater, parent, false)
+                        RowMassageKindsBinding.inflate(layoutInflater, parent, false)
                 )
-            R.layout.row_package_test ->
+            R.layout.row_massage_package ->
                 PackagesViewHolder(
-                        RowPackageTestBinding.inflate(layoutInflater , parent , false)
+                        RowMassagePackageBinding.inflate(layoutInflater , parent , false)
                 )
             else -> throw IllegalStateException("the type is invalid!!")
         }
@@ -58,8 +59,8 @@ class RecyclerAdapter<T>(
 
     override fun getItemViewType(position: Int): Int =
             when(datas[0]){
-                is Massage -> if (isGrid) R.layout.row_massage_test else R.layout.row_massage_title
-                is Package -> R.layout.row_package_test
+                is Massage -> if (isGrid) R.layout.row_massage_kinds else R.layout.row_massage_title
+                is Package -> R.layout.row_massage_package
                 else -> throw IllegalStateException("the type is invalid!")
             }
 }
