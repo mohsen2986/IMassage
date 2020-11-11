@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="boarder"
@@ -8,22 +10,37 @@
         <import type="com.imassage.ui.utils.DataBindingUtils"/>
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="240dp"
+    android:layout_height="@dimen/slider_height_160_184_200_256"
     >
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:loadImage="@{boarder.image}"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@{boarder.title , default= `123`}"
-        android:textSize="33dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_8_16_16_32"
+        android:paddingTop="@dimen/margin_4_6_8_12"
+        android:paddingBottom="@dimen/margin_4_6_8_12"
+        android:paddingEnd="@dimen/margin_8_12_16_32"
+        android:paddingStart="@dimen/margin_8_12_16_32"
+        android:textStyle="bold"
+        android:textColor="@color/black_high"
+        android:text="@{boarder.title , default= `آی ماساژ`}"
+        tools:text="آی ماساژ جلوه ای نو در ماساژ"
+        android:textSize="@dimen/text_14_16_16_24"
+        android:background="@drawable/slider_text_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
