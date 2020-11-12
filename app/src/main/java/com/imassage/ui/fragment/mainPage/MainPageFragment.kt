@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.transition.Slide
@@ -105,13 +106,10 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         massageAdapter.onClickHandler = object: OnCLickHandler<Massage>{
             override fun onClick(view: View) {}
 
-            override fun onClickView(view: View, element: Massage) {
-                Log.e("Log__" , "the clicked Massage is $element")
-            }
+            override fun onClickView(view: View, element: Massage) {}
 
             override fun onClickItem(element: Massage) {
                 binding.massage = element
-                Log.e("Log__" , "the clicked Massage is $element")
             }
 
         }
@@ -128,15 +126,23 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         drawer_logOut.setOnClickListener{
             logOut()
         }
+        drawer_account.setOnClickListener{
+            navController.navigate(R.id.action_mainPageFragment_to_accountFragment)
+        }
+        drawer_history.setOnClickListener{
+            navController.navigate(R.id.action_mainPageFragment_to_reservedTimeFragment ,
+                    bundleOf(StaticVariables.RESERVE_TYPE to StaticVariables.HISTORY)
+            )
+        }
+        drawer_reserved_time.setOnClickListener{
+            navController.navigate(R.id.action_mainPageFragment_to_reservedTimeFragment ,
+                    bundleOf( StaticVariables.RESERVE_TYPE to StaticVariables.RESERVE_TIME)
+            )
+        }
     }
     private fun logOut() = launch{
         viewModel.logOut()
         resetApplication(activity)
-    }
-    private fun setMassageDescription(massage: Massage){
-        GlobalScope.launch(Main){
-
-        }
     }
     // get source Fragment
     private fun sourceFragment(){

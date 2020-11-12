@@ -97,6 +97,9 @@
         <action
             android:id="@+id/action_mainPageFragment_to_reserve_view"
             app:destination="@id/reserve_view" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_reservedTimeFragment"
+            app:destination="@id/reservedTimeFragment" />
     </fragment>
     <fragment
         android:id="@+id/massageFragment"
@@ -118,6 +121,10 @@
         android:name="com.imassage.ui.fragment.account.AccountFragment"
         android:label="AccountFragment"
         >
+        <argument
+            android:name="reserve_type"
+            app:argType="string"
+            />
     </fragment>
     <fragment
         android:id="@+id/reserve_view"
@@ -125,4 +132,8 @@
         android:label="ReserveView"
         >
     </fragment>
+    <fragment
+        android:id="@+id/reservedTimeFragment"
+        android:name="com.imassage.ui.fragment.reserve.reserveTime.ReservedTimeFragment"
+        android:label="ReservedTimeFragment" />
 </navigation>
