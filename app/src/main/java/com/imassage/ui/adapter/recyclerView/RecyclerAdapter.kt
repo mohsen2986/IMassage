@@ -10,7 +10,6 @@ import com.imassage.data.model.Package
 import com.imassage.databinding.RowMassageKindsBinding
 import com.imassage.databinding.RowMassagePackageBinding
 import com.imassage.databinding.RowMassageTitleBinding
-import com.imassage.databinding.RowPackageTestBinding
 import com.imassage.ui.utils.OnCLickHandler
 
 class RecyclerAdapter<T>(

@@ -1,7 +1,6 @@
 package com.imassage.ui.adapter.recyclerView
 
 import androidx.recyclerview.widget.RecyclerView
-import com.imassage.databinding.RowPackageTestBinding
 import com.imassage.ui.utils.OnCLickHandler
 import com.imassage.data.model.Package
 import com.imassage.databinding.RowMassagePackageBinding
