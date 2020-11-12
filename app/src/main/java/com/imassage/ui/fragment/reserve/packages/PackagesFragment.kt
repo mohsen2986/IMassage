@@ -11,7 +11,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
-import com.imassage.data.model.Answer
 import com.imassage.databinding.FragmentPackagesBinding
 import com.imassage.ui.adapter.recyclerView.RecyclerAdapter
 import com.imassage.ui.base.ScopedFragment
@@ -22,9 +21,6 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.instance
 import com.imassage.data.model.Package
-import com.imassage.data.remote.model.AnswerRequest
-import kotlinx.coroutines.delay
-
 class PackagesFragment : ScopedFragment() , KodeinAware {
     override val kodein: Kodein by closestKodein()
     private val viewModelFactory: PackagesViewModelFactory by instance()

@@ -10,6 +10,10 @@ import com.imassage.R
 
 class ReservedTimeFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = ReservedTimeFragment()
+    }
+
     private lateinit var viewModel: ReservedTimeViewModel
 
     override fun onCreateView(
