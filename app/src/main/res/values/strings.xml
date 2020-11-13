@@ -56,6 +56,12 @@
     <string name="edit_family">ویرایش نام‌خانوادگی</string>
     <string name="profile_image">عکس پروفایل</string>
     <string name="edit">ویرایش</string>
+    <string name="reservation_history">تاریخچه نوبت‌ها</string>
+    <string name="my_reservation">رزروشده‌های من</string>
+    <string name="choose_time">زمان انتخابی شما :</string>
+    <string name="price_amount">هزینه پرداختی :</string>
+    <string name="massage">ماساژ :</string>
+    <string name="packagee">پکیج :</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>
