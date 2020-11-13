@@ -27,7 +27,6 @@
     <string name="reserve">رزرو</string>
 
 
-
     <string name="kind_massage_1">ماساژ سر</string>
     <string name="kind_massage_2">ماساژ صورت</string>
     <string name="kind_massage_3">ماساژ گردن</string>
@@ -52,4 +51,13 @@
     <string name="question">سوال</string>
     <string name="answer">پاسخ</string>
     <string name="go_for_register">اینجا راحت میتونی حساب‌کاربری بسازی</string>
+    <string name="last_name">نام‌خانوادگی</string>
+    <string name="edit_name">ویرایش نام</string>
+    <string name="edit_family">ویرایش نام‌خانوادگی</string>
+    <string name="profile_image">عکس پروفایل</string>
+    <string name="edit">ویرایش</string>
+    <string-array name="genders">
+        <item>آقا</item>
+        <item>خانم</item>
+    </string-array>
 </resources>
