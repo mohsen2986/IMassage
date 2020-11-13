@@ -38,7 +38,7 @@
         android:textColor="@color/black_high"
         android:text="@{boarder.title , default= `آی ماساژ`}"
         tools:text="آی ماساژ جلوه ای نو در ماساژ"
-        android:textSize="@dimen/text_14_16_16_24"
+        android:textSize="@dimen/text_14_16_18_24"
         android:background="@drawable/slider_text_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

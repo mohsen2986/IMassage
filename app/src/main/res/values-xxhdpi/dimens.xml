@@ -38,5 +38,14 @@
 	<dimen name="text_13_16_16_20">16sp</dimen>
 	<dimen name="margin_32_40_44_48">44dp</dimen>
 	<dimen name="margin_4_6_8_12">8dp</dimen>
+    <dimen name="account_image_height">200dp</dimen>
+    <dimen name="fab_44_48_54_72">54dp</dimen>
+	<dimen name="width_24_28_32_40">105dp</dimen>
+	<dimen name="margin_8_12_16_24">16dp</dimen>
+	<dimen name="margin_12_16_16_32">16dp</dimen>
+	<dimen name="margin_12_16_20_24">20dp</dimen>
+	<dimen name="margin_8_12_16_20">16dp</dimen>
+	<dimen name="width_216">248dp</dimen>
+	<dimen name="width_120_152_176">176dp</dimen>
 
 </resources>

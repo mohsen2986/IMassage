@@ -1,15 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.account.AccountFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".ui.fragment.account.AccountFragment">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/fra_account_back"
+            android:layout_width="@dimen/width_48_48_48_64"
+            android:layout_height="@dimen/width_48_48_48_64"
+            android:padding="@dimen/padding_8_4_0"
+            android:layout_marginStart="@dimen/margin_8_8_8_16"
+            android:layout_marginTop="@dimen/margin_8_8_8_16"
+            android:tint="@color/black_low"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fra_account_cardView_image"
+            android:layout_width="@dimen/account_image_height"
+            android:layout_height="@dimen/account_image_height"
+            android:layout_marginTop="@dimen/margin_16_24_32_40"
+            app:cardCornerRadius="@dimen/account_image_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/overlay_dark_80"
+            app:strokeWidth="2dp">
+            <ImageView
+                android:id="@+id/fra_account_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/avatar_color_7"
+            app:backgroundTint="@color/overlay_dark_60"
+            app:borderWidth="1dp"
+            app:fabCustomSize="@dimen/fab_44_48_54_72"
+            app:fab_backgroundColor="@color/overlay_dark_60"
+            app:layout_constraintBottom_toBottomOf="@+id/fra_account_cardView_image"
+            app:layout_constraintStart_toStartOf="@+id/fra_account_cardView_image"
+            app:maxImageSize="@dimen/width_32_36_40_52"
+            app:rippleColor="@color/purple_400"
+            app:srcCompat="@drawable/ic_camera"
+            app:tint="@color/blue_50" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/fra_account_cardView_image">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8_16_16_32"
+                app:layout_constraintTop_toBottomOf="@+id/fra_account_cardView_image"
+                >
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_4_4_4_8"
+                    android:text="@string/mobile_number"
+                    android:textColor="@color/black_low"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    app:layout_constraintEnd_toEndOf="@+id/fra_account_mobile"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/fra_account_mobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8_16_16_32"
+                    android:layout_marginTop="@dimen/margin_4_4_4_8"
+                    android:layout_marginEnd="@dimen/margin_8_16_16_32"
+                    android:background="@drawable/account_back_name"
+                    android:drawableEnd="@drawable/ic_mobile_account"
+                    android:drawablePadding="8dp"
+                    android:paddingStart="@dimen/margin_8_12_16_32"
+                    android:paddingTop="@dimen/margin_8_12_16_20"
+                    android:paddingEnd="@dimen/margin_8_8_8_16"
+                    android:paddingBottom="@dimen/margin_8_12_16_20"
+                    android:text="@{}"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/blue_50"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13"
+                    tools:text="9392624214" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8_12_16_20"
+                    android:layout_marginEnd="@dimen/margin_4_4_4_8"
+                    android:text="@string/name"
+                    android:textColor="@color/black_low"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    app:layout_constraintEnd_toEndOf="@+id/fra_account_mobile"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_account_mobile" />
+
+                <TextView
+                    android:id="@+id/fra_account_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8_16_16_32"
+                    android:layout_marginTop="@dimen/margin_4_4_4_8"
+                    android:layout_marginEnd="@dimen/margin_8_16_16_32"
+                    android:background="@drawable/account_back_name"
+                    android:drawableStart="@drawable/ic_edit_account"
+                    android:drawableEnd="@drawable/ic_user_account"
+                    android:drawablePadding="8dp"
+                    android:paddingStart="@dimen/margin_8_12_16_32"
+                    android:paddingTop="@dimen/margin_8_12_16_24"
+                    android:paddingEnd="@dimen/margin_8_8_8_16"
+                    android:paddingBottom="@dimen/margin_8_12_16_24"
+                    android:text="@{}"
+                    android:textColor="@color/blue_50"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14"
+                    tools:text="حسین" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/margin_4_4_4_8"
+                    android:text="@string/last_name"
+                    android:textColor="@color/black_low"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    app:layout_constraintEnd_toEndOf="@+id/fra_account_mobile"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_account_name" />
+
+                <TextView
+                    android:id="@+id/fra_account_family"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8_16_16_32"
+                    android:layout_marginTop="@dimen/margin_4_4_4_8"
+                    android:layout_marginEnd="@dimen/margin_8_16_16_32"
+                    android:background="@drawable/account_back_name"
+                    android:drawableStart="@drawable/ic_edit_account"
+                    android:drawableEnd="@drawable/ic_user_account"
+                    android:drawablePadding="8dp"
+                    android:paddingStart="@dimen/margin_8_12_16_32"
+                    android:paddingTop="@dimen/margin_8_12_16_24"
+                    android:paddingEnd="@dimen/margin_8_8_8_16"
+                    android:paddingBottom="@dimen/margin_8_12_16_24"
+                    android:text="@{}"
+                    android:textColor="@color/blue_50"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15"
+                    tools:text="نیازی" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8_12_16_20"
+                    android:layout_marginEnd="@dimen/margin_4_4_4_8"
+                    android:text="@string/gender"
+                    android:textColor="@color/black_low"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    app:layout_constraintEnd_toEndOf="@+id/fra_account_mobile"
+                    app:layout_constraintTop_toBottomOf="@+id/fra_account_family" />
+
+                <!--<Spinner
+                    android:id="@+id/spinner2"
+                    tools:layout_editor_absoluteX="289dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8_16_16_32"
+                    android:layout_marginTop="@dimen/margin_4_4_4_8"
+                    android:layout_marginEnd="@dimen/margin_8_16_16_32"
+                    android:background="@drawable/account_back_name"
+                    android:drawableStart="@drawable/ic_edit_account"
+                    android:drawableEnd="@drawable/ic_user_account"
+                    android:drawablePadding="8dp"
+                    android:paddingStart="@dimen/margin_8_12_16_32"
+                    android:paddingTop="@dimen/margin_8_12_16_24"
+                    android:paddingEnd="@dimen/margin_8_8_8_16"
+                    android:paddingBottom="@dimen/margin_8_12_16_24"
+                    android:text="@{}"
+                    android:textColor="@color/blue_50"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16"
+                    />-->
+
+
+                <TextView
+                    android:id="@+id/fra_account_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8_16_16_32"
+                    android:layout_marginTop="@dimen/margin_4_4_4_8"
+                    android:layout_marginEnd="@dimen/margin_8_16_16_32"
+                    android:background="@drawable/account_back_name"
+                    android:drawableStart="@drawable/ic_edit_account"
+                    android:drawableEnd="@drawable/ic_gender_account"
+                    android:drawablePadding="8dp"
+                    android:paddingStart="@dimen/margin_8_12_16_32"
+                    android:paddingTop="@dimen/margin_8_12_16_24"
+                    android:paddingEnd="@dimen/margin_8_8_8_16"
+                    android:paddingBottom="@dimen/margin_8_12_16_24"
+                    android:text="@{}"
+                    android:textColor="@color/blue_50"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16"
+                    tools:text="آقا" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
