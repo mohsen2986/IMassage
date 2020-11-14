@@ -11,6 +11,7 @@
         android:layout_width="@dimen/width_216"
         app:cardCornerRadius="8dp"
         app:strokeWidth="1dp"
+        android:background="@color/white"
         app:strokeColor="@color/overlay_dark_60"
         android:layout_height="wrap_content">
 
