@@ -62,6 +62,13 @@
     <string name="price_amount">هزینه پرداختی :</string>
     <string name="massage">ماساژ :</string>
     <string name="packagee">پکیج :</string>
+    <string name="whole_price">هزینه کل :</string>
+    <string name="enter_off_code">کد تخفیف داری !؟ \n این پایین کدتخفیفت رو وارد کن</string>
+    <string name="off_code">کد تخفیف</string>
+    <string name="set_off_code">اعمال کد تخفیف</string>
+    <string name="total_price">هزینه نهایی :</string>
+    <string name="tooman">تومان</string>
+    <string name="payment">پرداخت</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>

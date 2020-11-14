@@ -49,4 +49,6 @@
     <dimen name="width_120_152_176">152dp</dimen>
     <dimen name="text_14_16_18_28">16sp</dimen>
     <dimen name="width_30_30_35_50">30dp</dimen>
+    <dimen name="width_120_136_144_256">136dp</dimen>
+    <dimen name="width_152_160">160dp</dimen>
 </resources>
