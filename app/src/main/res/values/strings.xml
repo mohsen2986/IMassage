@@ -69,6 +69,10 @@
     <string name="total_price">هزینه نهایی :</string>
     <string name="tooman">تومان</string>
     <string name="payment">پرداخت</string>
+    <string name="successfully_reserved">با موفقیت رزرو شد</string>
+    <string name="fail_to_reserve">متاسفانه پرداخت موفق نبود</string>
+    <string name="res_code">کد رهگیری :</string>
+    <string name="back_to_home">بازگشت به صفحه اصلی</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>

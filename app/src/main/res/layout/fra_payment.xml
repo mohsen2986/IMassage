@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isSuccess"
+            type="java.lang.Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fra_payment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@{isSuccess ? @drawable/payment_success : @drawable/payment_failed}"
+        tools:background="@drawable/payment_success">
+
+
+<!--
+        app:srcCompat="@{isSuccess ? @drawable/ic_mood_good : @drawable/ic_mood_bad}"
+-->
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="@dimen/splash_image"
+            android:layout_height="@dimen/splash_image"
+            android:layout_marginTop="@dimen/margin_16_24_32_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_mood_good" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{isSuccess ? @string/successfully_reserved:@string/fail_to_reserve}"
+            android:textSize="@dimen/text_24_32_36_54"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+            tools:text="@string/successfully_reserved" />
+
+        <!--
+                    android:visibility="@{isSuccess ? View.VISIBLE : View.GONE}"
+        -->
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/res_code"
+            android:textSize="@dimen/text_14_16_18_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!--        android:visibility="@{isSuccess ? View.VISIBLE : View.GONE}"-->
+
+        <TextView
+            android:id="@+id/fra_payment_ref_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8_12_16_20"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22"
+            tools:text="95214324" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fra_payment_back_to_home"
+            style="@style/Widget.MaterialComponents.Button.Customize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue_50"
+            android:paddingStart="@dimen/margin_16_24_32_40"
+            android:paddingTop="@dimen/margin_4_6_8_12"
+            android:paddingEnd="@dimen/margin_16_24_32_40"
+            android:paddingBottom="@dimen/margin_4_6_8_12"
+            android:text="@string/back_to_home"
+            android:textStyle="bold"
+            android:fontFamily="@font/iran_sans_bold"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_16_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fra_payment_ref_code" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
