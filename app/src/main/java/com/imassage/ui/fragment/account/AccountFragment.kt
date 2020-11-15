@@ -2,12 +2,14 @@ package com.imassage.ui.fragment.account
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.FragmentAccountBinding
 import com.imassage.databinding.FragmentMainPageBinding
@@ -45,7 +47,11 @@ class AccountFragment : ScopedFragment() , KodeinAware {
         bindUI()
     }
     private fun bindUI() = launch{
-
+        when(val callback = viewModel.updateAccount(name = "mohsen123" , family = null)){
+            is NetworkResponse.Success ->{
+                Log.e("Log__" , "the re")
+            }
+        }
     }
 
 }

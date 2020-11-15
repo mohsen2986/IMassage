@@ -55,9 +55,9 @@ class IMassageApplication(
         bind() from provider { MainPageViewModelFactory(instance() , instance()) }
         bind() from provider { MassageViewModelFactory(instance()) }
         bind() from provider { PackagesViewModelFactory(instance()) }
-        bind() from provider { QuestionViewModelFactory() }
+        bind() from provider { QuestionViewModelFactory(instance()) }
         bind() from provider { ReservedTimeViewModelFactory() }
-        bind() from provider { AccountViewModelFactory() }
+        bind() from provider { AccountViewModelFactory(instance()) }
 
         // repositories
         bind() from singleton { UserInformationRepository(instance() , instance())}

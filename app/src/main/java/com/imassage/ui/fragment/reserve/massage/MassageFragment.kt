@@ -66,11 +66,12 @@ class MassageFragment : ScopedFragment() , KodeinAware {
     }
     private fun initAdapter(){
         massagesAdapter = RecyclerAdapter()
+        massagesAdapter.isGrid = true
     }
     private fun bindAdapter(){
-//        fra_massage_rv.apply {
-//            adapter = massagesAdapter
-//        }
+        fra_massage_recycler.apply {
+            adapter = massagesAdapter
+        }
     }
 
 }
