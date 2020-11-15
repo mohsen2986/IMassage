@@ -27,7 +27,7 @@
             <FrameLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/width_120_152_176"
+                android:layout_height="@dimen/width_120_152_176_304"
                 android:background="@color/blue_asli"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
