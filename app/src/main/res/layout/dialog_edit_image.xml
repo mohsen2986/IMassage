@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="8dp"
+        app:strokeColor="@color/overlay_dark_60"
+        app:strokeWidth="1dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/width_216"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/width_120_152_176_304"
+                android:background="@color/blue_asli"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fra_account_cardView_image"
+                    android:layout_width="@dimen/account_image_height"
+                    android:layout_height="@dimen/account_image_height"
+                    android:layout_marginTop="@dimen/margin_16_24_32_40"
+                    app:cardCornerRadius="@dimen/account_image_height"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/overlay_dark_80"
+                    app:strokeWidth="2dp">
+                    <ImageView
+                        android:id="@+id/fra_account_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="2dp"
+                        android:scaleType="centerCrop"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_edit_image_layout_choose_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8_12_16_20"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/profile_image"
+                    android:textColor="@color/black_low"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/dialog_edit_image_delete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/margin_4_6_8_12"
+                    android:layout_marginStart="@dimen/margin_8_12_16_20"
+                    app:layout_constraintEnd_toStartOf="@+id/dialog_edit_image_gallery"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="@dimen/fab_44_48_54_72"
+                        android:layout_height="@dimen/fab_44_48_54_72"
+                        app:srcCompat="@drawable/ic_delete"
+                        android:padding="8dp"
+                        android:layout_marginTop="@dimen/margin_4_4_4_8"
+                        android:tint="@color/blue_50"
+                        android:background="@drawable/dialog_edit_remove_circular_back" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="حذف"
+                        android:textSize="@dimen/text_14_16_18_24"
+                        android:textColor="@color/black_low" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dialog_edit_image_gallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8_12_16_20"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/margin_8_12_16_20"
+                    app:layout_constraintBottom_toBottomOf="@id/dialog_edit_image_delete"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/dialog_edit_image_delete"
+                    app:layout_constraintTop_toTopOf="@id/dialog_edit_image_delete">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="@dimen/fab_44_48_54_72"
+                        android:layout_height="@dimen/fab_44_48_54_72"
+                        android:layout_marginTop="@dimen/margin_4_4_4_8"
+                        android:background="@drawable/dialog_edit_gallery_circular_back"
+                        android:padding="8dp"
+                        android:tint="@color/blue_50"
+                        app:srcCompat="@drawable/ic_gallery" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="گالری"
+                        android:textColor="@color/black_low"
+                        android:textSize="@dimen/text_14_16_18_24" />
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dialog_edit_image_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8_16_16_32"
+                android:layout_marginEnd="@dimen/margin_8_12_16_20"
+                android:layout_marginBottom="@dimen/margin_8_12_16_24"
+                android:paddingStart="@dimen/margin_16_24_32_40"
+                android:paddingTop="@dimen/margin_4_4_4_8"
+                android:paddingEnd="@dimen/margin_16_24_32_40"
+                android:paddingBottom="@dimen/margin_4_4_4_8"
+                android:text="@string/edit"
+                android:textSize="@dimen/text_14_16_16_20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_edit_image_layout_choose_image" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
