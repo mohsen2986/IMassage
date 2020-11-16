@@ -73,6 +73,7 @@
     <string name="fail_to_reserve">متاسفانه پرداخت موفق نبود</string>
     <string name="res_code">کد رهگیری :</string>
     <string name="back_to_home">بازگشت به صفحه اصلی</string>
+    <string name="do_u_exit_the_app">از برنامه خارج می‌شوید !؟</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>

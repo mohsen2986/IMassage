@@ -43,50 +43,57 @@
             </FrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/dialog_edit_family_layout_family"
+                android:id="@+id/dialog_edit_gender_layout_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/frameLayout"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
-                <TextView
-                    android:id="@+id/textView12"
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/dialog_edit_gender_man_woman_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/edit_family"
-                    android:layout_marginEnd="8dp"
-                    android:textColor="@color/black_low"
-                    android:textSize="@dimen/text_14_16_18_24"
+                    android:layout_marginTop="8dp"
+                    app:checkedButton="@+id/dialog_edit_gender_man"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:hint="@string/last_name"
-                    android:layoutDirection="rtl"
-                    app:errorEnabled="true"
-                    app:errorIconDrawable="@drawable/ic_error_outline"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="@dimen/margin_4_6_8_12"
-                    android:layout_marginEnd="8dp"
-                    app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16"
-                    app:layout_constraintTop_toBottomOf="@+id/textView12">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/dialog_edit_family_family"
-                        style="@style/TextAppearance.AppCompat.TextView.bold_16"
-                        android:layout_width="match_parent"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/dialog_edit_gender_woman"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="@string/woman"
                         android:textSize="@dimen/text_14_16_16_20"
-                        android:digits="ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ءئؤآة"
-                        android:textAlignment="viewStart" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        app:icon="@drawable/ic_woman"
+                        app:iconSize="24dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/dialog_edit_gender_man"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="@string/man"
+                        android:textSize="@dimen/text_14_16_16_20"
+                        android:paddingBottom="@dimen/margin_4_6_8_12"
+                        android:paddingTop="@dimen/margin_4_6_8_12"
+                        android:paddingStart="@dimen/margin_8_16_16_32"
+                        android:paddingEnd="@dimen/margin_8_16_16_32"
+                        android:translationX="-1dp"
+                        app:icon="@drawable/ic_man"
+                        app:iconSize="24dp" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/dialog_edit_family_submit"
+                android:id="@+id/dialog_edit_gender_submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_8_16_16_32"
@@ -100,7 +107,7 @@
                 android:textSize="@dimen/text_14_16_16_20"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dialog_edit_family_layout_family" />
+                app:layout_constraintTop_toBottomOf="@+id/dialog_edit_gender_layout_gender" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

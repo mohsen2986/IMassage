@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="8dp"
+        app:strokeColor="@color/overlay_dark_60"
+        app:strokeWidth="1dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/width_216"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/width_120_152_176_304"
+                android:background="@color/blue_asli"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/width_32_36_40_52"
+                    android:layout_height="@dimen/width_32_36_40_52"
+                    android:layout_gravity="center"
+                    android:tint="@color/black_low"
+                    app:srcCompat="@drawable/ic_exit" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/do_u_exit_the_app"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dialog_exit_ExitButton"
+                style="@style/Widget.MaterialComponents.Button.Customize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8_16_16_32"
+                android:layout_marginBottom="@dimen/margin_16_24_32_64"
+                android:paddingStart="@dimen/margin_16_24_32_40"
+                android:paddingTop="@dimen/margin_4_4_4_8"
+                android:paddingEnd="@dimen/margin_16_24_32_40"
+                android:paddingBottom="@dimen/margin_4_4_4_8"
+                android:text="@string/login"
+                android:textSize="@dimen/text_14_16_16_20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dialog_exit_cancel"
+                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dialog_exit_cancel"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Customize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:paddingStart="@dimen/margin_16_24_32_40"
+                android:paddingTop="@dimen/margin_4_4_4_8"
+                android:paddingEnd="@dimen/margin_16_24_32_40"
+                android:paddingBottom="@dimen/margin_4_4_4_8"
+                android:text="@string/back"
+                android:textSize="@dimen/text_14_16_16_20"
+                app:layout_constraintBottom_toBottomOf="@+id/dialog_exit_ExitButton"
+                app:layout_constraintEnd_toStartOf="@+id/dialog_exit_ExitButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/dialog_exit_ExitButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
