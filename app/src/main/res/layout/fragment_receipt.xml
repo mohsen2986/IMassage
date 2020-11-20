@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="account"
+            type="com.imassage.data.model.Account"
+            />
+        <variable
+            name="massage"
+            type="com.imassage.data.model.Massage"
+            />
+        <variable
+            name="packages"
+            type="com.imassage.data.model.Package"
+            />
+        <variable
+            name="transaction"
+            type="com.imassage.data.model.Transactions"
+            />
+        <variable
+            name="date"
+            type="java.lang.String"
+            />
+        <variable
+            name="time"
+            type="java.lang.String"
+            />
+        <variable
+            name="gender"
+            type="java.lang.String"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <!-- Massage , Package , Total Cost , Male/Female
+             Date , Time , Name + Family ,
+             Off Code !
+         -->
+
+        <TextView
+            android:id="@+id/fra_receipt_name_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="@dimen/margin_8_12_16_32"
+            android:drawableEnd="@drawable/ic_person"
+            android:drawablePadding="@dimen/margin_4_4_4_8"
+            android:maxLength="24"
+            android:maxLines="2"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:text="@{account.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="حسین نیازی کاریزک یشسیسشییسبیش"
+            />
+
+
+        <TextView
+            android:id="@+id/fra_receipt_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8_12_16_20"
+            android:drawableEnd="@drawable/ic_gender"
+            android:drawablePadding="@dimen/margin_8_8_8_16"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:text="@{gender.equals(`true`) ? `اقا` : `خانم` }"
+            app:layout_constraintEnd_toEndOf="@+id/fra_receipt_name_family"
+            app:layout_constraintTop_toBottomOf="@+id/fra_receipt_name_family"
+            tools:text="آقا" />
+
+        <TextView
+            android:id="@+id/fra_receipt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16_24_32_40"
+            android:drawableEnd="@drawable/ic_calendar_row_reservation"
+            android:drawablePadding="@dimen/margin_4_4_4_8"
+            android:text="@{date}"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/fra_receipt_name_family"
+            app:layout_constraintTop_toBottomOf="@+id/fra_receipt_gender"
+            tools:text="1399/03/21" />
+
+        <TextView
+            android:id="@+id/fra_receipt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16_24_32_40"
+            android:drawableEnd="@drawable/ic_clock"
+            android:drawablePadding="@dimen/margin_4_4_4_8"
+            android:text="@{time.substring(1)+`:00`}"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/fra_receipt_date"
+            app:layout_constraintEnd_toStartOf="@+id/fra_receipt_date"
+            app:layout_constraintTop_toTopOf="@+id/fra_receipt_date"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="22:00" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16_24_32_40"
+            android:drawableEnd="@drawable/ic_massage"
+            android:drawablePadding="@dimen/margin_4_4_4_8"
+            android:text="@string/massage"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            app:layout_constraintEnd_toEndOf="@+id/fra_receipt_date"
+            app:layout_constraintTop_toBottomOf="@id/fra_receipt_date"
+            tools:text="ماساژ :" />
+
+        <TextView
+            android:id="@+id/fra_receipt_massage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@{massage.name}"
+            android:maxWidth="@dimen/width_120_136_144_256"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toTopOf="@+id/textView24"
+            tools:text="ماساژ سامورایی" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8_12_16_20"
+            android:drawableEnd="@drawable/ic_package"
+            android:drawablePadding="@dimen/margin_4_4_4_8"
+            android:text="@string/packagee"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            app:layout_constraintEnd_toEndOf="@+id/textView24"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+        <TextView
+            android:id="@+id/fra_receipt_package"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:maxWidth="@dimen/width_120_136_144_256"
+            android:text="@{packages.name}"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toTopOf="@+id/textView25"
+            tools:text="پکیج ویژه" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/margin_8_12_16_20"
+            android:background="@color/black_low"
+            app:layout_constraintEnd_toEndOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/fra_receipt_package" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8_12_16_20"
+            android:text="@string/whole_price"
+            android:textColor="@color/black_high"
+            android:textSize="@dimen/text_14_16_18_24"
+            app:layout_constraintEnd_toEndOf="@+id/fra_receipt_date"
+            app:layout_constraintTop_toBottomOf="@id/view2" />
+
+        <TextView
+            android:id="@+id/fra_receipt_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_dollar"
+            android:drawablePadding="@dimen/margin_4_4_4_8"
+            android:text="@{transaction.amount}"
+            android:textColor="@color/black_low"
+            android:textSize="@dimen/text_14_16_18_24"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView23"
+            app:layout_constraintTop_toTopOf="@+id/textView23"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="120,000" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8_12_16_20"
+            android:text="@string/enter_off_code"
+            android:textColor="@color/black_high"
+            android:textSize="@dimen/text_14_16_18_24"
+            app:layout_constraintEnd_toEndOf="@+id/fra_receipt_date"
+            app:layout_constraintTop_toBottomOf="@id/textView23" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8_8_8_16"
+            android:hint="@string/off_code"
+            app:layout_constraintBottom_toBottomOf="@+id/fra_receipt_next"
+            app:layout_constraintEnd_toEndOf="@+id/textView26"
+            app:layout_constraintStart_toEndOf="@+id/fra_receipt_next"
+            app:layout_constraintTop_toTopOf="@+id/fra_receipt_next"
+            app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fra_receipt_off_code"
+                style="@style/TextAppearance.AppCompat.TextView.bold_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/text_14_16_16_20"
+                tools:text="74cd211234" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fra_receipt_next"
+            style="@style/Widget.MaterialComponents.Button.Customize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8_12_16_32"
+            android:paddingStart="@dimen/margin_16_24_32_40"
+            android:paddingTop="@dimen/margin_4_6_8_12"
+            android:paddingEnd="@dimen/margin_16_24_32_40"
+            android:paddingBottom="@dimen/margin_4_6_8_12"
+            android:text="@string/set_off_code"
+            android:textSize="@dimen/text_14_16_16_20"
+            app:layout_constraintStart_toStartOf="@+id/fra_receipt_price"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fra_receipt_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fra_question_bottom_sheet"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8_12_16_20"
+                android:layout_marginEnd="@dimen/margin_16_24_32_40"
+                android:text="@string/total_price"
+                android:textColor="@color/blue_50"
+                android:textSize="@dimen/text_14_16_18_28"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fra_receipt_total_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran_sans_bold"
+                android:text="@{transaction.amount}"
+                android:textColor="@color/blue_50"
+                android:textSize="@dimen/text_14_16_18_28"
+                android:textStyle="bold"
+                android:drawableEnd="@drawable/ic_dollar_white"
+                android:drawablePadding="@dimen/margin_8_8_8_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21"
+                tools:text="120,000 تومان" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fra_reserved_time_go_to_bank"
+                style="@style/Widget.MaterialComponents.Button.Customize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8_8_8_16"
+                android:layout_marginBottom="@dimen/margin_8_8_8_16"
+                android:backgroundTint="@color/blue_50"
+                android:paddingStart="@dimen/margin_16_24_32_40"
+                android:paddingTop="@dimen/margin_4_4_4_8"
+                android:paddingEnd="@dimen/margin_16_24_32_40"
+                android:paddingBottom="@dimen/margin_4_4_4_8"
+                android:text="@string/payment"
+                android:textColor="@color/pink_asli"
+                android:textSize="@dimen/text_14_16_16_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fra_receipt_total_cost" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
