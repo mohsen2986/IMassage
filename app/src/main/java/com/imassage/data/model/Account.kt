@@ -8,5 +8,9 @@ data class Account(
         @SerializedName("name")
         val name: String ,
         @SerializedName("family")
-        val family: String
+        val family: String ,
+        @SerializedName("photo")
+        val photo: String ,
+        @SerializedName("gender")
+        val gender: String
 )

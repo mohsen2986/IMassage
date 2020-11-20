@@ -6,5 +6,5 @@ class Answer(
         @SerializedName("question")
         val question: String ,
         @SerializedName("answer")
-        val answer: String
+        var answer: String
 )

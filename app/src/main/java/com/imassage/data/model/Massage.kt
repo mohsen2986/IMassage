@@ -12,5 +12,7 @@ data class  Massage(
         @SerializedName("image")
         val image: String ,
         @SerializedName("description")
-        val description: String
+        val description: String ,
+        @SerializedName("id")
+        val id: String
 )
