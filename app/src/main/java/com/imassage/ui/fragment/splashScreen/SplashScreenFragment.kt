@@ -61,7 +61,8 @@ class SplashScreenFragment : ScopedFragment() , KodeinAware {
     }
 
 
-    private fun bindUI() {
+    private fun bindUI() = launch{
+        viewModel.fetchMainData().await()
     }
 
     // animations
