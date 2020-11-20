@@ -11,6 +11,7 @@ class PackagesViewHolder(
     fun <T> bind(item: Package, onClickHandler: OnCLickHandler<T>?){
         itemBinding.packages = item
         onClickHandler?.let{
+            itemBinding.onClickHandler = onClickHandler
         }
     }
 }

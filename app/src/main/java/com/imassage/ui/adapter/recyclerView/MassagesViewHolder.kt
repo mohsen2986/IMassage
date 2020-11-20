@@ -11,6 +11,7 @@ class MassagesViewHolder(
     fun <T> bind(item: Massage, onClickHandler: OnCLickHandler<T>?){
         itemBinding.massage = item
         onClickHandler?.let{
+            itemBinding.onClickHandler = onClickHandler
         }
     }
 }

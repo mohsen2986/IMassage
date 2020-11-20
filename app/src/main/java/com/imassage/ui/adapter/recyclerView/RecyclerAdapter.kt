@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.imassage.R
-import com.imassage.data.model.Massage
-import com.imassage.data.model.Package
-import com.imassage.databinding.RowMassageKindsBinding
-import com.imassage.databinding.RowMassagePackageBinding
-import com.imassage.databinding.RowMassageTitleBinding
+import com.imassage.data.model.*
+import com.imassage.databinding.*
+import com.imassage.ui.adapter.questionRecyclerView.QuestionViewHolder
 import com.imassage.ui.utils.OnCLickHandler
 
 class RecyclerAdapter<T>(
@@ -20,7 +18,6 @@ class RecyclerAdapter<T>(
     var datas: List<T> = listOf()
     set(value){
         field = value
-        Log.e("Log__" , "set data is called")
         notifyDataSetChanged()
     }
     private lateinit var layoutInflater: LayoutInflater
@@ -39,6 +36,15 @@ class RecyclerAdapter<T>(
                 PackagesViewHolder(
                         RowMassagePackageBinding.inflate(layoutInflater , parent , false)
                 )
+            R.layout.row_reserve_time ->
+                ReserveTimeViewHolder(
+                        RowReserveTimeBinding.inflate(layoutInflater , parent , false)
+                )
+            R.layout.row_reservation_view ->
+                ReserveViewHolder(
+                        RowReservationViewBinding.inflate(layoutInflater , parent , false)
+                )
+
             else -> throw IllegalStateException("the type is invalid!!")
         }
     }
@@ -53,6 +59,10 @@ class RecyclerAdapter<T>(
                 holder.bind(datas[position] as Massage , onClickHandler = onClickHandler)
             is PackagesViewHolder ->
                 holder.bind(datas[position] as Package , onClickHandler = onClickHandler)
+            is ReserveTimeViewHolder ->
+                holder.bind(datas[position] as ReserveTime , onClickHandler = onClickHandler)
+            is ReserveViewHolder ->
+                holder.bind(datas[position] as Order , onClickHandler = onClickHandler)
         }
     }
 
@@ -60,6 +70,9 @@ class RecyclerAdapter<T>(
             when(datas[0]){
                 is Massage -> if (isGrid) R.layout.row_massage_kinds else R.layout.row_massage_title
                 is Package -> R.layout.row_massage_package
+                is Question -> R.layout.row_answer_questions
+                is ReserveTime -> R.layout.row_reserve_time
+                is Order -> R.layout.row_reservation_view
                 else -> throw IllegalStateException("the type is invalid!")
             }
 }
