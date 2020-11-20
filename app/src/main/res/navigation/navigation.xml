@@ -97,9 +97,6 @@
         <action
             android:id="@+id/action_mainPageFragment_to_reserve_view"
             app:destination="@id/reserve_view" />
-        <action
-            android:id="@+id/action_mainPageFragment_to_reservedTimeFragment"
-            app:destination="@id/reservedTimeFragment" />
     </fragment>
     <fragment
         android:id="@+id/massageFragment"
@@ -115,6 +112,13 @@
         android:name="com.imassage.ui.fragment.reserve.packages.PackagesFragment"
         android:label="PackageFragment"
         >
+        <argument
+            android:name="massage_id"
+            app:argType="string"
+            />
+        <action
+            android:id="@+id/action_packageFragment_to_reservedTimeFragment"
+            app:destination="@id/reservedTimeFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -125,6 +129,18 @@
             android:name="reserve_type"
             app:argType="string"
             />
+        <action
+            android:id="@+id/action_accountFragment_to_editAccountNameDialog"
+            app:destination="@id/editAccountNameDialog" />
+        <action
+            android:id="@+id/action_accountFragment_to_editAccountFamilyDialog"
+            app:destination="@id/editAccountFamilyDialog" />
+        <action
+            android:id="@+id/action_accountFragment_to_editAccountGenderDialog"
+            app:destination="@id/editAccountGenderDialog" />
+        <action
+            android:id="@+id/action_accountFragment_to_editAccountImageDialog"
+            app:destination="@id/editAccountImageDialog" />
     </fragment>
     <fragment
         android:id="@+id/reserve_view"
@@ -135,5 +151,53 @@
     <fragment
         android:id="@+id/reservedTimeFragment"
         android:name="com.imassage.ui.fragment.reserve.reserveTime.ReservedTimeFragment"
-        android:label="ReservedTimeFragment" />
+        android:label="ReservedTimeFragment" >
+        <action
+            android:id="@+id/action_reservedTimeFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.imassage.ui.fragment.reserve.question.QuestionFragment"
+        android:label="QuestionFragment" >
+        <action
+            android:id="@+id/action_questionFragment_to_receiptFragment"
+            app:destination="@id/receiptFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/receiptFragment"
+        android:name="com.imassage.ui.fragment.receipt.ReceiptFragment"
+        android:label="ReceiptFragment" />
+    <fragment
+        android:id="@+id/paymentGateway"
+        android:name="com.imassage.ui.fragment.paymentGateway.PaymentGatewayFragment"
+        android:label="fragment_payment_gateway"
+        tools:layout="@layout/fragment_payment_gateway" >
+        <argument
+            android:name="receipt"
+            app:nullable="true"
+            />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="payment://imassage/"
+            />
+    </fragment>
+    <dialog
+        android:id="@+id/editAccountNameDialog"
+        android:name="com.imassage.ui.dialog.account.editName.EditAccountNameDialog"
+        android:label="EditAccountNameDialog"
+        tools:layout="@layout/dialog_edit_name"
+        />
+    <dialog
+        android:id="@+id/editAccountFamilyDialog"
+        android:name="com.imassage.ui.dialog.account.editFamily.EditAccountFamilyDialog"
+        android:label="EditAccountFamilyDialog" />
+    <dialog
+        android:id="@+id/editAccountGenderDialog"
+        android:name="com.imassage.ui.dialog.account.editGender.EditAccountGenderDialog"
+        android:label="EditAccountGenderDialog" />
+    <dialog
+        android:id="@+id/editAccountImageDialog"
+        android:name="com.imassage.ui.dialog.account.editImage.EditAccountImageDialog"
+        android:label="EditAccountImageDialog" />
 </navigation>
