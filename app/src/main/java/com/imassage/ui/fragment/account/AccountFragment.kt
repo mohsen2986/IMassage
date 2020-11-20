@@ -14,6 +14,7 @@ import com.imassage.R
 import com.imassage.databinding.FragmentAccountBinding
 import com.imassage.databinding.FragmentMainPageBinding
 import com.imassage.ui.base.ScopedFragment
+import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -44,14 +45,40 @@ class AccountFragment : ScopedFragment() , KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this , viewModelFactory).get(AccountViewModel::class.java)
+        UIActions()
         bindUI()
     }
     private fun bindUI() = launch{
-        when(val callback = viewModel.updateAccount(name = "mohsen123" , family = null)){
-            is NetworkResponse.Success ->{
-                Log.e("Log__" , "the re")
+        // get account information // todo add loading
+        when(val callback = viewModel.accountInformation()){
+            is NetworkResponse.Success -> {
+                binding.account = callback.body
             }
         }
+//        when(val callback = viewModel.updateAccount(name = "mohsen123" , family = null)){
+//            is NetworkResponse.Success ->{
+//                Log.e("Log__" , "the re")
+//            }
+//        }
+    }
+    private fun UIActions(){
+        fra_account_name.setOnClickListener{
+            navController.navigate(R.id.action_accountFragment_to_editAccountNameDialog)
+        }
+        fra_account_family.setOnClickListener{
+            navController.navigate(R.id.action_accountFragment_to_editAccountFamilyDialog)
+        }
+        fra_account_gender.setOnClickListener{
+            navController.navigate(R.id.action_accountFragment_to_editAccountGenderDialog)
+        }
+        fra_account_image.setOnClickListener{
+            navController.navigate(R.id.action_accountFragment_to_editAccountImageDialog)
+        }
+        fra_account_back.setOnClickListener{
+            activity!!.onBackPressed()
+        }
+
+
     }
 
 }
