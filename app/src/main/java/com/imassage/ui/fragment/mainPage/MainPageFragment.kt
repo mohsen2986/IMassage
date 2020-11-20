@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.transition.Slide
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
@@ -48,6 +50,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     private lateinit var imageSliderAdapter: ImageSliderAdapter<Boarder>
     private lateinit var massageAdapter: RecyclerAdapter<Massage>
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -73,6 +76,22 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         initDrawer()
     }
     private fun bindUI() = launch {
+        viewModel.mainPageData().await().let {
+            imageSliderAdapter.datas = it.boarders
+            massageAdapter.datas = it.massages
+
+            if(it.aboutUs.isNotEmpty())
+                binding.aboutUs = it.aboutUs[0]
+
+            if(it.massages.isNotEmpty())
+                binding.massage = it.massages[0]
+        }
+        // get packages
+        viewModel.packageData().await()
+        viewModel.getAccountData().await()
+
+        /*
+        imageSliderAdapter.datas = viewModel.mainPageData()
         when(val data = viewModel.mainPage()){
             is NetworkResponse.Success ->{
                 imageSliderAdapter.datas = data.body.datas.boarders
@@ -94,11 +113,13 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
                 Log.e("Log__" , "the data server")
             }
         }
+        */
     }
     private fun initOnClickListeners(){
         fra_main_page_reserve.setOnClickListener{
             navController.navigate(R.id.action_mainPageFragment_to_massageFragment)
         }
+        getGender()
     }
     private fun initAdapter(){
         imageSliderAdapter = ImageSliderAdapter()
@@ -130,12 +151,12 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
             navController.navigate(R.id.action_mainPageFragment_to_accountFragment)
         }
         drawer_history.setOnClickListener{
-            navController.navigate(R.id.action_mainPageFragment_to_reservedTimeFragment ,
+            navController.navigate(R.id.action_mainPageFragment_to_reserve_view ,
                     bundleOf(StaticVariables.RESERVE_TYPE to StaticVariables.HISTORY)
             )
         }
         drawer_reserved_time.setOnClickListener{
-            navController.navigate(R.id.action_mainPageFragment_to_reservedTimeFragment ,
+            navController.navigate(R.id.action_mainPageFragment_to_reserve_view ,
                     bundleOf( StaticVariables.RESERVE_TYPE to StaticVariables.RESERVE_TIME)
             )
         }
@@ -144,10 +165,23 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         viewModel.logOut()
         resetApplication(activity)
     }
+    private fun getGender(){
+        when(fra_main_page_man_woman_group.checkedButtonId){
+            R.id.fra_main_page_woman -> viewModel.setFemaleGender()
+            R.id.fra_main_page_man   -> viewModel.setMaleGender()
+        }
+        fra_main_page_man_woman_group.addOnButtonCheckedListener{ group, checkedId, isChecked ->
+            when(checkedId){
+                R.id.fra_main_page_woman -> viewModel.setFemaleGender()
+                R.id.fra_main_page_man   -> viewModel.setMaleGender()
+            }
+        }
+    }
     // get source Fragment
     private fun sourceFragment(){
         when(arguments?.getString(StaticVariables.SOURCE_FRAGMENT)){
             StaticVariables.SPLASH_FRAGMENT -> {
+                getDate()
                 enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true).apply {
                     duration = 500L
                 }
@@ -168,6 +202,20 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
                 }
             }
         }
+    }
+    private fun getDate() = launch {
+        viewModel.mainPageData().await().let {
+            imageSliderAdapter.datas = it.boarders
+            massageAdapter.datas = it.massages
+
+            if(it.aboutUs.isNotEmpty())
+                binding.aboutUs = it.aboutUs[0]
+
+            if(it.massages.isNotEmpty())
+                binding.massage = it.massages[0]
+        }
+        // get packages
+        viewModel.packageData().await()
     }
 
 
