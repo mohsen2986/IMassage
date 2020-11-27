@@ -73,4 +73,10 @@ class UserInformationRepository(
                 return@withContext callback
             }
 
+    suspend fun resetPassword(phone: String) =
+            apiInterface.resetPassword(phone)
+
+    suspend fun resetPasswordVerification(code: String , password: String) =
+            apiInterface.verifyResetPassword(smsToken , code , password , password)
+
 }
