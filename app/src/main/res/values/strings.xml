@@ -134,6 +134,7 @@
     <string name="reset">بازیابی</string>
     <string name="new_password">رمزعبور جدید</string>
     <string name="exit">خروج</string>
+    <string name="phone_veri">کد پیامکی</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>
