@@ -1,7 +1,6 @@
 package com.imassage.data.model
 
 import com.google.gson.annotations.SerializedName
-import com.imassage.data.remote.model.Packages
 
 data class Order(
         @SerializedName("time")
@@ -19,7 +18,7 @@ data class Order(
         @SerializedName("massage")
         val massage: Massage ,
         @SerializedName("packages")
-        val packages: Packages ,
+        val packages: Package ,
         @SerializedName("transactions")
         val transactions: Transactions ,
         @SerializedName("reserved_time_dates")
