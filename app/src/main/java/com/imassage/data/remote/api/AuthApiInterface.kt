@@ -104,4 +104,14 @@ interface AuthApiInterface{
             @Query("transactions_id") transactionId: String,
             @Query("gender") gender: String
     ): NetworkResponse<Order , ErrorResponse>
+
+    // reserve time
+    @POST("reserve")
+    suspend fun reserveTime(
+            @Query("time") time: String ,
+            @Query("reserved_time_date_id") reserveTime: String ,
+            @Query("massage_id") massageId: String ,
+            @Query("package_id") packageId: String ,
+            @Query("gender") gender: String
+    ): NetworkResponse< ErrorResponse , ErrorResponse>
 }
