@@ -77,4 +77,9 @@ class OrderRepository(
             }
         }
     }
+    suspend fun sendReserveTime(){
+        GlobalScope.launch(IO) {
+            apiInterface.reserveTime(time , date , massageId , packageId , gender.toString())
+        }
+    }
 }
