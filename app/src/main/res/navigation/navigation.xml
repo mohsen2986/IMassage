@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_loginFragment_to_phoneVerificationFragment"
             app:destination="@id/phoneVerificationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_resetPasswordDialog"
+            app:destination="@id/resetPasswordDialog" />
     </fragment>
     <fragment
         android:id="@+id/registerFormFragment"
@@ -200,4 +203,12 @@
         android:id="@+id/editAccountImageDialog"
         android:name="com.imassage.ui.dialog.account.editImage.EditAccountImageDialog"
         android:label="EditAccountImageDialog" />
+    <dialog
+        android:id="@+id/resetPasswordDialog"
+        android:name="com.imassage.ui.dialog.resetPassword.ResetPasswordDialog"
+        android:label="ResetPasswordDialog" >
+        <action
+            android:id="@+id/action_resetPasswordDialog_to_phoneVerificationFragment"
+            app:destination="@id/phoneVerificationFragment" />
+    </dialog>
 </navigation>
