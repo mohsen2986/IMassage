@@ -4,9 +4,11 @@ import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.data.model.AccessToken
 import com.imassage.data.remote.model.ErrorResponse
 import com.imassage.data.remote.model.SmsVerificationResponse
+import com.imassage.data.remote.model.Status
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiInterface{
     // register
@@ -71,4 +73,19 @@ interface ApiInterface{
         @Field("refresh_token")
         refreshToke: String
     ): NetworkResponse<AccessToken , ErrorResponse>
+
+    // reset password
+    @POST("resetPassword")
+    suspend fun resetPassword(
+            @Query("phone") phone: String
+    ): NetworkResponse< SmsVerificationResponse , ErrorResponse>
+
+    // verify reset password
+    @POST("verifyResetPassword")
+    suspend fun verifyResetPassword(
+            @Query("token") token: String ,
+            @Query("code") code: String ,
+            @Query("password") password: String ,
+            @Query("password_confirmation") passwordConfirmation: String
+    ):NetworkResponse< Status , ErrorResponse>
 }
