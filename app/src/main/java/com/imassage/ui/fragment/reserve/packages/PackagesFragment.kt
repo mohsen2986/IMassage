@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.data.model.Answer
@@ -51,6 +52,7 @@ class PackagesFragment : ScopedFragment() , KodeinAware {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setEnterTransitions()
         navController = findNavController()
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -93,6 +95,7 @@ class PackagesFragment : ScopedFragment() , KodeinAware {
     }
     private fun bindAdapter(){
         fra_package_recycler.apply {
+            setExitTransitions()
             adapter = packageAdapter
         }
     }
@@ -104,4 +107,24 @@ class PackagesFragment : ScopedFragment() , KodeinAware {
             activity!!.onBackPressed()
         }
     }
+
+    private fun setEnterTransitions() {
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
+    }
+
+    private fun setExitTransitions() {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
+    }
+
 }

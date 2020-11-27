@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.data.model.Answer
@@ -48,6 +49,7 @@ class QuestionFragment : ScopedFragment() , KodeinAware {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setEnterTransitions()
         navController = findNavController()
     }
 
@@ -100,6 +102,26 @@ class QuestionFragment : ScopedFragment() , KodeinAware {
     private fun bindAdapters(){
         fra_question_recycler.apply{
             adapter = questionAdapter
+        }
+    }
+
+
+    private fun setEnterTransitions() {
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
+        }
+    }
+
+    private fun setExitTransitions() {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
         }
     }
 

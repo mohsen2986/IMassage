@@ -1,5 +1,6 @@
 package com.imassage.ui.fragment.reserve.massage
 
+import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -8,9 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.transition.Slide
+import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.data.model.Massage
@@ -47,6 +52,7 @@ class MassageFragment : ScopedFragment() , KodeinAware {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setEnterTransitions()
         navController = findNavController()
     }
 
@@ -90,12 +96,38 @@ class MassageFragment : ScopedFragment() , KodeinAware {
     }
     private fun bindAdapter(){
         fra_massage_recycler.apply {
+            setExitTransitions()
             adapter = massagesAdapter
         }
     }
     private fun UIActions(){
         fra_massage_back.setOnClickListener{
             activity!!.onBackPressed()
+        }
+    }
+
+    private fun setEnterTransitions(){
+        enterTransition = MaterialContainerTransform().apply {
+            startView = requireActivity().findViewById(R.id.fra_main_page_reserve)
+            endView = binding.fraMassageContainer
+            duration = 500L
+            scrimColor = Color.TRANSPARENT
+            containerColor = R.drawable.back_test
+            startContainerColor = ContextCompat.getColor(requireContext(),R.color.avatar_color_7)
+            endContainerColor = R.drawable.back_test
+        }
+        returnTransition = Slide().apply {
+            duration = 500L
+            addTarget(R.id.fra_massage_container)
+        }
+    }
+    private fun setExitTransitions() {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
+            duration = 500L
+        }
+
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+            duration = 500L
         }
     }
 

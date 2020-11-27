@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.transition.Slide
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialElevationScale
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
@@ -117,6 +118,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     }
     private fun initOnClickListeners(){
         fra_main_page_reserve.setOnClickListener{
+            setExitTransitions()
             navController.navigate(R.id.action_mainPageFragment_to_massageFragment)
         }
         getGender()
@@ -218,5 +220,13 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         viewModel.packageData().await()
     }
 
+    private fun setExitTransitions() {
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = 500L
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = 500L
+        }
+    }
 
 }
