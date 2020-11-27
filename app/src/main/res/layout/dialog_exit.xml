@@ -17,7 +17,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="@dimen/width_216"
+            android:layout_width="@dimen/width_dialog"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/do_u_exit_the_app"
+                android:textSize="@dimen/text_14_16_16_20"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
@@ -64,7 +65,7 @@
                 android:paddingTop="@dimen/margin_4_4_4_8"
                 android:paddingEnd="@dimen/margin_16_24_32_40"
                 android:paddingBottom="@dimen/margin_4_4_4_8"
-                android:text="@string/login"
+                android:text="@string/exit"
                 android:textSize="@dimen/text_14_16_16_20"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

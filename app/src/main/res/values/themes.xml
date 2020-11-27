@@ -37,15 +37,29 @@
     </style>
 
     <style name="Widget.MaterialComponents.Button.TextButton.Customize" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:fontFamily">@font/iran_sans_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Widget.MaterialComponents.Button.OutlinedButton.Customize" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:fontFamily">@font/iran_sans_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Widget.MaterialComponents.Button.Customize" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/iran_sans_bold</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
     </style>
 
 
