@@ -23,4 +23,7 @@ class ReservedTimeViewModel(
     }
     suspend fun checkReserveTime() =
             orderRepository.checkTime()
+
+    suspend fun reserveTime() =
+            orderRepository.sendReserveTime()
 }

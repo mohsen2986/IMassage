@@ -86,6 +86,7 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
                 viewModel.setTime(element.clock)
                 runBlocking(IO) {
                     Log.e("Log__" , viewModel.checkReserveTime().toString())
+                    viewModel.reserveTime()
                     navController.navigate(R.id.action_reservedTimeFragment_to_questionFragment)
                 }
 //                navController.navigate(R.id.action_reservedTimeFragment_to_questionFragment)
