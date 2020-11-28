@@ -73,8 +73,17 @@ class UserInformationRepository(
                 return@withContext callback
             }
 
-    suspend fun resetPassword(phone: String) =
-            apiInterface.resetPassword(phone)
+    suspend fun resetPassword(phone: String): NetworkResponse<SmsVerificationResponse, ErrorResponse> {
+        return withContext(IO){
+            val callback = apiInterface.resetPassword(phone)
+            when (callback){
+                is NetworkResponse.Success -> {
+                    Companion.smsToken = callback.body.token
+                }
+            }
+            return@withContext callback
+        }
+    }
 
     suspend fun resetPasswordVerification(code: String , password: String) =
             apiInterface.verifyResetPassword(smsToken , code , password , password)

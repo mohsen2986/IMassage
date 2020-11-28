@@ -275,7 +275,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/iran_sans_bold"
-                android:text="@{transaction.amount}"
+                android:text="@{transaction.amountWithOffer}"
                 android:textColor="@color/blue_50"
                 android:textSize="@dimen/text_14_16_18_28"
                 android:textStyle="bold"

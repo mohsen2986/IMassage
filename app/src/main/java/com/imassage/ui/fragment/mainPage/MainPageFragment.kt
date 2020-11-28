@@ -77,6 +77,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         initDrawer()
     }
     private fun bindUI() = launch {
+        viewModel.mainPageData().await()
         viewModel.mainPageData().await().let {
             imageSliderAdapter.datas = it.boarders
             massageAdapter.datas = it.massages
@@ -89,7 +90,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         }
         // get packages
         viewModel.packageData().await()
-        viewModel.getAccountData().await()
+        binding.account = viewModel.getAccountData().await()
 
         /*
         imageSliderAdapter.datas = viewModel.mainPageData()

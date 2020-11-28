@@ -3,6 +3,7 @@ package com.imassage.data.remote.api
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.data.model.*
 import com.imassage.data.remote.model.*
+import okhttp3.MultipartBody
 import retrofit2.http.*
 
 interface AuthApiInterface{
@@ -43,6 +44,13 @@ interface AuthApiInterface{
         @Query("family") family: String? ,
         @Query("gender") gender: String?
     ):NetworkResponse<Account, ErrorResponse>
+
+    @Multipart
+    @POST("user_info/1")
+    suspend fun updatePhotoAccount(
+            @Part photo: MultipartBody.Part ,
+            @Query("_method") method: String = "PUT"
+    ): NetworkResponse<Account , ErrorResponse>
 
     // ger User information
     @GET("user_info")

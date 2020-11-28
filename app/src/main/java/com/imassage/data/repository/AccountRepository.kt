@@ -5,6 +5,7 @@ import com.imassage.data.model.Account
 import com.imassage.data.model.MainPage
 import com.imassage.data.remote.api.AuthApiInterface
 import com.imassage.ui.base.lazyDeferred
+import okhttp3.MultipartBody
 
 class AccountRepository(
         private val apiInterface: AuthApiInterface
@@ -24,4 +25,7 @@ class AccountRepository(
             else -> Account("unknown" , "unknown" ,"unknown" , "unknown" , "true")
         }
     }
+
+    suspend fun updatePhotoAccount(photo: MultipartBody.Part) =
+            apiInterface.updatePhotoAccount(photo)
 }

@@ -12,6 +12,8 @@ import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.DialogResetPasswordBinding
 import com.imassage.ui.base.ScopedDialogFragment
+import com.imassage.ui.utils.OnCLickHandler
+import kotlinx.android.synthetic.main.dialog_reset_password.*
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -42,11 +44,27 @@ class ResetPasswordDialog : ScopedDialogFragment() , KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this , viewModelFactory).get(ResetPasswordDialogViewModel::class.java)
-        bindUI()
+        uiActions()
     }
     private fun bindUI() = launch {
-        when(val callback = viewModel.resetPassword("")){
-            is NetworkResponse.Success -> {}
+        when(val callback = viewModel.resetPassword(dialog_reset_password_phone.text.toString())){
+            is NetworkResponse.Success -> {
+                navController.navigate(R.id.action_resetPasswordDialog_to_resetPasswordFragment)
+            }
+        }
+    }
+    private fun uiActions(){
+        binding.onClick = object :OnCLickHandler<Nothing> {
+            override fun onClickItem(element: Nothing) {}
+            override fun onClickView(view: View, element: Nothing) {}
+            override fun onClick(view: View) {
+                when(view){
+                    dialog_reset_password_reset ->
+                        bindUI()
+                }
+            }
+
+
         }
     }
 

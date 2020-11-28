@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="imageUri"
+            type="android.net.Uri"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,11 +59,12 @@
                     android:layout_marginTop="@dimen/margin_top_8_16_32_64"
                     android:background="@drawable/sign_up_image_back"
                     android:padding="16dp"
+                    android:setImageFromSD="@{imageUri}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_add_photo_120"
-                    app:tint="@color/overlay_dark_50" />
+                    />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout"
