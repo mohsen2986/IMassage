@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">IMassage</string>
-    <string name="massage_reservation">IMassage</string>
+    <string name="app_name">جزیره آرامش</string>
     <string name="mobile_number">شماره تلفن</string>
     <string name="password">رمز عبور</string>
     <string name="login">ورود</string>

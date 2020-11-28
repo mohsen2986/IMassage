@@ -141,6 +141,10 @@
                         android:layoutDirection="rtl"
                         android:text="@string/woman"
                         android:textSize="@dimen/text_14_16_16_20"
+                        android:paddingBottom="@dimen/margin_4_6_8_12"
+                        android:paddingTop="@dimen/margin_4_6_8_12"
+                        android:paddingStart="@dimen/margin_8_16_16_32"
+                        android:paddingEnd="@dimen/margin_8_16_16_32"
                         app:icon="@drawable/ic_woman"
                         app:iconSize="24dp" />
 
