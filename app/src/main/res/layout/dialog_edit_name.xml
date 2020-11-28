@@ -21,7 +21,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="216dp"
+            android:layout_width="@dimen/width_dialog"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
