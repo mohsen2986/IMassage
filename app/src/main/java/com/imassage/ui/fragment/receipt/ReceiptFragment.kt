@@ -62,6 +62,7 @@ class ReceiptFragment : ScopedFragment() , KodeinAware {
                     binding.time = viewModel.getTime()
                     binding.date = viewModel.getDate()
                     binding.massage = viewModel.massage()
+                    binding.packages = viewModel.packages()
                 }
             }
         }

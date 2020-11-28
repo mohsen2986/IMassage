@@ -208,7 +208,18 @@
         android:name="com.imassage.ui.dialog.resetPassword.ResetPasswordDialog"
         android:label="ResetPasswordDialog" >
         <action
-            android:id="@+id/action_resetPasswordDialog_to_phoneVerificationFragment"
-            app:destination="@id/phoneVerificationFragment" />
+            android:id="@+id/action_resetPasswordDialog_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.imassage.ui.fragment.resetPassword.ResetPasswordFragment"
+        android:label="ResetPasswordFragment" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_splashScreenFragment"
+            app:destination="@id/splashScreenFragment"
+            app:popUpTo="@id/resetPasswordFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
 </navigation>
