@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import com.imassage.databinding.DialogEditFamilyBinding
 import com.imassage.databinding.DialogEditNameBinding
@@ -13,6 +16,7 @@ import com.imassage.ui.base.ScopedDialogFragment
 import com.imassage.ui.dialog.account.editName.EditAccountNameDialogViewModelFactory
 import com.imassage.ui.dialog.account.editName.EditAccountNameViewModel
 import com.imassage.ui.fragment.reserve.massage.MassageViewModel
+import com.imassage.ui.utils.StaticVariables
 import kotlinx.android.synthetic.main.dialog_edit_family.*
 import kotlinx.android.synthetic.main.dialog_edit_name.*
 import kotlinx.coroutines.launch
@@ -57,6 +61,16 @@ class EditAccountFamilyDialog(
     }
     private fun sendNewName() = launch{
         viewModel.updateAccount(dialog_edit_family_family.text.toString())
-        activity!!.onBackPressed()
+        refreshDate()
+        requireActivity().onBackPressed()
+    }
+    private fun refreshDate(){
+        setFragmentResult("requestKey", bundleOf("bundleKey" to StaticVariables.REFRESH))
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true /* enabled by default */) {
+            override fun handleOnBackPressed() {
+//                 Handle the back button event
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 }
