@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewGroupCompat
 import androidx.navigation.NavController
@@ -24,6 +25,7 @@ import com.imassage.ui.base.ScopedFragment
 import com.imassage.ui.utils.ShowStatus
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -86,16 +88,27 @@ class LoginFragment : ScopedFragment() , KodeinAware {
             }
             loginIntoServer()
         }
+        fra_login_reset_password.setOnClickListener {
+            navController.navigate(R.id.action_loginFragment_to_resetPasswordDialog)
+        }
     }
     private fun loginIntoServer() = launch {
         val phone = fra_login_mobile.text.toString()
         val password = fra_login_password.text.toString()
-        when(val calback = viewModel.login(phone , password)){
+        when(val callback = viewModel.login(phone , password)){
             is NetworkResponse.Success -> {
-                status.showSuccess(binding.fraLoginShowStatus)
-                navController.navigate(R.id.action_loginFragment_to_phoneVerificationFragment ,
-                        bundleOf("verification_type" to "login")
-                )
+                if(callback.code == 200) {
+                    status.showSuccess(binding.fraLoginShowStatus)
+                    delay(6_00)
+                    navController.navigate(R.id.action_loginFragment_to_phoneVerificationFragment,
+                            bundleOf("verification_type" to "login")
+                    )
+                }else{
+                    status.showFail(binding.fraLoginShowStatus)
+                    delay(6_00)
+//                    status.showButton(binding.fraLoginShowStatus)
+                    Toast.makeText(context, "شماره و یا رمز عبور اشتباه است." , Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
