@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:strokeWidth="1dp"
+        android:background="@android:color/transparent"
+        app:strokeColor="@color/overlay_dark_60"
+        android:layout_height="wrap_content"
+        >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="216dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/width_120_152_176_304"
+                android:background="@color/blue_asli"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/width_32_36_40_52"
+                    android:layout_height="@dimen/width_32_36_40_52"
+                    android:layout_gravity="center"
+                    android:tint="@color/black_low"
+                    app:srcCompat="@drawable/ic_edit_account" />
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_edit_name_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_name"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/black_low"
+                    android:textSize="@dimen/text_14_16_18_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:hint="@string/name"
+                    android:layoutDirection="rtl"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error_outline"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="@dimen/margin_4_6_8_12"
+                    android:layout_marginEnd="8dp"
+                    app:placeholderTextAppearance="@style/TextAppearance.AppCompat.TextView.normal_16"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dialog_edit_name_name"
+                        style="@style/TextAppearance.AppCompat.TextView.bold_16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_14_16_16_20"
+                        android:digits="ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ءئؤآة"
+                        android:textAlignment="viewStart" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dialog_edit_name_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_8_12_16_20"
+                android:layout_marginTop="@dimen/margin_8_12_16_24"
+                android:layout_marginBottom="@dimen/margin_8_12_16_24"
+                android:paddingStart="@dimen/margin_16_24_32_40"
+                android:paddingTop="@dimen/margin_4_4_4_8"
+                android:paddingEnd="@dimen/margin_16_24_32_40"
+                android:paddingBottom="@dimen/margin_4_4_4_8"
+                android:text="@string/edit"
+                android:textSize="@dimen/text_14_16_16_20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_edit_name_layout_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
