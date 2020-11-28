@@ -207,18 +207,22 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         }
     }
     private fun getDate() = launch {
-        viewModel.mainPageData().await().let {
-            imageSliderAdapter.datas = it.boarders
-            massageAdapter.datas = it.massages
+        when(val callback = viewModel.mainPage()){
+            is NetworkResponse.Success ->{
+                val it = callback.body.datas
+                imageSliderAdapter.datas = it.boarders
+                massageAdapter.datas = it.massages
 
-            if(it.aboutUs.isNotEmpty())
-                binding.aboutUs = it.aboutUs[0]
+                if(it.aboutUs.isNotEmpty())
+                    binding.aboutUs = it.aboutUs[0]
 
-            if(it.massages.isNotEmpty())
-                binding.massage = it.massages[0]
+                if(it.massages.isNotEmpty())
+                    binding.massage = it.massages[0]
+
+                // get packages
+                viewModel.packageData().await()
+            }
         }
-        // get packages
-        viewModel.packageData().await()
     }
 
     private fun setExitTransitions() {

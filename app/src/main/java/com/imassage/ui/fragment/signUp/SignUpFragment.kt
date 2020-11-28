@@ -69,23 +69,40 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
         getPermission()
     }
     private fun bindUI() = launch {
-        Log.d("log__" , "enter the page")
     }
+
     private fun uiActions(){
         fra_signUp_man_woman_group.checkedButtonId
-        fra_signUp_next.setOnClickListener{
-            hideKeyboard(it)
-            setExitTransitions()
-            val gender = when(fra_signUp_man_woman_group.checkedButtonId){
-                R.id.fra_signUp_man -> "true"
-                else -> "false"  // for the other gender Females
+        fra_signUp_next.setOnClickListener {
+            if (fra_signUp_name.text?.isNotEmpty()!! && fra_signUp_family.text?.isNotEmpty()!!) {
+                hideKeyboard(it)
+                setExitTransitions()
+                val gender = when (fra_signUp_man_woman_group.checkedButtonId) {
+                    R.id.fra_signUp_man -> "true"
+                    else -> "false"  // for the other gender Females
+                }
+                val bundle =
+                        if (postPath == null) {
+                            bundleOf(
+                                    "name" to fra_signUp_name.text.toString(),
+                                    "family" to fra_signUp_family.text.toString(),
+                                    "gender" to gender,
+                                    "image" to "false"
+                            )
+                        } else {
+                            bundleOf(
+                                    "name" to fra_signUp_name.text.toString(),
+                                    "family" to fra_signUp_family.text.toString(),
+                                    "gender" to gender,
+                                    "fileUri" to fileUri,
+                                    "postPath" to postPath,
+                                    "image" to "true"
+                            )
+                        }
+                navController.navigate(R.id.action_signUpFragment_to_registerFormFragment, bundle)
+            }else{
+                Toast.makeText(context , "نام و نام خانوادگی را وترد کنید." , Toast.LENGTH_SHORT).show()
             }
-            val bundle = bundleOf(
-                    "name" to fra_signUp_name.text.toString() ,
-                    "family" to fra_signUp_family.text.toString() ,
-                    "gender" to gender
-            )
-            navController.navigate(R.id.action_signUpFragment_to_registerFormFragment , bundle)
         }
         fra_signUp_go_to_login.setOnClickListener {
             hideKeyboard(it)
@@ -115,7 +132,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
 
                     val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
 
-                    val cursor = activity!!.contentResolver.query(selectedImage!!, filePathColumn, null, null, null)
+                    val cursor = requireActivity().contentResolver.query(selectedImage!!, filePathColumn, null, null, null)
 
                     if (BuildConfig.DEBUG && cursor == null) {
                         error("Assertion failed")
@@ -134,7 +151,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
             }
 
         } else if (resultCode != Activity.RESULT_CANCELED) {
-            Toast.makeText(context!!, "Sorry, there was an error!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Sorry, there was an error!", Toast.LENGTH_LONG).show()
         }
 
     }

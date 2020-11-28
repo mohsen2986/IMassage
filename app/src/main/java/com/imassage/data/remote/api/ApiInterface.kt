@@ -5,10 +5,8 @@ import com.imassage.data.model.AccessToken
 import com.imassage.data.remote.model.ErrorResponse
 import com.imassage.data.remote.model.SmsVerificationResponse
 import com.imassage.data.remote.model.Status
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
-import retrofit2.http.Query
+import okhttp3.MultipartBody
+import retrofit2.http.*
 
 interface ApiInterface{
     // register
@@ -27,6 +25,25 @@ interface ApiInterface{
         phone: String ,
         @Field("gender")
         gender: Boolean
+    ): NetworkResponse<SmsVerificationResponse, ErrorResponse>
+
+    // register
+    @Multipart
+    @POST("register")
+    suspend fun registerWithPhoto(
+            @Part photo: MultipartBody.Part,
+            @Query("name")
+            name: String,
+            @Query("family")
+            family: String,
+            @Query("password")
+            password: String,
+            @Query("password_confirmation")
+            passwordConfirmation: String,
+            @Query("phone")
+            phone: String,
+            @Query("gender")
+            gender: Boolean
     ): NetworkResponse<SmsVerificationResponse, ErrorResponse>
 
     @POST("registerVerify")

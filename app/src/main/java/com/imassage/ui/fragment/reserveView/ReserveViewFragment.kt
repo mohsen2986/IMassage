@@ -8,14 +8,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.paging.PagedList
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.data.model.Order
+import com.imassage.data.remote.model.NetworkState
 import com.imassage.data.remote.model.OrdersResponse
 import com.imassage.databinding.FragmentReserveViewBinding
+import com.imassage.ui.adapter.paging.RecyclerAdapterPaging
 import com.imassage.ui.adapter.recyclerView.RecyclerAdapter
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.OnCLickHandler
 import com.imassage.ui.utils.StaticVariables
 import kotlinx.android.synthetic.main.fragment_massage.*
 import kotlinx.android.synthetic.main.fragment_reserve_view.*
@@ -36,6 +42,8 @@ class ReserveViewFragment : ScopedFragment() , KodeinAware {
     // -- FOR DATA
     private lateinit var orderAdapter: RecyclerAdapter<Order>
     private var reserveType = ""
+    // -- FOR DATA
+    private lateinit var adapter: RecyclerAdapterPaging<Any>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,6 +67,10 @@ class ReserveViewFragment : ScopedFragment() , KodeinAware {
         bindAdapters()
         UIAction()
         bindUI()
+//        configViewModel(requireArguments().getString(StaticVariables.RESERVE_TYPE).toString())
+//        configureObservables()
+//        initAdapter()
+//        fra_reserve_view_recycler.adapter = adapter
     }
     private fun bindUI() = launch{
         when(reserveType) {
@@ -85,7 +97,7 @@ class ReserveViewFragment : ScopedFragment() , KodeinAware {
         }
     }
     private fun getArgument(){
-        reserveType = arguments!!.getString(StaticVariables.RESERVE_TYPE).toString()
+        reserveType = requireArguments().getString(StaticVariables.RESERVE_TYPE).toString()
     }
     private fun initAdapters(){
         orderAdapter = RecyclerAdapter()
@@ -97,8 +109,66 @@ class ReserveViewFragment : ScopedFragment() , KodeinAware {
     }
     private fun UIAction(){
         fra_reserve_view_back.setOnClickListener{
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
         }
+    }
+
+    // paging
+    override fun onStart() {
+        super.onStart()
+        viewModel.refreshAllList()
+    }
+    private fun initAdapter(){
+        adapter = RecyclerAdapterPaging(
+                object : RecyclerAdapterPaging.OnClickListener{
+                    override fun onRefresh() {
+                    }
+
+                    override fun whenListIsUpdated(size: Int, networkState: NetworkState?) {
+                    }
+
+                }
+        )
+        adapter.onClickHandler = object : OnCLickHandler<Any> {
+            override fun onClickItem(element: Any) {}
+            override fun onClick(view: View) {}
+            override fun onClickView(view: View, element: Any) {}
+        }
+    }
+    private fun configureObservables() {
+        viewModel.networkState?.observe(viewLifecycleOwner, Observer { adapter.updateNetworkState(it) })
+        viewModel.users.observe(viewLifecycleOwner, Observer { adapter.submitList(it as PagedList<Any>) })
+    }
+    private fun configViewModel(bundle:String){
+        viewModel.fetchQuery(bundle)
+    }
+    private fun updateUIWhenLoading(size:Int , networkState: NetworkState?){
+//        fra_show_items_progress.visibility = if(size == 0 && networkState == NetworkState.RUNNING) View.VISIBLE else View.GONE // todo loading
+    }
+    private fun updateUIWhenEmptyList(size:Int , networkState: NetworkState?){
+        // todo empty list
+        /*
+        fra_show_items_img_status.visibility = View.GONE
+        fra_show_items_status_txt.visibility = View.GONE
+        fra_show_items_retry.visibility = View.GONE
+        if(size == 0){
+            when(networkState){
+                NetworkState.SUCCESS ->{
+                    Glide.with(this).load(R.drawable.not_found).into(fra_show_items_img_status)
+                    fra_show_items_status_txt.text = getString(R.string.items_not_found)
+                    fra_show_items_img_status.visibility = View.VISIBLE
+                    fra_show_items_status_txt.visibility = View.VISIBLE
+                    fra_show_items_retry.visibility = View.GONE
+                }
+                NetworkState.FAILED ->{
+                    Glide.with(this).load(R.drawable.no_connection).into(fra_show_items_img_status)
+                    fra_show_items_status_txt.text = getString(R.string.internet_error)
+                    fra_show_items_img_status.visibility = View.VISIBLE
+                    fra_show_items_status_txt.visibility = View.VISIBLE
+                    fra_show_items_retry.visibility = View.VISIBLE
+                }
+            }
+        }*/
     }
 
 }

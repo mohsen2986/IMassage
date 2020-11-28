@@ -64,7 +64,6 @@ class IMassageApplication(
         bind() from singleton { TokenRepository(instance())}
         bind() from singleton { DataRepository(instance())}
 
-
     }
     override fun onCreate() {
         super.onCreate()

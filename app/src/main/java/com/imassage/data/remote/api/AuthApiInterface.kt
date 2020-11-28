@@ -91,6 +91,11 @@ interface AuthApiInterface{
     @GET("orders_history")
     suspend fun ordersHistory(
     ): NetworkResponse<OrdersResponse, ErrorResponse>
+    // paginate
+    @GET("orders_history_")
+    suspend fun ordersHistory_(
+            @Query("page") page: Int?
+    ): NetworkResponse<OrderResponse, ErrorResponse>
     //  get orders
     @POST("orders")
     suspend fun orders(

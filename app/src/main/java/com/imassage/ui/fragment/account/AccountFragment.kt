@@ -144,7 +144,7 @@ class AccountFragment : ScopedFragment() , KodeinAware {
             }
 
         } else if (resultCode != Activity.RESULT_CANCELED) {
-            Toast.makeText(context!!, "Sorry, there was an error!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Sorry, there was an error!", Toast.LENGTH_LONG).show()
         }
 
     }

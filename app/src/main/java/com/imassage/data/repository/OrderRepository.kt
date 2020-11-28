@@ -64,6 +64,9 @@ class OrderRepository(
     suspend fun orders() =
             apiInterface.orders()
 
+    suspend fun ordersHistory_(page: Int?) =
+            apiInterface.ordersHistory_(page)
+
     // set offer
     suspend fun offer(transactionId: String , offerCode: String) =
             apiInterface.setOffer(transactionId , offerCode)

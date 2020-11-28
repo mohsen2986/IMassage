@@ -11,6 +11,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.MultipartBody
 
 class UserInformationRepository(
         private val tokenRepository: TokenRepository ,
@@ -20,10 +21,24 @@ class UserInformationRepository(
         private lateinit var smsToken: String
         private lateinit var password: String
     }
-    suspend fun register(name: String , family: String, phone: String  , gender: String , password: String, passwordConfirm: String): NetworkResponse<SmsVerificationResponse, ErrorResponse> {
-        return withContext(IO) {
+    suspend fun register(name: String , family: String, phone: String  , gender: String , password: String, passwordConfirm: String, photo: MultipartBody.Part?): NetworkResponse<SmsVerificationResponse, ErrorResponse> {
+        if(photo != null){
+            return withContext(IO) {
+                Log.e("Log__" , "True")
+                val callback = apiInterface.registerWithPhoto(photo , name, family , password, passwordConfirm , phone , gender == "true")
+                when (callback){
+                    is NetworkResponse.Success -> {
+                        Companion.smsToken = callback.body.token
+                        Companion.password = password
+                    }
+                }
+                return@withContext callback
+            }
+        }
+        else
+            return withContext(IO) {
+                Log.e("Log__" , "False")
             val callback = apiInterface.register(name, family , password, passwordConfirm , phone , gender == "true")
-            Log.d("log__" , "the call is: $callback")
             when (callback){
                 is NetworkResponse.Success -> {
                     Companion.smsToken = callback.body.token
