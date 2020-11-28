@@ -16,9 +16,9 @@
 
         <ImageView
             android:id="@+id/fra_splashScreen_image"
-            android:layout_width="@dimen/splash_image"
-            android:layout_height="@dimen/splash_image"
-            app:srcCompat="@drawable/ic_man"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/jazire"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
