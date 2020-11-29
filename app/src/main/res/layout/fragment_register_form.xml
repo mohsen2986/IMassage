@@ -93,7 +93,7 @@
                         android:textSize="@dimen/text_14_16_16_20"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"
+                        android:inputType="numberPassword"
                         android:textAlignment="viewEnd" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,7 +120,7 @@
                         android:textSize="@dimen/text_14_16_16_20"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"
+                        android:inputType="numberPassword"
                         android:textAlignment="viewEnd"
                         />
                 </com.google.android.material.textfield.TextInputLayout>

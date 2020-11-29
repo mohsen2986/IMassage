@@ -108,6 +108,7 @@ class LoginFragment : ScopedFragment() , KodeinAware {
                     delay(6_00)
 //                    status.showButton(binding.fraLoginShowStatus)
                     Toast.makeText(context, "شماره و یا رمز عبور اشتباه است." , Toast.LENGTH_SHORT).show()
+                    status.showButton(fra_login_show_status , fra_login_LoginButton , "تلاش دوباره")
                 }
             }
         }
