@@ -81,17 +81,6 @@
                 app:layout_constraintTop_toTopOf="@+id/row_reserve_view_name_family"
                 tools:text="120,000" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/row_reservation_view_date"
-                app:srcCompat="@drawable/ic_arrow_down" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,7 +99,7 @@
                 android:drawablePadding="@dimen/margin_4_4_4_8"
                 android:text="@string/massage"
                 android:textColor="@color/black_low"
-                android:textSize="@dimen/text_12_14_16_18"
+                android:textSize="@dimen/text_14_16_18_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="ماساژ :" />
@@ -140,7 +129,7 @@
                 android:drawablePadding="@dimen/margin_4_4_4_8"
                 android:text="@string/packagee"
                 android:textColor="@color/black_low"
-                android:textSize="@dimen/text_12_14_16_18"
+                android:textSize="@dimen/text_14_16_18_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
