@@ -101,7 +101,7 @@ class SignUpFragment : ScopedFragment() , KodeinAware {
                         }
                 navController.navigate(R.id.action_signUpFragment_to_registerFormFragment, bundle)
             }else{
-                Toast.makeText(context , "نام و نام خانوادگی را وترد کنید." , Toast.LENGTH_SHORT).show()
+                Toast.makeText(context , "نام و نام خانوادگی را وhرد کنید." , Toast.LENGTH_SHORT).show()
             }
         }
         fra_signUp_go_to_login.setOnClickListener {
