@@ -82,6 +82,9 @@
         <action
             android:id="@+id/action_phoneVerificationFragment_to_mainPageFragment"
             app:destination="@id/mainPageFragment" />
+        <action
+            android:id="@+id/action_phoneVerificationFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainPageFragment"
@@ -156,16 +159,18 @@
         android:name="com.imassage.ui.fragment.reserve.reserveTime.ReservedTimeFragment"
         android:label="ReservedTimeFragment" >
         <action
-            android:id="@+id/action_reservedTimeFragment_to_questionFragment"
-            app:destination="@id/questionFragment" />
+            android:id="@+id/action_reservedTimeFragment_to_receiptFragment"
+            app:destination="@id/receiptFragment" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.imassage.ui.fragment.reserve.question.QuestionFragment"
-        android:label="QuestionFragment" >
+        android:label="QuestionFragment"
+        >
         <action
-            android:id="@+id/action_questionFragment_to_receiptFragment"
-            app:destination="@id/receiptFragment" />
+            android:id="@+id/action_questionFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/receiptFragment"
