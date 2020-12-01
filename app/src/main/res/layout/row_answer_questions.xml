@@ -115,6 +115,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/row_answer_question_answer"
+                    android:onClick="@{onClick::onClick}"
                     style="@style/TextAppearance.AppCompat.TextView.bold_16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
