@@ -15,8 +15,4 @@ class QuestionViewModel(
     // ANSWER QUESTIONS
     suspend fun answer(answers: AnswerRequest) =
             dataRepository.answer(answers)
-    // save the filled form id
-    fun saveFormId(formId: String) {
-        orderRepository.filledFormId = formId
-    }
 }
