@@ -45,7 +45,7 @@ class PaymentGatewayFragment : ScopedFragment() , KodeinAware {
     }
 
     private fun initPayment(){
-        val data = activity!!.intent.data
+        val data = requireActivity().intent.data
         ZarinPal.getPurchase(context).verificationPayment(data){
                 isPaymentSuccess, refID, paymentRequest ->
             if(isPaymentSuccess){
@@ -69,7 +69,7 @@ class PaymentGatewayFragment : ScopedFragment() , KodeinAware {
     }
     private fun UIActions(){
         fra_payment_back_to_home.setOnClickListener{
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
         }
     }
 }
