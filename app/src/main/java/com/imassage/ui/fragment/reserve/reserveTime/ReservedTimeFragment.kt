@@ -101,7 +101,7 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
         Log.e("Log__" , viewModel.checkReserveTime().toString())
     }
     private fun nextFragment(){
-        navController.navigate(R.id.action_reservedTimeFragment_to_questionFragment)
+        navController.navigate(R.id.action_reservedTimeFragment_to_receiptFragment)
     }
     private fun bindAdapter(){
         fra_reserved_time_recycler.apply {

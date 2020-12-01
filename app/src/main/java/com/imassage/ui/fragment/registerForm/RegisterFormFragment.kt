@@ -69,12 +69,18 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
     private  fun bindUI() = launch{
         setExitTransitions()
         fra_register_form_next.setOnClickListener{
-            if(fra_signUp_second_mobile.text?.isNotEmpty()!! && fra_signUp_second_mobile.text?.isNotEmpty()!! && fra_signUp_second_confirm_password.text?.isNotEmpty()!!) {
-                if (image == "true") {
-                    registerIntoServerWithPhoto()
-                } else {
-                    registerIntoServer()
-                }
+            if(fra_signUp_second_mobile.text?.isNotEmpty()!! && fra_signUp_second_password.text?.isNotEmpty()!! && fra_signUp_second_confirm_password.text?.isNotEmpty()!!) {
+                if(fra_signUp_second_mobile.text?.length == 10){
+                    if(fra_signUp_second_password.text?.length!! >7){
+                        if(fra_signUp_second_password.text.toString() == fra_signUp_second_confirm_password.text.toString()){
+                            if (image == "true") {
+                                registerIntoServerWithPhoto()
+                            } else {
+                                registerIntoServer()
+                            }
+                        } else { Toast.makeText(context , "پسورد ها برابر نیستند." , Toast.LENGTH_SHORT).show() }
+                    }else { Toast.makeText(context , "طول پسورد بایستی از ۸ کاراکتر بیشتر باشد." , Toast.LENGTH_SHORT).show() }
+                }else { Toast.makeText(context , "شماره تلفن راا بدون صفر وارد کنید." , Toast.LENGTH_SHORT).show() }
                 hideKeyboard(it)
             }else{
                 Toast.makeText(context , "مقادیر را وارد کنید." , Toast.LENGTH_SHORT).show()
@@ -97,6 +103,11 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
                 navController.navigate(R.id.action_registerFormFragment_to_phoneVerificationFragment ,
                         bundleOf("verification_type" to "register")
                 )
+            }
+            is NetworkResponse.ServerError ->{
+                when(callback.code) {
+                    422 -> Toast.makeText(context, "این شماره در سیستم وجود دارد.", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

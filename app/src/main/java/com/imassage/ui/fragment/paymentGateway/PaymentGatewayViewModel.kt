@@ -11,6 +11,7 @@ class PaymentGatewayViewModel(
 
     suspend fun sendOrder() =
             orderRepository.sendOrder()
+
     suspend fun setTransaction(transactionId: String){
         orderRepository.transactionId = transactionId
     }

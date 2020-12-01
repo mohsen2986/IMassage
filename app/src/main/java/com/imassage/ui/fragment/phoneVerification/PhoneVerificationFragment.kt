@@ -63,7 +63,7 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
         }
         fra_phone_verification_back.setOnClickListener {
             hideKeyboard(it)
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
         }
         textListeners()
     }
@@ -72,7 +72,10 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
                 fra_phone_verification_digit_three.text.toString() + fra_phone_verification_digit_four.text.toString()
         when (viewModel.sendVerificationCode(code , verificationType)){
             is NetworkResponse.Success ->{
-                navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment ,
+                if(verificationType == "register")
+                    navController.navigate(R.id.action_phoneVerificationFragment_to_questionFragment)
+                else
+                    navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment ,
                         bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.VERIFICATION_CODE_FRAGMENT))
             }
         }

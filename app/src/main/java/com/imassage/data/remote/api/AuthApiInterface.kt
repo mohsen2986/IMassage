@@ -109,7 +109,6 @@ interface AuthApiInterface{
     // order
     @POST("order")
     suspend fun order(
-            @Query("filled_form_id") filledFormId: String ,
             @Query("time") time: String ,
             @Query("reserved_time_date_id") reservedTimeDateId: String ,
             @Query("massage_id") massageId: String ,

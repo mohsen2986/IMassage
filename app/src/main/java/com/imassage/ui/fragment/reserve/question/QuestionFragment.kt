@@ -90,14 +90,13 @@ class QuestionFragment : ScopedFragment() , KodeinAware {
         when(val callBack = viewModel.answer(answerResponse)){
             is NetworkResponse.Success -> {
                 callBack.body?.let {
-                    viewModel.saveFormId(callBack.body.formId)
-                    navController.navigate(R.id.action_questionFragment_to_receiptFragment)
+                    navController.navigate(R.id.action_questionFragment_to_mainPageFragment)
                 }
             }
         }
     }
     private fun initAdapters(){
-        questionAdapter = QuestionRecyclerView()
+        questionAdapter = QuestionRecyclerView(requireActivity().supportFragmentManager)
     }
     private fun bindAdapters(){
         fra_question_recycler.apply{
