@@ -63,7 +63,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sourceFragment()
+//        sourceFragment()
         navController = findNavController()
     }
 
@@ -184,12 +184,12 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     private fun sourceFragment(){
         when(arguments?.getString(StaticVariables.SOURCE_FRAGMENT)){
             StaticVariables.SPLASH_FRAGMENT -> {
-                getDate()
                 enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true).apply {
                     duration = 500L
                 }
             }
             StaticVariables.VERIFICATION_CODE_FRAGMENT -> {
+                getDate()
                 enterTransition = MaterialContainerTransform().apply {
                     startView = requireActivity().findViewById(R.id.fra_phone_verification_next)
                     endView = binding.fraMainPageContainer
