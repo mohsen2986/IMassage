@@ -20,7 +20,6 @@ class OrderRepository(
     var date  = ""
     var time = ""
     var transactionId = ""
-    var filledFormId = ""
 
     lateinit var massage: Massage
     lateinit var packages: Package
@@ -73,7 +72,7 @@ class OrderRepository(
     // send order
     suspend fun sendOrder() {
         GlobalScope.launch(IO) {
-            when(val callback = apiInterface.order(filledFormId , time , date , massageId , packageId , transactionId , gender.toString() )){
+            when(val callback = apiInterface.order(time , date , massageId , packageId , transactionId , gender.toString() )){
                 is NetworkResponse.Success ->{
 
                 }
