@@ -136,6 +136,7 @@
     <string name="phone_veri">کد پیامکی</string>
     <string name="check_and_payment">بررسی و پرداخت</string>
     <string name="app_name_persian">جزیره آرامش</string>
+    <string name="do_u_want_help">نیاز به مشاوره دارم</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>
