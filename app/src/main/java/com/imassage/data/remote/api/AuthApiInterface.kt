@@ -126,4 +126,9 @@ interface AuthApiInterface{
             @Query("package_id") packageId: String ,
             @Query("gender") gender: String
     ): NetworkResponse< ErrorResponse , ErrorResponse>
+
+    // send consulting
+    @POST("consulting")
+    suspend fun consulting(
+    ): NetworkResponse< SuccessResponse , ErrorResponse>
 }
