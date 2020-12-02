@@ -53,4 +53,8 @@
     <dimen name="text_24_32_36_54">24sp</dimen>
     <dimen name="margin_1_1_2_3">1dp</dimen>
     <dimen name="width_120_136_144_256">120dp</dimen>
+
+
+	<!--Integers-->
+	<item name="splash_scale" format="float" type="integer">1.5</item>
 </resources>

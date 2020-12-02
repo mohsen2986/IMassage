@@ -55,4 +55,7 @@
     <dimen name="margin_1_1_2_3">2dp</dimen>
     <dimen name="width_120_136_144_256">144dp</dimen>
 
+	<!-- Integers -->
+	<item name="splash_scale" format="float" type="integer">1.8</item>
+
 </resources>

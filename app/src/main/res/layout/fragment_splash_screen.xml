@@ -19,6 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/jazire"
+            android:scaleX="@integer/splash_scale"
+            android:scaleY="@integer/splash_scale"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,9 +31,8 @@
             android:id="@+id/fra_splashScreen_appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:fontFamily="@font/roboto_bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_20"
+            android:text="@string/app_name_persian"
+            android:fontFamily="@font/b_shekari"
             android:textStyle="bold"
             android:textSize="@dimen/splash_text"
             android:textColor="@color/white"
@@ -41,6 +42,5 @@
             app:layout_constraintTop_toBottomOf="@+id/fra_splashScreen_image" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout
-        >
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
