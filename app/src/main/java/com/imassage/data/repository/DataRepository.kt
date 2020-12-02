@@ -43,4 +43,8 @@ class DataRepository(
 
     // update account
 
+    // send consulting
+    suspend fun consulting() =
+            apiInterface.consulting()
+
 }
