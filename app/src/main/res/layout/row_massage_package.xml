@@ -9,6 +9,10 @@
             name="packages"
             type="com.imassage.data.model.Package"
             />
+        <variable
+            name="onClickHandler"
+            type="com.imassage.ui.utils.OnCLickHandler"
+            />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -21,7 +25,9 @@
         android:layout_marginTop="@dimen/margin_4_6_8"
         android:layout_marginEnd="@dimen/margin_4_6_8"
         android:layout_marginStart="@dimen/margin_4_6_8"
-        android:layout_marginBottom="@dimen/margin_4_6_8">
+        android:layout_marginBottom="@dimen/margin_4_6_8"
+        android:onClick="@{ (V) -> onClickHandler.onClickItem(packages)}"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

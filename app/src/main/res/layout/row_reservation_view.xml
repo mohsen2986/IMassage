@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+    <data>
+        <variable
+            name="order"
+            type="com.imassage.data.model.Order"
+            />
+    </data>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,7 +49,7 @@
                 android:layout_marginTop="8dp"
                 android:drawableEnd="@drawable/ic_calendar_row_reservation"
                 android:drawablePadding="@dimen/margin_4_4_4_8"
-                android:text="TextView"
+                android:text="@{order.reservedTimeDates.date}"
                 android:textColor="@color/black_low"
                 android:textSize="@dimen/text_14_16_18_24"
                 android:textStyle="bold"
@@ -56,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_clock"
                 android:drawablePadding="@dimen/margin_4_4_4_8"
-                android:text="TextView"
+                android:text="@{order.times.get(0).time.substring(1)+`:00`}"
                 android:textColor="@color/black_low"
                 android:textSize="@dimen/text_14_16_18_24"
                 android:textStyle="bold"
@@ -73,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/margin_4_4_4_8"
                 android:drawableEnd="@drawable/ic_dollar"
-                android:text="@string/price_amount"
+                android:text="@{order.transactions.amountWithOffer}"
                 android:textColor="@color/black_low"
                 android:textSize="@dimen/text_14_16_18_24"
                 app:layout_constraintBottom_toBottomOf="@+id/row_reserve_view_name_family"
@@ -120,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="TextView"
+                android:text="@{order.massage.name}"
                 android:textColor="@color/black_low"
                 android:textSize="@dimen/text_14_16_18_24"
                 android:textStyle="bold"
@@ -150,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="TextView"
+                android:text="@{order.packages.name}"
                 android:textColor="@color/black_low"
                 android:textSize="@dimen/text_14_16_18_24"
                 android:textStyle="bold"
@@ -161,3 +168,4 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
+</layout>

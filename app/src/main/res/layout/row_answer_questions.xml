@@ -4,7 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="question"
+            type="com.imassage.data.model.Question"
+            />
+        <variable
+            name="onClick"
+            type="com.imassage.ui.utils.OnCLickHandler"
+            />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -45,7 +52,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/lorem_20"
+                android:text="@{question.question ,default = `سوال `}"
                 android:textColor="@color/black_low"
                 android:textSize="@dimen/text_14_16_16_24"
                 app:layout_constraintEnd_toEndOf="@+id/textView7"
@@ -66,33 +73,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" >
 
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:text="خیلی زیاد"
-                    android:textSize="@dimen/text_14_16_16_24"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:text="خیلی زیاد"-->
+<!--                    android:textSize="@dimen/text_14_16_16_24"/>-->
 
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:text="زیاد"
-                    android:textSize="@dimen/text_14_16_16_24"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:text="زیاد"-->
+<!--                    android:textSize="@dimen/text_14_16_16_24"/>-->
 
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:text="متوسط"
-                    android:textSize="@dimen/text_14_16_16_24"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton3"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:text="متوسط"-->
+<!--                    android:textSize="@dimen/text_14_16_16_24"/>-->
 
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:text="کم"
-                    android:textSize="@dimen/text_14_16_16_24"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton4"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:text="کم"-->
+<!--                    android:textSize="@dimen/text_14_16_16_24"/>-->
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -120,6 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="viewStart"
+                    tools:text="@string/lorem_50"
                     android:textSize="@dimen/text_14_16_16_24"/>
 
             </com.google.android.material.textfield.TextInputLayout>
