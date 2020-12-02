@@ -38,7 +38,7 @@
 	<dimen name="text_13_16_16_20">13sp</dimen>
 	<dimen name="margin_32_40_44_48">32dp</dimen>
 	<dimen name="margin_4_6_8_12">4dp</dimen>
-    <dimen name="account_image_height">144dp</dimen>
+    <dimen name="account_image_height">96dp</dimen>
 	<dimen name="fab_44_48_54_72">44dp</dimen>
 	<dimen name="width_24_28_32_40">24dp</dimen>
 	<dimen name="margin_8_12_16_24">8dp</dimen>

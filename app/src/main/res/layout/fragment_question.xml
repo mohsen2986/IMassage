@@ -103,12 +103,13 @@
                 android:id="@+id/fra_question_checkBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/do_u_want_help"
-                android:layoutDirection="rtl"
-                android:textStyle="bold"
                 android:buttonTint="@color/pink_asli"
+                android:layoutDirection="rtl"
+                android:text="@string/do_u_want_help"
                 android:textSize="@dimen/text_14_16_18_24"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/fra_question_recycler"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -117,6 +118,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginTop="@dimen/margin_8_8_8_16"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
