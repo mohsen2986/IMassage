@@ -66,8 +66,11 @@ class PackagesFragment : ScopedFragment() , KodeinAware {
     }
     private fun bindUI() = launch{
         viewModel.packages().await().let {
-            packageAdapter.datas = it.filter { p: Package -> p.massageId == massageId }
+            packageAdapter.datas = it.filter { p: Package -> p.massageId.id == massageId }
+//            packageAdapter.datas = it
         }
+
+        Log.e("Log__" , "${viewModel.packages()}")
 //        delay(3__000)
 //        navController.navigate(R.id.action_packageFragment_to_reservedTimeFragment)
 //        when(val callback = viewModel.packages()){
@@ -100,11 +103,11 @@ class PackagesFragment : ScopedFragment() , KodeinAware {
         }
     }
     private fun getArgument(){
-        massageId = arguments!!.getString(StaticVariables.MASSAGE_ID).toString()
+        massageId = requireArguments().getString(StaticVariables.MASSAGE_ID).toString()
     }
     private fun UIActions(){
         fra_package_back.setOnClickListener{
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
         }
     }
 

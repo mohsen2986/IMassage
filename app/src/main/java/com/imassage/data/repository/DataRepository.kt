@@ -3,6 +3,7 @@ package com.imassage.data.repository
 import android.util.Log
 import android.widget.Toast
 import com.haroldadmin.cnradapter.NetworkResponse
+import com.haroldadmin.cnradapter.executeWithRetry
 import com.imassage.data.model.MainPage
 import com.imassage.data.remote.api.AuthApiInterface
 import com.imassage.data.remote.model.AnswerRequest
@@ -14,14 +15,14 @@ class DataRepository(
 ){
     // main page data
     val mainPage by lazyDeferred {
-        when(val callback = apiInterface.mainPage()){
+        when(val callback = executeWithRetry(times = 5) {apiInterface.mainPage()}){
             is NetworkResponse.Success -> callback.body.datas
             else -> MainPage(listOf() , listOf() , listOf())
         }
     }
     // packages data
     val packages by lazyDeferred {
-        when(val callback = apiInterface.packages()){
+        when(val callback = executeWithRetry(times = 5) {apiInterface.packages()}){
             is NetworkResponse.Success -> callback.body.datas
             else -> listOf()
         }

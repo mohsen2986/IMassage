@@ -147,6 +147,9 @@
         <action
             android:id="@+id/action_accountFragment_to_editAccountImageDialog"
             app:destination="@id/editAccountImageDialog" />
+        <action
+            android:id="@+id/action_accountFragment_to_editAccountAddressDialog"
+            app:destination="@id/editAccountAddressDialog" />
     </fragment>
     <fragment
         android:id="@+id/reserve_view"
@@ -227,4 +230,8 @@
             app:popUpToInclusive="true"
             />
     </fragment>
+    <dialog
+        android:id="@+id/editAccountAddressDialog"
+        android:name="com.imassage.ui.dialog.account.address.EditAccountAddressDialog"
+        android:label="EditAccountAddressDialog" />
 </navigation>

@@ -73,7 +73,7 @@ interface AuthApiInterface{
     suspend fun checkSelectedTime(
             @Query("reserved_time_date_id") date: String ,
             @Query("time") time: String ,
-            @Query("massage_id") massageId: String ,
+            @Query("package_id") packageId: String ,
             @Query("gender") gender: String
     ): NetworkResponse<SuccessResponse, ErrorResponse>
     // start pay transactions

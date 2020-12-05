@@ -22,7 +22,7 @@ class AccountRepository(
     val account by lazyDeferred {
         when(val callback = apiInterface.userInformation()){
             is NetworkResponse.Success -> callback.body
-            else -> Account("unknown" , "unknown" ,"unknown" , "unknown" , "true" , "unknown")
+            else -> Account("unknown" , "unknown" ,"unknown" , "unknown" , "true" , "unknown" , "1399/9/9")
         }
     }
 

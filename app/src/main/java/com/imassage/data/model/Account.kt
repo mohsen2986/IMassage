@@ -14,5 +14,7 @@ data class Account(
         @SerializedName("gender")
         val gender: String ,
         @SerializedName("address")
-        val address: String
+        val address: String ,
+        @SerializedName("date")
+        val date: String
 )

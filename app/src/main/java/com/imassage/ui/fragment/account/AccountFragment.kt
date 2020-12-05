@@ -94,8 +94,11 @@ class AccountFragment : ScopedFragment() , KodeinAware {
             getImageFromGallery()
 //            navController.navigate(R.id.action_accountFragment_to_editAccountImageDialog)
         }
+        fra_account_address.setOnClickListener {
+            navController.navigate(R.id.action_accountFragment_to_editAccountAddressDialog)
+        }
         fra_account_back.setOnClickListener{
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
         }
         setFragmentResultListener("requestKey") { requestKey, bundle ->
             // We use a String here, but any type that can be put in a Bundle is supported
@@ -124,7 +127,7 @@ class AccountFragment : ScopedFragment() , KodeinAware {
 
                     val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
 
-                    val cursor = activity!!.contentResolver.query(selectedImage!!, filePathColumn, null, null, null)
+                    val cursor = requireActivity().contentResolver.query(selectedImage!!, filePathColumn, null, null, null)
 
                     if (BuildConfig.DEBUG && cursor == null) {
                         error("Assertion failed")
@@ -154,7 +157,7 @@ class AccountFragment : ScopedFragment() , KodeinAware {
                 val imageFile = File(postPath!!)
 
                 val requestBody = RequestBody.create(
-                        activity!!.contentResolver.getType(fileUri!!)?.toMediaTypeOrNull() ,
+                        requireActivity().contentResolver.getType(fileUri!!)?.toMediaTypeOrNull() ,
                         imageFile
                 )
                 val body = MultipartBody.Part.createFormData("photo", imageFile.name , requestBody)
@@ -165,7 +168,8 @@ class AccountFragment : ScopedFragment() , KodeinAware {
 
                 viewModel.updatePhotoAccount(body)
             }else{
-                Toast.makeText(activity!!, "لطفان عکس را انتخاب کنید.", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireActivity()
+                        , "لطفان عکس را انتخاب کنید.", Toast.LENGTH_LONG).show()
             }
         }
     }
