@@ -44,14 +44,16 @@ class OrderDataSource<T>(
     private fun executeQuery(page:Int , callBack:(List<T>) -> Unit ){
         networkState.postValue(NetworkState.RUNNING)
         scope.launch (getJobErrorHandler() + supervisorJob){
-            delay(200)
+//            delay(200)
             val request = if(query == StaticVariables.HISTORY) repository.ordersHistory_(page) else repository.ordersHistory_(page)
             retryQuery = null
             networkState.postValue(NetworkState.SUCCESS)
             when(request){
                 is NetworkResponse.Success ->{
                     callBack((request.body.data) as List<T>)
+                    Log.e("Log__" , "some issue ${request.body.data}")
                     }
+                else -> Log.e("Log__" , "some issue")
                 }
             }
         }
@@ -61,6 +63,7 @@ class OrderDataSource<T>(
             val callback_ = if(query == StaticVariables.HISTORY) repository.ordersHistory_(0) else repository.ordersHistory_(0)
             when(callback_){
                 is NetworkResponse.Success -> pages = callback_.body.metadata.pagination.totalPages
+                else -> Log.e("Log__" , "some issue")
             }
 //            pages = repository.users(query).
             executeQuery(0) {

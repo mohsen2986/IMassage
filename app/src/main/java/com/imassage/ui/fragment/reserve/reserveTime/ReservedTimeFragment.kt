@@ -84,24 +84,20 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
         timesAdapter.onClickHandler = object: OnCLickHandler<ReserveTime>{
             override fun onClickItem(element: ReserveTime) {
                 viewModel.setTime(element.clock)
-//                runBlocking(IO) {
-//                    Log.e("Log__" , viewModel.checkReserveTime().toString())
-//                    sendReserveTime()
-                    sendReserveTime()
-                    nextFragment()
-//                }
+                sendAndCheckSelectedTime()
             }
 
             override fun onClick(view: View) {}
             override fun onClickView(view: View, element: ReserveTime) {}
         }
     }
-    private fun sendReserveTime() = launch {
-        viewModel.reserveTime()
-        Log.e("Log__" , viewModel.checkReserveTime().toString())
-    }
-    private fun nextFragment(){
-        navController.navigate(R.id.action_reservedTimeFragment_to_receiptFragment)
+    private fun sendAndCheckSelectedTime() = launch {
+        if(viewModel.checkReserveTime()){
+            viewModel.reserveTime()
+            navController.navigate(R.id.action_reservedTimeFragment_to_receiptFragment)
+        }else{
+            Toast.makeText(context , "زمان دیگری را انتخاب کنید." , Toast.LENGTH_SHORT).show()
+        }
     }
     private fun bindAdapter(){
         fra_reserved_time_recycler.apply {

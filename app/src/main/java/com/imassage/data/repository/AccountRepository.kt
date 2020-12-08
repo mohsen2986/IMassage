@@ -16,13 +16,13 @@ class AccountRepository(
             apiInterface.userInformation()
     
     // update Account information
-    suspend fun updateAccount(name:String? , family: String? , gender: String?) =
-            apiInterface.updateAccount(name , family , gender)
+    suspend fun updateAccount(name:String? , family: String? , gender: String? , address: String?) =
+            apiInterface.updateAccount(name , family , gender , address)
 
     val account by lazyDeferred {
         when(val callback = apiInterface.userInformation()){
             is NetworkResponse.Success -> callback.body
-            else -> Account("unknown" , "unknown" ,"unknown" , "unknown" , "true")
+            else -> Account("unknown" , "unknown" ,"unknown" , "unknown" , "true" , "unknown" , "1399/9/9")
         }
     }
 

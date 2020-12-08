@@ -40,10 +40,8 @@ class ReserveViewFragment : ScopedFragment() , KodeinAware {
     private lateinit var navController: NavController
 
     // -- FOR DATA
-    private lateinit var orderAdapter: RecyclerAdapter<Order>
-    private var reserveType = ""
-    // -- FOR DATA
     private lateinit var adapter: RecyclerAdapterPaging<Any>
+    private var reserveType = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,45 +65,20 @@ class ReserveViewFragment : ScopedFragment() , KodeinAware {
         bindAdapters()
         UIAction()
         bindUI()
-//        configViewModel(requireArguments().getString(StaticVariables.RESERVE_TYPE).toString())
-//        configureObservables()
-//        initAdapter()
-//        fra_reserve_view_recycler.adapter = adapter
+        configViewModel(requireArguments().getString(StaticVariables.RESERVE_TYPE).toString())
+        configureObservables()
+        initAdapter()
     }
     private fun bindUI() = launch{
-        when(reserveType) {
-            StaticVariables.RESERVE_TIME -> {
-                when (val callback = viewModel.reserves()) {
-                    is NetworkResponse.Success -> {
-                        orderAdapter.datas = callback.body.datas
-                    }
-                    else -> {
-                        Toast.makeText(context , "عدم ارتباط با سرور." , Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-            StaticVariables.HISTORY -> {
-                when (val callback = viewModel.ordersHistory()) {
-                    is NetworkResponse.Success -> {
-                        orderAdapter.datas = callback.body.datas
-                    }
-                    else -> {
-                        Toast.makeText(context , "عدم ارتباط با سرور." , Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }
+
     }
     private fun getArgument(){
         reserveType = requireArguments().getString(StaticVariables.RESERVE_TYPE).toString()
     }
     private fun initAdapters(){
-        orderAdapter = RecyclerAdapter()
     }
     private fun bindAdapters(){
-        fra_reserve_view_recycler.apply{
-            adapter = orderAdapter
-        }
+        fra_reserve_view_recycler.adapter = adapter
     }
     private fun UIAction(){
         fra_reserve_view_back.setOnClickListener{

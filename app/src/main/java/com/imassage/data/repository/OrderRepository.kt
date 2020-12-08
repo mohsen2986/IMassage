@@ -1,6 +1,7 @@
 package com.imassage.data.repository
 
 import com.haroldadmin.cnradapter.NetworkResponse
+import com.haroldadmin.cnradapter.executeWithRetry
 import com.imassage.data.model.Massage
 import com.imassage.data.model.Package
 import com.imassage.data.remote.api.AuthApiInterface
@@ -25,7 +26,7 @@ class OrderRepository(
     lateinit var packages: Package
 
     val availableDates by lazyDeferred{
-         when(val callback = apiInterface.availableDates()){
+         when(val callback = executeWithRetry(times = 5) {apiInterface.availableDates()}){
              is NetworkResponse.Success -> callback.body.dates
              else -> listOf()
          }
@@ -36,9 +37,9 @@ class OrderRepository(
     suspend fun checkTime():Boolean =
         withContext(IO) {
             if (time != "" && date != "") {
-                when (val callback = apiInterface.checkSelectedTime("$time", date , massageId, gender.toString())) {
+                when (val callback = apiInterface.checkSelectedTime("$time", date , packageId, gender.toString())) {
                     is NetworkResponse.Success -> {
-                        return@withContext true
+                        return@withContext callback.body.code == "200"
                     }
                     is NetworkResponse.ServerError -> {
                         return@withContext false

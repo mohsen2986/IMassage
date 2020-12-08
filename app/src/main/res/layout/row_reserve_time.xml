@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="reserveTime"
+            type="com.imassage.data.model.ReserveTime"
+            />
+        <variable
+            name="onCLickHandler"
+            type="com.imassage.ui.utils.OnCLickHandler"
+            />
+        <import type="android.view.View"/>
     </data>
 
     <!--<com.google.android.material.card.MaterialCardView
@@ -62,20 +70,22 @@
 -->
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/row_reserve_time_button"
+        android:enabled="@{ reserveTime.reserved? true : false}"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Customize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_16_18_18_28"
-        tools:text="ساعت ۱۲"
+        android:textSize="@dimen/text_16_20_22_32"
+        android:text="@{reserveTime.title}"
+        android:onClick="@{ (v) -> onCLickHandler.onClickItem(reserveTime)}"
+        tools:text="ساعت ۱۲ تا ۲"
         android:textAlignment="center"
         android:textStyle="bold"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:layout_marginTop="@dimen/margin_4_4_4_8"
-        android:layout_marginEnd="@dimen/margin_4_4_4_8"
-        android:layout_marginStart="@dimen/margin_4_4_4_8"
-        android:layout_marginBottom="@dimen/margin_4_4_4_8"
+        android:layout_marginTop="@dimen/margin_4_6_8"
+        android:layout_marginEnd="@dimen/margin_4_6_8"
+        android:layout_marginStart="@dimen/margin_4_6_8"
+        android:layout_marginBottom="@dimen/margin_4_6_8"
         android:textColor="@drawable/row_reserve_time_color_selector"
         app:strokeColor="@drawable/row_reserve_time_color_selector"
         />

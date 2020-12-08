@@ -59,6 +59,8 @@ class QuestionFragment : ScopedFragment() , KodeinAware {
         initAdapters()
         bindAdapters()
         bindUI()
+        sendConsulting()
+
     }
     private fun bindUI() = launch{
         when(val callback = viewModel.questions()){

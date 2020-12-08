@@ -5,7 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="massage" type="com.imassage.data.model.Massage"/>
+        <variable
+            name="massage"
+            type="com.imassage.data.model.Massage"
+            />
+        <variable
+            name="onClickHandler"
+            type="com.imassage.ui.utils.OnCLickHandler"
+            />
+        <import type="android.view.View"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -18,7 +26,9 @@
         android:layout_marginStart="@dimen/margin_4_6_8"
         android:layout_marginBottom="@dimen/margin_4_6_8"
         app:strokeColor="@color/blue_asli"
-        app:strokeWidth="1dp">
+        app:strokeWidth="1dp"
+        android:onClick="@{ (V) -> onClickHandler.onClickItem(massage)}"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -1,28 +1,17 @@
 package com.imassage.data.model
 
 import com.google.gson.annotations.SerializedName
+import java.lang.Package
 
 data class Order(
-        @SerializedName("time")
-        val time: String ,
-        @SerializedName("reserved_time_date_id")
-        val reservedTimeDateId: String ,
-        @SerializedName("massage_id")
-        val massageId: String ,
-        @SerializedName("package_id")
-        val packageId: String ,
-        @SerializedName("transactions_id")
-        val transactionId: String ,
-        @SerializedName("gender")
-        val gender: String ,
         @SerializedName("massage")
-        val massage: Massage ,
-        @SerializedName("packages")
-        val packages: Package ,
-        @SerializedName("transactions")
-        val transactions: Transactions ,
-        @SerializedName("reserved_time_dates")
-        val reservedTimeDates: DateTimes ,
+        val massage: Massage,
+        @SerializedName("package")
+        val package_: Package,
+        @SerializedName("reserve_time")
+        val reservedTimeDateId: DateTimes,
+        @SerializedName("transaction")
+        val transactions: Transactions,
         @SerializedName("times")
-        val times: List<Time>
+        val times: List<Times>
 )

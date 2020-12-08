@@ -62,7 +62,7 @@
     <string name="massage">ماساژ :</string>
     <string name="packagee">پکیج :</string>
     <string name="whole_price">هزینه کل :</string>
-    <string name="enter_off_code">کد تخفیفت رو این پایین وارد کن</string>
+    <string name="enter_off_code">کد تخفیف داری !؟ \n این پایین کدتخفیفت رو وارد کن</string>
     <string name="off_code">کد تخفیف</string>
     <string name="set_off_code">اعمال کد تخفیف</string>
     <string name="total_price">هزینه نهایی :</string>
@@ -134,12 +134,6 @@
     <string name="new_password">رمزعبور جدید</string>
     <string name="exit">خروج</string>
     <string name="phone_veri">کد پیامکی</string>
-    <string name="check_and_payment">بررسی و پرداخت</string>
-    <string name="app_name_persian">جزیره آرامش</string>
-    <string name="do_u_want_help">نیاز به مشاوره دارم</string>
-    <string name="birthday">تاریخ تولد</string>
-    <string name="address">آدرس</string>
-    <string name="edit_address">ویرایش آدرس</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>

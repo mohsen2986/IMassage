@@ -81,9 +81,7 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
         }
     }
     private fun getArgs(){
-        verificationType = arguments!!.getString("verification_type").toString()
-        Log.d("log__" , "the arg is $verificationType")
-
+        verificationType = requireArguments().getString("verification_type").toString()
     }
 
     private fun textListeners() {

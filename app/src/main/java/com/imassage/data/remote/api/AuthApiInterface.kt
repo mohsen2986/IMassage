@@ -42,7 +42,8 @@ interface AuthApiInterface{
     suspend fun updateAccount(
         @Query("name") name: String? ,
         @Query("family") family: String? ,
-        @Query("gender") gender: String?
+        @Query("gender") gender: String? ,
+        @Query("address") address: String?
     ):NetworkResponse<Account, ErrorResponse>
 
     @Multipart
@@ -72,7 +73,7 @@ interface AuthApiInterface{
     suspend fun checkSelectedTime(
             @Query("reserved_time_date_id") date: String ,
             @Query("time") time: String ,
-            @Query("massage_id") massageId: String ,
+            @Query("package_id") packageId: String ,
             @Query("gender") gender: String
     ): NetworkResponse<SuccessResponse, ErrorResponse>
     // start pay transactions
@@ -126,4 +127,9 @@ interface AuthApiInterface{
             @Query("package_id") packageId: String ,
             @Query("gender") gender: String
     ): NetworkResponse< ErrorResponse , ErrorResponse>
+
+    // send consulting
+    @POST("consulting")
+    suspend fun consulting(
+    ): NetworkResponse< SuccessResponse , ErrorResponse>
 }

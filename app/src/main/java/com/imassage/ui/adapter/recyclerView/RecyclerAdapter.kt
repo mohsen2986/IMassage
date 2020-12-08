@@ -40,11 +40,6 @@ class RecyclerAdapter<T>(
                 ReserveTimeViewHolder(
                         RowReserveTimeBinding.inflate(layoutInflater , parent , false)
                 )
-            R.layout.row_reservation_view ->
-                ReserveViewHolder(
-                        RowReservationViewBinding.inflate(layoutInflater , parent , false)
-                )
-
             else -> throw IllegalStateException("the type is invalid!!")
         }
     }
@@ -61,8 +56,6 @@ class RecyclerAdapter<T>(
                 holder.bind(datas[position] as Package , onClickHandler = onClickHandler)
             is ReserveTimeViewHolder ->
                 holder.bind(datas[position] as ReserveTime , onClickHandler = onClickHandler)
-            is ReserveViewHolder ->
-                holder.bind(datas[position] as Order , onClickHandler = onClickHandler)
         }
     }
 
@@ -72,7 +65,6 @@ class RecyclerAdapter<T>(
                 is Package -> R.layout.row_massage_package
                 is Question -> R.layout.row_answer_questions
                 is ReserveTime -> R.layout.row_reserve_time
-                is Order -> R.layout.row_reservation_view
                 else -> throw IllegalStateException("the type is invalid!")
             }
 }

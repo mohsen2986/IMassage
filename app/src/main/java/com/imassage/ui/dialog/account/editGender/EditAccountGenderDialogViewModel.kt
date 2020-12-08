@@ -8,6 +8,6 @@ class EditAccountGenderDialogViewModel (
 ): ViewModel(){
 
     suspend fun updateAccount(gender: String?) =
-            accountRepository.updateAccount(name = null , family = null , gender = gender)
+            accountRepository.updateAccount(name = null , family = null , gender = gender , address = null)
 
 }
