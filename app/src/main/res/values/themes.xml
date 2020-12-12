@@ -62,5 +62,9 @@
         <item name="android:minHeight">48dp</item>
     </style>
 
+    <style name="SplashScreenStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/b_shekari</item>
+    </style>
+
 
 </resources>
