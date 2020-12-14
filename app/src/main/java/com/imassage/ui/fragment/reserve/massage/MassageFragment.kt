@@ -68,8 +68,6 @@ class MassageFragment : ScopedFragment() , KodeinAware {
     private fun bindUI() = launch{
         viewModel.mainPageData().await().let {
             massagesAdapter.datas = it.massages
-
-//            navController.navigate(R.id.action_massageFragment_to_packageFragment);
         }
 //        when(val data = viewModel.massages()){
 //            is NetworkResponse.Success ->{

@@ -61,21 +61,18 @@ class ReserveViewFragment : ScopedFragment() , KodeinAware {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this , viewModelFactory).get(ReserveViewViewModel::class.java)
         getArgument()
-        initAdapters()
-        bindAdapters()
+        initAdapter()
         UIAction()
         bindUI()
         configViewModel(requireArguments().getString(StaticVariables.RESERVE_TYPE).toString())
         configureObservables()
-        initAdapter()
+        bindAdapters()
     }
     private fun bindUI() = launch{
 
     }
     private fun getArgument(){
         reserveType = requireArguments().getString(StaticVariables.RESERVE_TYPE).toString()
-    }
-    private fun initAdapters(){
     }
     private fun bindAdapters(){
         fra_reserve_view_recycler.adapter = adapter

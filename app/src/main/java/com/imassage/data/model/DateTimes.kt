@@ -7,6 +7,34 @@ data class DateTimes(
         val id: String ,
         @SerializedName("date")
         val date: String ,
+        @SerializedName("h1")
+        val clock1 :String ,
+        @SerializedName("h1_gender")
+        val genderClock1: String ,
+        @SerializedName("h2")
+        val clock2 :String ,
+        @SerializedName("h2_gender")
+        val genderClock2: String ,
+        @SerializedName("h3")
+        val clock3 :String ,
+        @SerializedName("h3_gender")
+        val genderClock3: String ,
+        @SerializedName("h4")
+        val clock4 :String ,
+        @SerializedName("h4_gender")
+        val genderClock4: String ,
+        @SerializedName("h5")
+        val clock5 :String ,
+        @SerializedName("h5_gender")
+        val genderClock5: String ,
+        @SerializedName("h6")
+        val clock6 :String ,
+        @SerializedName("h6_gender")
+        val genderClock6: String ,
+        @SerializedName("h7")
+        val clock7 :String ,
+        @SerializedName("h7_gender")
+        val genderClock7: String ,
         @SerializedName("h8")
         val clock8 :String ,
         @SerializedName("h8_gender")
@@ -66,5 +94,9 @@ data class DateTimes(
         @SerializedName("h22")
         val clock22 :String ,
         @SerializedName("h22_gender")
-        val genderClock22: String
+        val genderClock22: String ,
+        @SerializedName("h23")
+        val clock23 :String ,
+        @SerializedName("h23_gender")
+        val genderClock23: String
 )

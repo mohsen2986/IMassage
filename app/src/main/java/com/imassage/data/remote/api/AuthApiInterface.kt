@@ -100,12 +100,14 @@ interface AuthApiInterface{
     //  get orders
     @POST("orders")
     suspend fun orders(
-    ): NetworkResponse<OrdersResponse , ErrorResponse>
+            @Query("page") page: Int?
+    ): NetworkResponse<OrderResponse , ErrorResponse>
     // make offer
     @POST("transaction_offer")
     suspend fun setOffer(
             @Query("transaction_id") transactionId: String ,
-            @Query("offer_code") offerCode: String
+            @Query("offer_code") offerCode: String ,
+            @Query("massage") massageId: String
     ): NetworkResponse<Transactions , ErrorResponse>
     // order
     @POST("order")

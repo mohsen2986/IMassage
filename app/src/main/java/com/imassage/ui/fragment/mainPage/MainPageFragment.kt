@@ -63,7 +63,7 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        sourceFragment()
+        sourceFragment()
         navController = findNavController()
     }
 
@@ -77,7 +77,6 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         initDrawer()
     }
     private fun bindUI() = launch {
-        viewModel.mainPageData().await()
         viewModel.mainPageData().await().let {
             imageSliderAdapter.datas = it.boarders
             massageAdapter.datas = it.massages
@@ -91,31 +90,6 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         // get packages
         viewModel.packageData().await()
         binding.account = viewModel.getAccountData().await()
-
-        /*
-        imageSliderAdapter.datas = viewModel.mainPageData()
-        when(val data = viewModel.mainPage()){
-            is NetworkResponse.Success ->{
-                imageSliderAdapter.datas = data.body.datas.boarders
-                massageAdapter.datas = data.body.datas.massages
-                if(data.body.datas.aboutUs.isNotEmpty()){
-                    binding.aboutUs = data.body.datas.aboutUs[0]
-                }
-
-                Log.e("Log__" , "the data is ${data.body.datas.massages}")
-            }
-            is NetworkResponse.NetworkError -> {
-                Log.e("Log__" , "the data network error!")
-            }
-
-            is NetworkResponse.UnknownError -> {
-                Log.e("Log__" , "the data unknown error")
-            }
-            is NetworkResponse.ServerError ->{
-                Log.e("Log__" , "the data server")
-            }
-        }
-        */
     }
     private fun initOnClickListeners(){
         fra_main_page_reserve.setOnClickListener{

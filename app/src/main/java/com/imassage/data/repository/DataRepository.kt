@@ -9,15 +9,24 @@ import com.imassage.data.remote.api.AuthApiInterface
 import com.imassage.data.remote.model.AnswerRequest
 import com.imassage.data.remote.model.MainPageResponse
 import com.imassage.ui.base.lazyDeferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.withContext
 
 class DataRepository(
         private val apiInterface: AuthApiInterface
 ){
     // main page data
     val mainPage by lazyDeferred {
+        withContext(IO){
+
+        }
         when(val callback = executeWithRetry(times = 5) {apiInterface.mainPage()}){
             is NetworkResponse.Success -> callback.body.datas
-            else -> MainPage(listOf() , listOf() , listOf())
+            else -> {
+                Log.e("Log__" , "the value is invalid")
+                MainPage(listOf() , listOf() , listOf())
+            }
         }
     }
     // packages data
@@ -42,10 +51,7 @@ class DataRepository(
     suspend fun answer(answers:AnswerRequest) =
             apiInterface.answers(answers)
 
-    // update account
-
     // send consulting
     suspend fun consulting() =
             apiInterface.consulting()
-
 }

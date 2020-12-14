@@ -101,8 +101,13 @@ class ReceiptFragment : ScopedFragment() , KodeinAware {
     private fun sendOfferCode(offerCode:String) = launch{
         when(val callback = viewModel.makeOffer(transactions.id , offerCode)){
             is NetworkResponse.Success ->{
-                binding.transaction = callback.body
+                if(callback.code == 200)
+                    binding.transaction = callback.body
+                else
+                    Toast.makeText(requireContext() , "کد وارد شده معتبر نمیباشد." , Toast.LENGTH_SHORT).show()
             }
+            is NetworkResponse.ServerError ->
+                Toast.makeText(requireContext() , "کد وارد شده معتبر نمیباشد." , Toast.LENGTH_SHORT).show()
         }
     }
 

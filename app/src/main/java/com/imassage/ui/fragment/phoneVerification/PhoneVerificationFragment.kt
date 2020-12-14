@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -70,14 +71,21 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
     private fun sendCode() = launch {
         val code: String  = fra_phone_verification_digit_one.text.toString() + fra_phone_verification_digit_two.text.toString() +
                 fra_phone_verification_digit_three.text.toString() + fra_phone_verification_digit_four.text.toString()
-        when (viewModel.sendVerificationCode(code , verificationType)){
+        when (val callback = viewModel.sendVerificationCode(code , verificationType)){
             is NetworkResponse.Success ->{
-                if(verificationType == "register")
-                    navController.navigate(R.id.action_phoneVerificationFragment_to_questionFragment)
-                else
-                    navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment ,
+                if(callback.code == 200) {
+                    if (verificationType == "register")
+                        navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment ,
                         bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.VERIFICATION_CODE_FRAGMENT))
+                    else
+                        navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment,
+                                bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.VERIFICATION_CODE_FRAGMENT))
+                }else{
+                    Toast.makeText(requireContext() , "کد وارد شده اشتباه است." , Toast.LENGTH_SHORT).show()
+                }
             }
+            is NetworkResponse.ServerError ->
+                Toast.makeText(requireContext() , "کد وارد شده اشتباه است." , Toast.LENGTH_SHORT).show()
         }
     }
     private fun getArgs(){
