@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialSharedAxis
@@ -20,6 +21,7 @@ import com.imassage.databinding.FragmentQuestionBinding
 import com.imassage.ui.adapter.questionRecyclerView.QuestionRecyclerView
 import com.imassage.ui.adapter.recyclerView.RecyclerAdapter
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.StaticVariables
 import kotlinx.android.synthetic.main.fragment_question.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -75,24 +77,14 @@ class QuestionFragment : ScopedFragment() , KodeinAware {
                 Toast.makeText(context , "همه سوالات را پر کنید." , Toast.LENGTH_SHORT).show()
             }
         }
-        /*
-        val answerResponse = AnswerRequest(arrayListOf(
-                Answer("1" , "20") ,
-                Answer("2" , "22")
-        ))
-        when(val callback = viewModel.answer(answerResponse)){
-            is NetworkResponse.Success ->{
-                Log.e("Log__" , "the response is ${callback.body.formId}")
-            }
-        }
-         */
+
     }
     private fun sendAnswers() = launch{
        val answerResponse = AnswerRequest(questionAdapter.answers)
         when(val callBack = viewModel.answer(answerResponse)){
             is NetworkResponse.Success -> {
                 callBack.body?.let {
-                    navController.navigate(R.id.action_questionFragment_to_mainPageFragment)
+                    navController.navigate(R.id.action_questionFragment_to_receiptFragment)
                 }
             }
         }

@@ -68,7 +68,9 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
     }
     private fun bindUI() = launch {
         val callback = viewModel.availableDates().await()
-        initOnClickListeners(callback)
+        callback?.let {
+            initOnClickListeners(callback)
+        }
     }
     private fun getAvailableDates(date: String) = launch {
         val convertedDate = date.replace('/' , '-')
@@ -108,6 +110,13 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
         val clock = "ساعت"
         return dateTimes.let {
             listOf(
+                ReserveTime("$clock 1",  "h1",  it.genderClock1 , it.clock1 != "1"&& it.genderClock1   == viewModel.gender().toString()),
+                ReserveTime("$clock 2",  "h2",  it.genderClock2 , it.clock2 != "1"&& it.genderClock2   == viewModel.gender().toString()),
+                ReserveTime("$clock 3",  "h3",  it.genderClock3 , it.clock3 != "1"&& it.genderClock3   == viewModel.gender().toString()),
+                ReserveTime("$clock 4",  "h4",  it.genderClock4 , it.clock4 != "1"&& it.genderClock4   == viewModel.gender().toString()),
+                ReserveTime("$clock 5",  "h5",  it.genderClock5 , it.clock5 != "1"&& it.genderClock5   == viewModel.gender().toString()),
+                ReserveTime("$clock 6",  "h6",  it.genderClock6 , it.clock6 != "1"&& it.genderClock6   == viewModel.gender().toString()),
+                ReserveTime("$clock 7",  "h7",  it.genderClock7 , it.clock7 != "1"&& it.genderClock7   == viewModel.gender().toString()),
                 ReserveTime("$clock 8",  "h8",  it.genderClock8 , it.clock8 != "1"&& it.genderClock8   == viewModel.gender().toString()),
                 ReserveTime("$clock 9",  "h9",  it.genderClock9 , it.clock9 != "1"&& it.genderClock9   == viewModel.gender().toString()),
                 ReserveTime("$clock 10", "h10", it.genderClock10, it.clock10 != "1"&& it.genderClock10 == viewModel.gender().toString()),

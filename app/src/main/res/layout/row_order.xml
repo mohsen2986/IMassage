@@ -146,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:text="@{order.package_.name"
+                        android:text="@{order.package_}"
                         android:textColor="@color/black_low"
                         android:textSize="@dimen/text_14_16_18_24"
                         android:textStyle="bold"

@@ -15,4 +15,7 @@ class SplashScreenViewModel(
     fun fetchMainData() = 
             dataRepository.mainPage
 
+    suspend fun checkFormFilled() =
+            dataRepository.checkFormFilled()
+
 }

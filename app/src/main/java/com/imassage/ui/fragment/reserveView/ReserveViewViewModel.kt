@@ -20,8 +20,8 @@ class ReserveViewViewModel(
     suspend fun ordersHistory() =
             orderRepository.ordersHistory()
 
-    suspend fun reserves() =
-            orderRepository.orders()
+//    suspend fun reserves() =
+//            orderRepository.orders()
 
     // paging
     var pagingType = StaticVariables.HISTORY

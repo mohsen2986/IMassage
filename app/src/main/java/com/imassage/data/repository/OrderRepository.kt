@@ -28,7 +28,7 @@ class OrderRepository(
     val availableDates by lazyDeferred{
          when(val callback = executeWithRetry(times = 5) {apiInterface.availableDates()}){
              is NetworkResponse.Success -> callback.body.dates
-             else -> listOf()
+             else -> null
          }
      }
     suspend fun availableDateTime( date: String ) =
@@ -37,7 +37,7 @@ class OrderRepository(
     suspend fun checkTime():Boolean =
         withContext(IO) {
             if (time != "" && date != "") {
-                when (val callback = apiInterface.checkSelectedTime("$time", date , packageId, gender.toString())) {
+                when (val callback = apiInterface.checkSelectedTime(date , time , packageId, gender.toString())) {
                     is NetworkResponse.Success -> {
                         return@withContext callback.body.code == "200"
                     }
@@ -61,15 +61,15 @@ class OrderRepository(
     suspend fun ordersHistory() =
             apiInterface.ordersHistory()
     // get orders
-    suspend fun orders() =
-            apiInterface.orders()
+    suspend fun orders(page: Int?) =
+            apiInterface.orders(page)
 
     suspend fun ordersHistory_(page: Int?) =
             apiInterface.ordersHistory_(page)
 
     // set offer
     suspend fun offer(transactionId: String , offerCode: String) =
-            apiInterface.setOffer(transactionId , offerCode)
+            apiInterface.setOffer(transactionId , offerCode , massageId)
     // send order
     suspend fun sendOrder() {
         GlobalScope.launch(IO) {
