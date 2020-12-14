@@ -96,7 +96,7 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
     private fun sendAndCheckSelectedTime() = launch {
         if(viewModel.checkReserveTime()){
             viewModel.reserveTime()
-            navController.navigate(R.id.action_reservedTimeFragment_to_receiptFragment)
+            navController.navigate(R.id.action_reservedTimeFragment_to_questionFragment)
         }else{
             Toast.makeText(context , "زمان دیگری را انتخاب کنید." , Toast.LENGTH_SHORT).show()
         }
