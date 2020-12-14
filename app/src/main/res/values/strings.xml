@@ -137,6 +137,7 @@
     <string name="phone_veri">کد پیامکی</string>
     <string name="birthday">تاریخ تولد</string>
     <string name="address">آدرس</string>
+    <string name="okay">تایید</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>
