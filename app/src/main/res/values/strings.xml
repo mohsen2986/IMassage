@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Jazire Aramesh</string>
+    <string name="app_name_persian">جزیره آرامش</string>
     <string name="mobile_number">شماره تلفن</string>
     <string name="password">رمز عبور</string>
     <string name="login">ورود</string>
@@ -134,6 +135,9 @@
     <string name="new_password">رمزعبور جدید</string>
     <string name="exit">خروج</string>
     <string name="phone_veri">کد پیامکی</string>
+    <string name="birthday">تاریخ تولد</string>
+    <string name="address">آدرس</string>
+    <string name="okay">تایید</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>

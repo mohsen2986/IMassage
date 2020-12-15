@@ -7,7 +7,7 @@
 	<dimen name="margin_8_12_16_32">16dp</dimen>
 	<dimen name="margin_4_6_8">8dp</dimen>
 	<dimen name="splash_image">200dp</dimen>
-	<dimen name="splash_text">32sp</dimen>
+	<dimen name="splash_text">52sp</dimen>
 	<dimen name="margin_8_16_16_32">16dp</dimen>
     <dimen name="card_margin_start_end">32dp</dimen>
 	<dimen name="margin_16_24_32_64">32dp</dimen>

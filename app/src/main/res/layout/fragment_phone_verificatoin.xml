@@ -156,7 +156,7 @@
                     android:paddingBottom="@dimen/margin_4_4_4_8"
                     android:textSize="@dimen/text_14_16_16_20"
                     style="@style/Widget.MaterialComponents.Button.Customize"
-                    android:text="@string/sign_up"
+                    android:text="@string/okay"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

@@ -43,6 +43,18 @@
              Off Code !
          -->
 
+        <ImageView
+            android:id="@+id/fra_question_back"
+            android:layout_width="@dimen/width_48_48_48_64"
+            android:layout_height="@dimen/width_48_48_48_64"
+            android:padding="@dimen/padding_8_4_0"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:tint="@color/black_low"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
         <TextView
             android:id="@+id/fra_receipt_name_family"
             android:layout_width="wrap_content"
@@ -289,14 +301,14 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/fra_reserved_time_go_to_bank"
                 style="@style/Widget.MaterialComponents.Button.Customize"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_8_8_8_16"
                 android:layout_marginBottom="@dimen/margin_8_8_8_16"
+                android:layout_marginStart="@dimen/margin_12_16_16_32"
+                android:layout_marginEnd="@dimen/margin_12_16_16_32"
                 android:backgroundTint="@color/blue_50"
-                android:paddingStart="@dimen/margin_16_24_32_40"
                 android:paddingTop="@dimen/margin_4_4_4_8"
-                android:paddingEnd="@dimen/margin_16_24_32_40"
                 android:paddingBottom="@dimen/margin_4_4_4_8"
                 android:text="@string/payment"
                 android:textColor="@color/pink_asli"
