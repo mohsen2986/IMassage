@@ -75,8 +75,7 @@ class PhoneVerificationFragment: ScopedFragment() , KodeinAware {
             is NetworkResponse.Success ->{
                 if(callback.code == 200) {
                     if (verificationType == "register")
-                        navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment ,
-                        bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.VERIFICATION_CODE_FRAGMENT))
+                        navController.navigate(R.id.action_phoneVerificationFragment_to_signUpFormFragment)
                     else
                         navController.navigate(R.id.action_phoneVerificationFragment_to_mainPageFragment,
                                 bundleOf(StaticVariables.SOURCE_FRAGMENT to StaticVariables.VERIFICATION_CODE_FRAGMENT))

@@ -19,8 +19,8 @@ class AccountRepository(
             apiInterface.userInformation()
     
     // update Account information
-    suspend fun updateAccount(name:String? , family: String? , gender: String? , address: String?) =
-            apiInterface.updateAccount(name , family , gender , address)
+    suspend fun updateAccount(name:String? , family: String? , gender: String? , address: String? , birthday: String?) =
+            apiInterface.updateAccount(name , family , gender , address , birthday )
 
     val account by lazyDeferred {
         when(val callback = apiInterface.userInformation()){
@@ -31,6 +31,10 @@ class AccountRepository(
 
     suspend fun updatePhotoAccount(photo: MultipartBody.Part) =
             apiInterface.updatePhotoAccount(photo)
+
+    // send consulting
+    suspend fun consulting() =
+            apiInterface.consulting()
 
 
 }

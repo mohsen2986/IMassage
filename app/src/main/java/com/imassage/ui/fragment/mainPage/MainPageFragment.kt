@@ -178,6 +178,9 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
                     addTarget(R.id.fra_main_page_container)
                 }
             }
+            StaticVariables.SIGN_UP_FORM ->{
+                getDate()
+            }
         }
     }
     private fun getDate() = launch {

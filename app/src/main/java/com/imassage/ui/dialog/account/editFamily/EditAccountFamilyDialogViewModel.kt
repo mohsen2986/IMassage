@@ -7,6 +7,6 @@ class EditAccountFamilyDialogViewModel (
         private val accountRepository: AccountRepository
 ): ViewModel(){
     suspend fun updateAccount(family: String?) =
-            accountRepository.updateAccount(name = null , family = family , gender = null, address = null)
+            accountRepository.updateAccount(name = null , family = family , gender = null, address = null , birthday = null)
 
 }
