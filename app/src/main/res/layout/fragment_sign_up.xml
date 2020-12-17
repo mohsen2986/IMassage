@@ -22,7 +22,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_to_imassage"
+            android:text="@string/welcome_to_jazire_aramesh"
             android:textAppearance="@style/TextAppearance.AppCompat.TextView.bold_20"
             android:textColor="@color/blue_50"
             android:textSize="@dimen/fra_sign_up_welcome_dimen"
