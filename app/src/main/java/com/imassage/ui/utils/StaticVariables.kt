@@ -11,6 +11,7 @@ object StaticVariables{
     const val MALE_GENDER = true
     const val FEMALE_GENDER = false
     const val MASSAGE_ID = "MASSAGE_ID"
+    const val SIGN_UP_FORM = "SIGN_UP_FORM"
 
     const val REFRESH = "REFRESH"
 }

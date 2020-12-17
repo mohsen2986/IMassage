@@ -85,6 +85,12 @@
             app:popUpTo="@id/phoneVerificationFragment"
             app:popUpToInclusive="true"
             />
+        <action
+            android:id="@+id/action_phoneVerificationFragment_to_signUpFormFragment"
+            app:destination="@id/signUpFormFragment"
+            app:popUpTo="@id/phoneVerificationFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/mainPageFragment"
@@ -233,4 +239,15 @@
         android:id="@+id/editAccountAddressDialog"
         android:name="com.imassage.ui.dialog.account.address.EditAccountAddressDialog"
         android:label="EditAccountAddressDialog" />
+    <fragment
+        android:id="@+id/signUpFormFragment"
+        android:name="com.imassage.ui.fragment.signUpForm.SignUpFormFragment"
+        android:label="SignUpFormFragment" >
+        <action
+            android:id="@+id/action_signUpFormFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:popUpTo="@id/signUpFormFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
 </navigation>

@@ -138,6 +138,7 @@
     <string name="birthday">تاریخ تولد</string>
     <string name="address">آدرس</string>
     <string name="okay">تایید</string>
+    <string name="do_u_want_help">نیاز به مشاوره دارم</string>
     <string-array name="genders">
         <item>آقا</item>
         <item>خانم</item>

@@ -43,7 +43,8 @@ interface AuthApiInterface{
         @Query("name") name: String? ,
         @Query("family") family: String? ,
         @Query("gender") gender: String? ,
-        @Query("address") address: String?
+        @Query("address") address: String? ,
+        @Query("date") birthday: String?
     ):NetworkResponse<Account, ErrorResponse>
 
     @Multipart

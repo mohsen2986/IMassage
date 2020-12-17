@@ -8,5 +8,5 @@ class EditAccountNameViewModel (
 ): ViewModel(){
 
     suspend fun updateAccount(name: String?) =
-            accountRepository.updateAccount(name , family = null , gender = null , address = null)
+            accountRepository.updateAccount(name , family = null , gender = null , address = null , birthday = null)
 }

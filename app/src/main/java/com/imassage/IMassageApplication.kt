@@ -28,6 +28,8 @@ import com.imassage.ui.fragment.reserve.reserveTime.ReservedTimeViewModelFactory
 import com.imassage.ui.fragment.reserveView.ReserveViewViewModelFactory
 import com.imassage.ui.fragment.resetPassword.ResetPasswordViewModel
 import com.imassage.ui.fragment.signUp.SignUpViewModelFactory
+import com.imassage.ui.fragment.signUpForm.SignUpFormViewModel
+import com.imassage.ui.fragment.signUpForm.SingUpFormViewModelFactory
 import com.imassage.ui.fragment.splashScreen.SplashScreenViewModelFactory
 import okhttp3.OkHttpClient
 import org.kodein.di.Kodein
@@ -70,6 +72,7 @@ class IMassageApplication(
         bind() from provider { PaymentGatewayViewModelFactory(instance()) }
         bind() from provider { ReserveViewViewModelFactory(instance()) }
         bind() from provider { com.imassage.ui.fragment.resetPassword.ResetPasswordViewModelFactory(instance())}
+        bind() from provider { SingUpFormViewModelFactory(instance()) }
         // DIALOGS
         bind() from provider { EditAccountNameDialogViewModelFactory(instance())}
         bind() from provider { EditAccountFamilyDialogViewModelFactory(instance())}
