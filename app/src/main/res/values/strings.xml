@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Jazire Aramesh</string>
+    <string name="app_name">جزیره آرامش</string>
     <string name="app_name_persian">جزیره آرامش</string>
     <string name="mobile_number">شماره تلفن</string>
     <string name="password">رمز عبور</string>
@@ -53,6 +53,7 @@
     <string name="go_for_register">اینجا راحت میتونی حساب‌کاربری بسازی</string>
     <string name="last_name">نام‌خانوادگی</string>
     <string name="edit_name">ویرایش نام</string>
+    <string name="edit_birthday">ویرایش تاریخ تولد</string>
     <string name="edit_family">ویرایش نام‌خانوادگی</string>
     <string name="profile_image">عکس پروفایل</string>
     <string name="edit">ویرایش</string>
