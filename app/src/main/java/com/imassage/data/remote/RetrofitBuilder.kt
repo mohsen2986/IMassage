@@ -10,7 +10,7 @@ class RetrofitBuilder(
         private val client: OkHttpClient
 ){
     companion object{
-        private const val URL = "http://www.paarandco.ir/IMassage/api/"
+        private const val URL = "https://www.paarandco.ir/IMassage/api/"
     }
     operator fun invoke(): Retrofit{
         return Retrofit.Builder()
