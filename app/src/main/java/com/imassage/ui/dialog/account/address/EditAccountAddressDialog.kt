@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
+import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.databinding.DialogEditAccountAddressBinding
 import com.imassage.databinding.DialogEditAddressBinding
 import com.imassage.databinding.DialogEditFamilyBinding
@@ -64,15 +65,22 @@ class EditAccountAddressDialog(
         }
     }
     private fun sendNewAddress() = launch{
-        viewModel.updateAccount(address = dialog_edit_address_address.text.toString())
-        refreshDate()
-        requireActivity().onBackPressed()
+        when(viewModel.updateAccount(address = dialog_edit_address_address.text.toString())){
+            is NetworkResponse.Success ->{
+                refreshDate()
+                requireActivity().onBackPressed()
+            }
+        }
     }
     private fun refreshDate(){
         setFragmentResult("requestKey", bundleOf("bundleKey" to StaticVariables.REFRESH))
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(true /* enabled by default */) {
             override fun handleOnBackPressed() {
 //                 Handle the back button event
+                if (isEnabled) {
+                    isEnabled = false
+                    requireActivity().onBackPressed()
+                }
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)

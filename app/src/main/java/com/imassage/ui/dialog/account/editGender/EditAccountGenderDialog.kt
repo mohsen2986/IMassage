@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
+import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.DialogEditGenderBinding
 import com.imassage.databinding.DialogEditNameBinding
@@ -59,9 +60,13 @@ class EditAccountGenderDialog(
         }
     }
     private fun sendNewGender() = launch{
-        viewModel.updateAccount(gender)
-        refreshDate()
-        requireActivity().onBackPressed()
+        when(viewModel.updateAccount(gender)){
+            is NetworkResponse.Success ->{
+                refreshDate()
+                requireActivity().onBackPressed()
+            }
+        }
+
     }
     private fun getGender(){
         when(dialog_edit_gender_man_woman_group.checkedButtonId){
@@ -80,6 +85,10 @@ class EditAccountGenderDialog(
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(true /* enabled by default */) {
             override fun handleOnBackPressed() {
 //                 Handle the back button event
+                if (isEnabled) {
+                    isEnabled = false
+                    requireActivity().onBackPressed()
+                }
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)

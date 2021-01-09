@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
+import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.databinding.DialogEditNameBinding
 import com.imassage.ui.base.ScopedDialogFragment
 import com.imassage.ui.utils.StaticVariables
@@ -55,15 +56,22 @@ class EditAccountNameDialog(
         }
     }
     private fun sendNewName() = launch{
-        viewModel.updateAccount(dialog_edit_name_name.text.toString())
-        refreshDate()
-        requireActivity().onBackPressed()
+        when(viewModel.updateAccount(dialog_edit_name_name.text.toString())){
+            is NetworkResponse.Success ->{
+                refreshDate()
+                requireActivity().onBackPressed()
+            }
+        }
     }
     private fun refreshDate(){
         setFragmentResult("requestKey", bundleOf("bundleKey" to StaticVariables.REFRESH))
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(true /* enabled by default */) {
             override fun handleOnBackPressed() {
 //                 Handle the back button event
+                if (isEnabled) {
+                    isEnabled = false
+                    requireActivity().onBackPressed()
+                }
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
