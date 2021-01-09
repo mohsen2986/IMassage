@@ -98,5 +98,9 @@ data class DateTimes(
         @SerializedName("h23")
         val clock23 :String ,
         @SerializedName("h23_gender")
-        val genderClock23: String
+        val genderClock23: String ,
+        @SerializedName("h24")
+        val clock24 :String ,
+        @SerializedName("h24_gender")
+        val genderClock24: String
 )
