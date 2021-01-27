@@ -37,30 +37,30 @@ class QuestionViewHolder(
     fun <T> bind(item: Question, onClickHandler: OnCLickHandler<T>? , position: Int){
         itemBinding.question = item
         itemBinding.rowAnswerQuestionAnswer.tag = position
-        if (position == 0) {
-            itemBinding.onClick = object : OnCLickHandler<Nothing> {
-                override fun onClickItem(element: Nothing) {}
-                override fun onClickView(view: View, element: Nothing) {}
-                override fun onClick(view: View) {
-                    val calendarType: DatePickerDialog.Type = DatePickerDialog.Type.JALALI
-                    val now: JalaliCalendar = JalaliCalendar.getInstance()
-                    val dp = DatePickerDialog.newInstance(
-                            calendarType,
-                            { view, year, monthOfYear, dayOfMonth ->
-                            },
-                            now.get(Calendar.YEAR),
-                            now.get(Calendar.MONTH),
-                            now.get(Calendar.DAY_OF_MONTH)
-                    )
-                    dp.onDateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                        "$year-$monthOfYear-$dayOfMonth".let {
-                            itemBinding.rowAnswerQuestionAnswer.setText(it)
-                        }
-                    }
-                    dp.show(supportFragmentManager, "DatePickerDialog")
-                }
-            }
-        }
+//        if (position == 0) {
+//            itemBinding.onClick = object : OnCLickHandler<Nothing> {
+//                override fun onClickItem(element: Nothing) {}
+//                override fun onClickView(view: View, element: Nothing) {}
+//                override fun onClick(view: View) {
+//                    val calendarType: DatePickerDialog.Type = DatePickerDialog.Type.JALALI
+//                    val now: JalaliCalendar = JalaliCalendar.getInstance()
+//                    val dp = DatePickerDialog.newInstance(
+//                            calendarType,
+//                            { view, year, monthOfYear, dayOfMonth ->
+//                            },
+//                            now.get(Calendar.YEAR),
+//                            now.get(Calendar.MONTH),
+//                            now.get(Calendar.DAY_OF_MONTH)
+//                    )
+//                    dp.onDateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+//                        "$year-$monthOfYear-$dayOfMonth".let {
+//                            itemBinding.rowAnswerQuestionAnswer.setText(it)
+//                        }
+//                    }
+//                    dp.show(supportFragmentManager, "DatePickerDialog")
+//                }
+//            }
+//        }
         onClickHandler?.let{
         }
     }
