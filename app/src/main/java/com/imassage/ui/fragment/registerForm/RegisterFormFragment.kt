@@ -1,6 +1,7 @@
 package com.imassage.ui.fragment.registerForm
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -18,6 +19,10 @@ import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.FragmentRegisterFormBinding
 import com.imassage.ui.base.ScopedFragment
+import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.format
+import id.zelory.compressor.constraint.quality
+import id.zelory.compressor.constraint.size
 import kotlinx.android.synthetic.main.fragment_register_form.*
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -166,21 +171,22 @@ class RegisterFormFragment : ScopedFragment() , KodeinAware {
                 context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
-    fun imageBodyPart(): MultipartBody.Part? {
+    private suspend fun imageBodyPart(): MultipartBody.Part? {
         postPath?.let {
             if (it.isNotEmpty()){
                 val imageFile = File(postPath!!)
 
+                val compressedImageFile = Compressor.compress(requireContext() , imageFile) {
+                    quality(80)
+                    format(Bitmap.CompressFormat.WEBP)
+                    size(524_288) // 0.5 MB
+                }
+
                 val requestBody = RequestBody.create(
                         requireActivity().contentResolver.getType(fileUri!!)?.toMediaTypeOrNull() ,
-                        imageFile
+                        compressedImageFile
                 )
                 val body = MultipartBody.Part.createFormData("photo", imageFile.name , requestBody)
-
-//                val description_ = "we are fcosiety"
-//                val description: RequestBody = RequestBody.create(
-//                        MultipartBody.FORM, description_)
-
                 return body
             }
         }

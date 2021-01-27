@@ -19,5 +19,7 @@ class MassageViewModel(
     fun massage(massage: Massage) {
         orderRepository.massage = massage
     }
+    suspend fun massages() =
+            dataRepository.massages()
             
 }

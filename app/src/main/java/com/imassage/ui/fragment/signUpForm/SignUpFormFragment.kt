@@ -74,7 +74,7 @@ class SignUpFormFragment : ScopedFragment() , KodeinAware {
                                 now.get(Calendar.DAY_OF_MONTH)
                         )
                         dp.onDateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                            "$year-$monthOfYear-$dayOfMonth".let {
+                            "$year-${monthOfYear+1}-$dayOfMonth".let {
                                 fra_signUp_Form_date.setText(it)
                             }
                         }

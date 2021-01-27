@@ -21,6 +21,7 @@ import com.imassage.databinding.FragmentQuestionBinding
 import com.imassage.ui.adapter.questionRecyclerView.QuestionRecyclerView
 import com.imassage.ui.adapter.recyclerView.RecyclerAdapter
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.OnCLickHandler
 import com.imassage.ui.utils.StaticVariables
 import kotlinx.android.synthetic.main.fragment_question.*
 import kotlinx.coroutines.delay
@@ -62,7 +63,7 @@ class QuestionFragment : ScopedFragment() , KodeinAware {
         bindAdapters()
         bindUI()
         sendConsulting()
-
+        uiActions()
     }
     private fun bindUI() = launch{
         when(val callback = viewModel.questions()){
@@ -87,6 +88,18 @@ class QuestionFragment : ScopedFragment() , KodeinAware {
                     navController.navigate(R.id.action_questionFragment_to_receiptFragment)
                 }
             }
+        }
+    }
+    private fun uiActions(){
+        binding.onClick = object :OnCLickHandler<Nothing>{
+            override fun onClickItem(element: Nothing) {}
+            override fun onClickView(view: View, element: Nothing) {}
+            override fun onClick(view: View) {
+                when(view){
+                    fra_question_back -> requireActivity().onBackPressed()
+                }
+            }
+
         }
     }
     private fun initAdapters(){

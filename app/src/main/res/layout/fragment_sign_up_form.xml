@@ -2,7 +2,9 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="ltr"
+    >
 
     <data>
         <variable
@@ -79,7 +81,8 @@
                         android:focusableInTouchMode="false"
                         android:inputType="none"
                         android:textSize="@dimen/text_14_16_18_24"
-                        android:editable="false" />
+                        android:editable="false"
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

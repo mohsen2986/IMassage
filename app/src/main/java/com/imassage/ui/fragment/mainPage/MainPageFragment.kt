@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.transition.Slide
@@ -70,6 +72,8 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this , viewModelFactory).get(MainPageViewModel::class.java)
+        fra_main_page_massage_text.movementMethod = ScrollingMovementMethod()
+        uiActions()
         initAdapter()
         bindAdapter()
         bindUI()
@@ -89,14 +93,42 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
         }
         // get packages
         viewModel.packageData().await()
-        binding.account = viewModel.getAccountData().await()
+        val account = viewModel.getAccountData().await()
+        binding.account = account
+
+        if(account.gender == "true"){
+            viewModel.setMaleGender()
+        }else{
+            viewModel.setFemaleGender()
+        }
+    }
+    private fun uiActions(){
+        setFragmentResultListener("request") { requestKey, bundle ->
+            // We use a String here, but any type that can be put in a Bundle is supported
+            val result = bundle.getString("bundleKey")
+            // Do something with the result
+            if(result == StaticVariables.REFRESH){
+                updateAccount()
+            }
+        }
+    }
+    private fun updateAccount() = launch{
+        when (val callback = viewModel.accountInformation()){
+            is NetworkResponse.Success ->{
+                binding.account = callback.body
+                if(callback.body.gender == "true"){
+                    viewModel.setMaleGender()
+                }else{
+                    viewModel.setFemaleGender()
+                }
+            }
+        }
     }
     private fun initOnClickListeners(){
         fra_main_page_reserve.setOnClickListener{
             setExitTransitions()
             navController.navigate(R.id.action_mainPageFragment_to_massageFragment)
         }
-        getGender()
     }
     private fun initAdapter(){
         imageSliderAdapter = ImageSliderAdapter()
@@ -141,18 +173,6 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
     private fun logOut() = launch{
         viewModel.logOut()
         resetApplication(activity)
-    }
-    private fun getGender(){
-        when(fra_main_page_man_woman_group.checkedButtonId){
-            R.id.fra_main_page_woman -> viewModel.setFemaleGender()
-            R.id.fra_main_page_man   -> viewModel.setMaleGender()
-        }
-        fra_main_page_man_woman_group.addOnButtonCheckedListener{ group, checkedId, isChecked ->
-            when(checkedId){
-                R.id.fra_main_page_woman -> viewModel.setFemaleGender()
-                R.id.fra_main_page_man   -> viewModel.setMaleGender()
-            }
-        }
     }
     // get source Fragment
     private fun sourceFragment(){
@@ -199,6 +219,13 @@ class MainPageFragment : ScopedFragment() , KodeinAware{
                 // get packages
                 viewModel.packageData().await()
             }
+        }
+        val account = viewModel.getAccountData().await()
+        binding.account = account
+        if(account.gender == "true"){
+            viewModel.setMaleGender()
+        }else{
+            viewModel.setFemaleGender()
         }
     }
 

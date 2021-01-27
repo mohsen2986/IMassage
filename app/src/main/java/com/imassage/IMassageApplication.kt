@@ -9,6 +9,7 @@ import com.imassage.data.remote.api.ApiInterface
 import com.imassage.data.remote.api.AuthApiInterface
 import com.imassage.data.repository.*
 import com.imassage.ui.dialog.account.address.EditAccountAddressDialogViewModelFactory
+import com.imassage.ui.dialog.account.birthday.EditAccountBirthdayDialogViewModelFactory
 import com.imassage.ui.dialog.account.editFamily.EditAccountFamilyDialogViewModelFactory
 import com.imassage.ui.dialog.account.editGender.EditAccountGenderDialogViewModelFactory
 import com.imassage.ui.dialog.account.editImage.EditAccountImageDialogViewModelFactory
@@ -80,6 +81,7 @@ class IMassageApplication(
         bind() from provider { EditAccountGenderDialogViewModelFactory(instance())}
         bind() from provider { ResetPasswordViewModelFactory(instance())}
         bind() from provider { EditAccountAddressDialogViewModelFactory(instance())}
+        bind() from provider { EditAccountBirthdayDialogViewModelFactory(instance()) }
 
         // repositories
         bind() from singleton { UserInformationRepository(instance() , instance())}

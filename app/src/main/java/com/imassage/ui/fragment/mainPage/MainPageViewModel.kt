@@ -38,4 +38,7 @@ class MainPageViewModel(
     }
     fun getAccountData() =
             accountRepository.account
+
+    suspend fun accountInformation() =
+            accountRepository.userInformation()
 }

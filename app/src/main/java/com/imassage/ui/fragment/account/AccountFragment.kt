@@ -2,6 +2,7 @@ package com.imassage.ui.fragment.account
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -12,6 +13,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -22,6 +26,10 @@ import com.imassage.databinding.FragmentAccountBinding
 import com.imassage.databinding.FragmentMainPageBinding
 import com.imassage.ui.base.ScopedFragment
 import com.imassage.ui.utils.StaticVariables
+import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.format
+import id.zelory.compressor.constraint.quality
+import id.zelory.compressor.constraint.size
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -46,7 +54,7 @@ class AccountFragment : ScopedFragment() , KodeinAware {
     private var mediaPath: String? = null
     private var postPath: String? = null
     private val REQUEST_PICK_PHOTO = 2
-
+    private var updated = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,11 +82,6 @@ class AccountFragment : ScopedFragment() , KodeinAware {
                 binding.account = callback.body
             }
         }
-//        when(val callback = viewModel.updateAccount(name = "mohsen123" , family = null)){
-//            is NetworkResponse.Success ->{
-//                Log.e("Log__" , "the re")
-//            }
-//        }
     }
     private fun UIActions(){
         fra_account_name.setOnClickListener{
@@ -92,7 +95,6 @@ class AccountFragment : ScopedFragment() , KodeinAware {
         }
         fra_account_add_image.setOnClickListener{
             getImageFromGallery()
-//            navController.navigate(R.id.action_accountFragment_to_editAccountImageDialog)
         }
         fra_account_address.setOnClickListener {
             navController.navigate(R.id.action_accountFragment_to_editAccountAddressDialog)
@@ -100,16 +102,19 @@ class AccountFragment : ScopedFragment() , KodeinAware {
         fra_account_back.setOnClickListener{
             requireActivity().onBackPressed()
         }
+        fra_account_birthday.setOnClickListener{
+            navController.navigate(R.id.action_accountFragment_to_editAccountBirthdayDialog)
+        }
         setFragmentResultListener("requestKey") { requestKey, bundle ->
             // We use a String here, but any type that can be put in a Bundle is supported
             val result = bundle.getString("bundleKey")
             // Do something with the result
             if(result == StaticVariables.REFRESH){
+                updated = true
                 bindUI()
             }
         }
-
-
+        refreshDate()
     }
     private fun getImageFromGallery(){
         val galleryIntent = Intent(Intent.ACTION_PICK,
@@ -156,9 +161,15 @@ class AccountFragment : ScopedFragment() , KodeinAware {
             if (it.isNotEmpty()){
                 val imageFile = File(postPath!!)
 
+                val compressedImageFile = Compressor.compress(requireContext() , imageFile) {
+                    quality(80)
+                    format(Bitmap.CompressFormat.WEBP)
+                    size(524_288) // 0.5 MB
+                }
+
                 val requestBody = RequestBody.create(
                         requireActivity().contentResolver.getType(fileUri!!)?.toMediaTypeOrNull() ,
-                        imageFile
+                        compressedImageFile
                 )
                 val body = MultipartBody.Part.createFormData("photo", imageFile.name , requestBody)
 
@@ -173,5 +184,21 @@ class AccountFragment : ScopedFragment() , KodeinAware {
             }
         }
     }
+    private fun refreshDate(){
+            val callback: OnBackPressedCallback = object : OnBackPressedCallback(true /* enabled by default */) {
+                override fun handleOnBackPressed() {
+//                 Handle the back button event
+                    if (isEnabled) {
+                        isEnabled = false
+                        if(updated)
+                            setFragmentResult("request", bundleOf("bundleKey" to StaticVariables.REFRESH))
+                        else
+                            setFragmentResult("request", bundleOf("bundleKey" to "Null"))
+                        requireActivity().onBackPressed()
+                    }
+                }
+            }
+            requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        }
+    }
 
-}

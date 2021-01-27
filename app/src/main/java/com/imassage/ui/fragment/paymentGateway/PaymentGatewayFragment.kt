@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.imassage.R
 import com.imassage.databinding.FragmentPaymentGatewayBinding
@@ -69,7 +70,7 @@ class PaymentGatewayFragment : ScopedFragment() , KodeinAware {
     }
     private fun UIActions(){
         fra_payment_back_to_home.setOnClickListener{
-            requireActivity().onBackPressed()
+            findNavController().navigate(R.id.action_paymentGateway_to_resetPasswordFragment)
         }
     }
 }

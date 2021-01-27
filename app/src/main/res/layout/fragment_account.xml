@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layoutDirection="ltr"
     >
     <data>
         <variable
@@ -253,6 +254,8 @@
                     android:layout_marginTop="@dimen/margin_8_8_8_16"
                     android:layout_marginEnd="@dimen/margin_8_16_16_32"
                     android:background="@drawable/account_back_name"
+                    app:startIconDrawable="@drawable/ic_edit_account"
+                    app:startIconTint="@color/blue_50"
                     android:hint="@string/birthday"
                     android:textColorHint="@color/blue_50"
                     app:layout_constraintEnd_toEndOf="parent"

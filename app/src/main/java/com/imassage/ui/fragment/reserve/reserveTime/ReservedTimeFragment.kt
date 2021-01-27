@@ -68,6 +68,7 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
     }
     private fun bindUI() = launch {
         val callback = viewModel.availableDates().await()
+        Toast.makeText(context , "$callback" , Toast.LENGTH_SHORT).show()
         callback?.let {
             initOnClickListeners(callback)
         }
@@ -131,7 +132,9 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
                 ReserveTime("$clock 19", "h19", it.genderClock19, it.clock19 != "1"&& it.genderClock19 == viewModel.gender().toString()),
                 ReserveTime("$clock 20", "h20", it.genderClock20, it.clock20 != "1"&& it.genderClock20 == viewModel.gender().toString()),
                 ReserveTime("$clock 21", "h21", it.genderClock21, it.clock21 != "1"&& it.genderClock21 == viewModel.gender().toString()),
-                ReserveTime("$clock 22", "h22", it.genderClock22, it.clock22 != "1"&& it.genderClock22 == viewModel.gender().toString())
+                ReserveTime("$clock 22", "h22", it.genderClock22, it.clock22 != "1"&& it.genderClock22 == viewModel.gender().toString()) ,
+                ReserveTime("$clock 23", "h23", it.genderClock23, it.clock23 != "1"&& it.genderClock23 == viewModel.gender().toString()) ,
+                ReserveTime("$clock 24", "h24", it.genderClock24, it.clock24 != "1"&& it.genderClock24 == viewModel.gender().toString())
             )
         }
     }
@@ -139,14 +142,14 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
         val selectableDays:MutableList<Calendar> = mutableListOf(
                 availableDates[0].split('-').let {
                     JalaliCalendar.getInstance().apply {
-                        set(it[0].toInt() , it[1].toInt() , it[2].toInt())
+                        set(it[0].toInt() , it[1].toInt()  , it[2].toInt())
                     }
                 }
         )
         availableDates.forEach { day ->
             selectableDays.add(day.split('-').let {
                 Calendar.getInstance().apply {
-                    set(it[0].toInt() , it[1].toInt() , it[2].toInt())
+                    set(it[0].toInt() , it[1].toInt()  , it[2].toInt())
                 }
             })
         }
@@ -167,7 +170,7 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
                     getAvailableDates(it)
                     binding.date = it
                 }
-                getAvailableDates("$year/$monthOfYear/$dayOfMonth")
+//                getAvailableDates("$year/$monthOfYear/$dayOfMonth")
             }
 
             dp.show(requireActivity().supportFragmentManager, "DatePickerDialog")

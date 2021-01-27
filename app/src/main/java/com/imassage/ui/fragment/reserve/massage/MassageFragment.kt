@@ -66,16 +66,18 @@ class MassageFragment : ScopedFragment() , KodeinAware {
     }
 
     private fun bindUI() = launch{
+        val data = viewModel.mainPageData().await().massages
+        if(data.isNotEmpty()){
         viewModel.mainPageData().await().let {
             massagesAdapter.datas = it.massages
         }
-//        when(val data = viewModel.massages()){
-//            is NetworkResponse.Success ->{
-//                massagesAdapter.datas = data.body.datas
-//                delay(2_000)
-//                navController.navigate(R.id.action_massageFragment_to_packageFragment);
-//            }
-//        }
+    }else{
+        when (val data = viewModel.massages()) {
+            is NetworkResponse.Success -> {
+                massagesAdapter.datas = data.body.datas
+            }
+        }
+    }
     }
     private fun initAdapter(){
         massagesAdapter = RecyclerAdapter()
@@ -100,7 +102,7 @@ class MassageFragment : ScopedFragment() , KodeinAware {
     }
     private fun UIActions(){
         fra_massage_back.setOnClickListener{
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
         }
     }
 

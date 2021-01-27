@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "78574602754",
+    "project_id": "imassage-6f19c",
+    "storage_bucket": "imassage-6f19c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78574602754:android:5422285f8523f933bd751b",
+        "android_client_info": {
+          "package_name": "com.imassage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78574602754-maobb7nv85rb65oldf0spjl30q2m8rpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8mKAGRgxujqX0o3vD16QEkW_cUuA_vLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78574602754-maobb7nv85rb65oldf0spjl30q2m8rpo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

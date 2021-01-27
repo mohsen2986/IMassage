@@ -15,6 +15,7 @@ import com.imassage.data.model.Package
 import com.imassage.data.model.Transactions
 import com.imassage.databinding.FragmentReceiptBinding
 import com.imassage.ui.base.ScopedFragment
+import com.imassage.ui.utils.OnCLickHandler
 import com.zarinpal.ewallets.purchase.ZarinPal
 import kotlinx.android.synthetic.main.fragment_receipt.*
 import kotlinx.coroutines.launch
@@ -69,6 +70,18 @@ class ReceiptFragment : ScopedFragment() , KodeinAware {
         binding.account = viewModel.account().await()
     }
     private fun UIActions(){
+        binding.onClick = object: OnCLickHandler<Nothing>{
+            override fun onClickItem(element: Nothing) {}
+            override fun onClickView(view: View, element: Nothing) {}
+            override fun onClick(view: View) {
+                when(view){
+                    fra_question_back ->
+                        requireActivity().onBackPressed()
+                }
+            }
+
+
+        }
         fra_reserved_time_go_to_bank.setOnClickListener{
             startPayment(transactions.amountWithOffer.toInt())
         }
