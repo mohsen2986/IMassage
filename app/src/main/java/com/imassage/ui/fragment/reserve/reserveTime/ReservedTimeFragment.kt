@@ -1,4 +1,4 @@
-package com.imassage.ui.fragment.reserve.reserveTime
+ package com.imassage.ui.fragment.reserve.reserveTime
 
 import android.os.Bundle
 import android.util.Log
@@ -68,7 +68,6 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
     }
     private fun bindUI() = launch {
         val callback = viewModel.availableDates().await()
-        Toast.makeText(context , "$callback" , Toast.LENGTH_SHORT).show()
         callback?.let {
             initOnClickListeners(callback)
         }
@@ -142,14 +141,14 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
         val selectableDays:MutableList<Calendar> = mutableListOf(
                 availableDates[0].split('-').let {
                     JalaliCalendar.getInstance().apply {
-                        set(it[0].toInt() , it[1].toInt()  , it[2].toInt())
+                        set(it[0].toInt() , (it[1].toInt() -1)  , it[2].toInt())
                     }
                 }
         )
         availableDates.forEach { day ->
             selectableDays.add(day.split('-').let {
                 Calendar.getInstance().apply {
-                    set(it[0].toInt() , it[1].toInt()  , it[2].toInt())
+                    set(it[0].toInt() , ( it[1].toInt() -1)  , it[2].toInt())
                 }
             })
         }
@@ -166,7 +165,7 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
                 )
             dp.selectableDays = selectableDays.toTypedArray()
             dp.onDateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                "$year/$monthOfYear/$dayOfMonth".let {
+                "$year/${monthOfYear+1}/$dayOfMonth".let {
                     getAvailableDates(it)
                     binding.date = it
                 }
