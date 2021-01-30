@@ -170,7 +170,6 @@ class ReservedTimeFragment : ScopedFragment() , KodeinAware{
                     getAvailableDates(it)
                     binding.date = it
                 }
-//                getAvailableDates("$year/$monthOfYear/$dayOfMonth")
             }
 
             dp.show(requireActivity().supportFragmentManager, "DatePickerDialog")

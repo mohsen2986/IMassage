@@ -67,7 +67,8 @@ interface AuthApiInterface{
 
     @POST("available_date_time")
     suspend fun availableDateTime(
-            @Query("date") date: String
+            @Query("date") date: String ,
+            @Query("package") packageId: String
     ): NetworkResponse<DateTimes, ErrorResponse>
     // check time
     @POST("check_reserve_time")

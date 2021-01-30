@@ -32,7 +32,7 @@ class OrderRepository(
          }
      }
     suspend fun availableDateTime( date: String ) =
-            apiInterface.availableDateTime(date)
+            apiInterface.availableDateTime(date , packageId)
 
     suspend fun checkTime():Boolean =
         withContext(IO) {
