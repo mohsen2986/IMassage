@@ -1,7 +1,6 @@
 package com.imassage
 
 import android.app.Application
-import android.widget.Toast
 import com.facebook.stetho.Stetho
 import com.imassage.data.database.sharedPreferences.Preferences
 import com.imassage.data.remote.*

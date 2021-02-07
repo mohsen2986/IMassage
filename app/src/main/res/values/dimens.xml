@@ -11,7 +11,7 @@
 	<dimen name="splash_text">32sp</dimen>
 	<dimen name="margin_8_16_16_32">16dp</dimen>
 	<dimen name="card_margin_start_end">24dp</dimen>
-	<dimen name="margin_16_24_32_64">16dp</dimen>
+	<dimen name="margin_16_24_32_64">25dp</dimen>
 	<dimen name="text_16_18_18_28">18sp</dimen>
 	<dimen name="padding_8_4_0">0dp</dimen>
 	<dimen name="text_14_16_16_24">16sp</dimen>
