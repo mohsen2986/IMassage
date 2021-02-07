@@ -85,7 +85,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="@{packages.cost}"
+                android:text="@{@string/price_format(packages.cost)}"
                 android:textStyle="bold"
                 android:textSize="@dimen/text_14_16_18_24"
                 app:layout_constraintBottom_toBottomOf="parent"

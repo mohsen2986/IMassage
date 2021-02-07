@@ -10,7 +10,7 @@ data class Package(
         @SerializedName("image")
         val image: String ,
         @SerializedName("cost")
-        val cost: String ,
+        val cost: Int ,
         @SerializedName("massage_id")
         val massageId: Massage ,
         @SerializedName("id")
